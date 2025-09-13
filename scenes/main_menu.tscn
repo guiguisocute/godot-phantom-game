@@ -1,0 +1,42 @@
+[gd_scene load_steps=2 format=3 uid="uid://cgkc36k1sud16"]
+
+[ext_resource type="Script" uid="uid://cxnela6sqdrky" path="res://scripts/ui/main_menu.gd" id="1_l6cm7"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_l6cm7")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.000867976
+anchor_top = 0.00154314
+anchor_right = 0.000867976
+anchor_bottom = 0.00154314
+offset_right = 129.0
+offset_bottom = 93.0
+scale = Vector2(1.62, 1.62)
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "一个简陋的DEMO"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StartButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "开始游戏"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "退出游戏"
+
+[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
