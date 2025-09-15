@@ -73,6 +73,7 @@ func _make_levels() -> void:
 	L1.bridge = Vector2i(6, 0)
 	L1.ladders_pairs = {}         # 无梯子
 	LEVELS.append(L1)
+	# honkai starrail
 
 	# --- Level 2（二维：上下两层 + 梯子 + 桥在上层）---
 	var L2 := LevelData.new()
