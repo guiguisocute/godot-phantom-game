@@ -5,7 +5,7 @@ const LEVEL_SCENE_PATH := "res://scenes/Level.tscn"  # 注意大小写要与文�
 
 var levels: Array = []          # Array[LevelDef]（如果 LevelDef 没 class_name 就先用 Array）
 var current_index: int = 0
-
+# test for commit
 func _ready() -> void:
 	levels = [
 		load("res://data/levels/level_01.tres"),
