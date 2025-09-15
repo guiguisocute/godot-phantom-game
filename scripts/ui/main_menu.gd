@@ -1,8 +1,15 @@
 extends Control
 
-func _on_start_button_pressed() -> void:
-	# 进入第一关（Game 是 autoload 的单例）
-	Game.start_level(0)
 
-func _on_quit_button_pressed() -> void:
+func _on_start_pressed() -> void:
+	print("press start")
+	get_tree().change_scene_to_file("res://scenes/level.tscn")
+	
+
+func _on_setting_button_pressed() -> void:
+	print("pressed setting")
+
+
+func _on_exit_button_pressed() -> void:
+	print("pressed exit")
 	get_tree().quit()

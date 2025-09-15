@@ -1,3 +1,15 @@
-[gd_resource type="Resource" format=3 uid="uid://qo3ov5rewnqj"]
+[gd_resource type="Resource" script_class="LevelDef" load_steps=2 format=3 uid="uid://qo3ov5rewnqj"]
+
+[ext_resource type="Script" uid="uid://70j3w8fypxcw" path="res://data/LevelDef.gd" id="1_nppek"]
 
 [resource]
+script = ExtResource("1_nppek")
+name = "Tutorial-1D"
+record_n = 4
+cells = Array[Vector2i]([Vector2i(1, 0), Vector2i(2, 0), Vector2i(3, 0), Vector2i(4, 0), Vector2i(5, 0), Vector2i(6, 0), Vector2i(7, 0)])
+ladders_x = Array[int]([])
+spawn = Vector2i(1, 0)
+altar = Vector2i(7, 0)
+button = Vector2i(3, 0)
+bridge = Vector2i(6, 0)
+metadata/_custom_type_script = "uid://70j3w8fypxcw"

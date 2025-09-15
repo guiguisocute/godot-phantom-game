@@ -1,7 +1,9 @@
 extends Node
-# 最开始运行的单例，存在于整个游戏的生命周期中
-var levels: Array = []
-# 初始化关卡数组
+
+const MENU_SCENE_PATH  := "res://scenes/main_menu.tscn"
+const LEVEL_SCENE_PATH := "res://scenes/Level.tscn"  # 注意大小写要与文件一致
+
+var levels: Array = []          # Array[LevelDef]（如果 LevelDef 没 class_name 就先用 Array）
 var current_index: int = 0
 
 func _ready() -> void:
@@ -9,30 +11,50 @@ func _ready() -> void:
 		load("res://data/levels/level_01.tres"),
 		load("res://data/levels/level_02.tres"),
 	]
-	# 如果一开游戏就进第一关，那就调用 start_level(0)
+	# 想开场直进第一关可在这里：start_level(0)
 
+# ---------- 公共 API ----------
 func goto_main_menu() -> void:
-	# 切换到主菜单场景
-	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
-	# 获得场景树的方法
+	_swap_to_scene_path(MENU_SCENE_PATH)
 
 func start_level(idx: int = 0) -> void:
-	# 进入指定的关卡
 	if levels.is_empty(): return
 	current_index = clamp(idx, 0, levels.size() - 1)
-	var level_packed := load("res://scenes/level.tscn")
-	if level_packed:
-		get_tree().change_scene_to_packed(level_packed)
-		# 等一帧：当前场景切换完成，再把数据塞给关卡脚本
-		await get_tree().process_frame
-		var level := get_tree().current_scene
-		if level and level.has_method("set_level_data"):
-			level.set_level_data(levels[current_index])
+
+	var packed := load(LEVEL_SCENE_PATH) as PackedScene
+	if packed == null:
+		push_error("Cannot load Level scene: %s" % LEVEL_SCENE_PATH); return
+
+	# 关键：先实例化 -> 先注入关卡数据 -> 再替换当前场景（这样 _ready 时就有数据）
+	var inst := packed.instantiate()
+	if inst.has_method("set_level_data"):
+		inst.call("set_level_data", levels[current_index])
+	else:
+		push_warning("Level scene has no set_level_data().")
+
+	_swap_current_scene(inst)
 
 func restart_level() -> void:
-	# 触发重开条件后会被调用的关卡
 	start_level(current_index)
 
 func next_level() -> void:
-	# 胜利后会被调用的关卡
+	# 想“循环到第一关”，用这行：
+	# start_level( (current_index + 1) % levels.size() )
+	# 想“到最后一关就停住”，用 clamp（保持你的语义）：
 	start_level(current_index + 1)
+
+# ---------- 内部工具 ----------
+func _swap_to_scene_path(path: String) -> void:
+	var packed := load(path) as PackedScene
+	if packed == null:
+		push_error("Cannot load scene: %s" % path); return
+	var inst := packed.instantiate()
+	_swap_current_scene(inst)
+
+func _swap_current_scene(new_scene: Node) -> void:
+	var tree := get_tree()
+	var old := tree.current_scene
+	tree.root.add_child(new_scene)
+	tree.set_current_scene(new_scene)
+	if old:
+		old.queue_free()

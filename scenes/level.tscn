@@ -1,12 +1,169 @@
-[gd_scene load_steps=3 format=3 uid="uid://b0j0ywaftsp14"]
+[gd_scene load_steps=6 format=3 uid="uid://b0j0ywaftsp14"]
 
+[ext_resource type="Script" uid="uid://dblaiidew8wa5" path="res://scripts/level/level(original).gd" id="1_ppgk2"]
 [ext_resource type="PackedScene" uid="uid://dprycjlucqgbx" path="res://scenes/actors/player.tscn" id="1_w7c3h"]
 [ext_resource type="PackedScene" uid="uid://baovnmcfswix8" path="res://scenes/actors/phantom.tscn" id="2_w8frs"]
+[ext_resource type="PackedScene" uid="uid://cokfjy5snr13m" path="res://scenes/ui/hud.tscn" id="6_klq6b"]
+
+[sub_resource type="GDScript" id="GDScript_mx8sn"]
+script/source = "extends CanvasLayer
+class_name Hud
+
+# 统一的方块尺寸（时间轴格子）
+@export var box_size: Vector2i = Vector2i(40, 40)
+@export var box_gap: int = 8
+
+@onready var tips: Label = %Tips
+
+@onready var record_row: HBoxContainer = %RecordRow
+@onready var replay_row: HBoxContainer = %ReplayRow
+@onready var title: Label = %Title
+
+@onready var spawn_hint: Panel = %SpawnHint
+@onready var spawn_label: Label = %SpawnLabel
+@onready var spawn_timer: Timer = %SpawnHintTimer
+
+@onready var fail_popup: Panel = %FailPopup
+@onready var fail_msg: Label = %FailMsg
+
+@onready var win_popup: Panel = %WinPopup
+
+var record_n: int = 0
+
+func _ready() -> void:
+	# 统一样式微调（可按需删掉）
+	title.text = \"时间轴\"
+	%FailTitle.text = \"失败\"
+	%WinTitle.text = \"恭喜通关！\"
+	%WinMsg.text = \"你触碰了祭坛。\"
+	%RestartBtn.text = \"重开 (R)\"
+	%CloseFailBtn.text = \"关闭\"
+	%NextBtn.text = \"下一关 (→)\"
+	%RestartBtn2.text = \"重开 (R)\"
+	spawn_label.text = \"提示：过去的幻影已出生，将从下一步开始行动。\"
+
+	# 绑定按钮
+	%RestartBtn.pressed.connect(_on_restart_pressed)
+	%RestartBtn2.pressed.connect(_on_restart_pressed)
+	%CloseFailBtn.pressed.connect(func(): fail_popup.hide())
+	%NextBtn.pressed.connect(func(): Game.next_level())
+	spawn_timer.timeout.connect(func(): spawn_hint.hide())
+
+# ======== 外部接口（供 LevelController 调用）========
+
+func reset_hud(n: int) -> void:
+	record_n = n
+	_build_timeline_boxes()
+	_update_tips()
+
+func update_timeline(record_moves: Array, phantom_play_idx: int) -> void:
+	# 上排：录制箭头
+	for i in range(record_n):
+		var box := record_row.get_child(i) as Panel
+		var lab := box.get_child(0) as Label
+		if i < record_moves.size():
+			lab.text = _arrow_from_cmd(record_moves[i])
+			lab.modulate = Color(0.35, 0.8, 1.0)  # 蓝
+		else:
+			lab.text = \"\"
+			lab.modulate = Color(1,1,1)
+
+	# 下排：回放已执行的箭头（0..phantom_play_idx-1）
+	for i in range(record_n):
+		var box2 := replay_row.get_child(i) as Panel
+		var lab2 := box2.get_child(0) as Label
+		if i < min(phantom_play_idx, record_moves.size()):
+			lab2.text = _arrow_from_cmd(record_moves[i])
+			lab2.modulate = Color(1.0, 0.5, 0.55)  # 红
+		else:
+			lab2.text = \"\"
+			lab2.modulate = Color(1,1,1)
+
+func show_spawn_hint() -> void:
+	spawn_hint.show()
+	spawn_timer.start()  # 1.2s 后自动隐藏
+
+func show_fail(msg: String) -> void:
+	fail_msg.text = msg
+	fail_popup.show()
+
+func show_win() -> void:
+	win_popup.show()
+
+# ======== 私有：UI 生成 & 工具 ========
+
+func _build_timeline_boxes() -> void:
+	# 清空
+	for c in record_row.get_children(): c.queue_free()
+	for c in replay_row.get_children(): c.queue_free()
+
+	# 生成 record_n 个方块，内部放一个 Label（用来放箭头）
+	for i in range(record_n):
+		record_row.add_child(_make_box())
+		replay_row.add_child(_make_box())
+
+func _make_box() -> Panel:
+	var p := Panel.new()
+	p.custom_minimum_size = Vector2(box_size)
+	p.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
+	p.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	p.add_theme_constant_override(\"margin_left\", 0)
+	p.add_theme_constant_override(\"margin_right\", 0)
+	p.add_theme_constant_override(\"margin_top\", 0)
+	p.add_theme_constant_override(\"margin_bottom\", 0)
+
+	# 箭头文本
+	var lab := Label.new()
+	lab.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	lab.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	lab.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	lab.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	lab.add_theme_font_size_override(\"font_size\", 18)
+	p.add_child(lab)
+
+	# 间距
+	if record_row.get_child_count() > 0:
+		p.add_theme_constant_override(\"separation\", box_gap)
+
+	return p
+
+func _arrow_from_cmd(cmd: int) -> String:
+	match cmd:
+		-1: return \"←\"
+		1:  return \"→\"
+		-2: return \"↓\"
+		2:  return \"↑\"
+		_:  return \"•\"
+
+func _update_tips() -> void:
+	tips.text = \"←/→ 左右 | ↑/↓ 上下(梯子) | R 重开\"
+	# 需要的话可以在这里追加其它提示
+	# 例如：tips.text += \"\\n按 → 进入下一关（通关后）\"
+
+# ======== 按钮回调 ========
+
+func _on_restart_pressed() -> void:
+	# 让上层控制器来重置：LevelController 在 Hud 的父节点
+	# 注意：LevelController 的方法名是 _reset_level（前导下划线），仍可 call。
+	var parent := get_parent()
+	if parent and parent.has_method(\"_reset_level\"):
+		parent.call(\"_reset_level\")
+"
 
 [node name="Level" type="Node2D"]
+script = ExtResource("1_ppgk2")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(640, 360)
 
 [node name="Player" parent="." instance=ExtResource("1_w7c3h")]
-position = Vector2(6, 20)
+position = Vector2(24, 358)
+scale = Vector2(3.5, 3.5)
 
-[node name="phantom" parent="." instance=ExtResource("2_w8frs")]
-position = Vector2(21, 20)
+[node name="Phantom" parent="." instance=ExtResource("2_w8frs")]
+position = Vector2(72.0001, 358)
+scale = Vector2(3.5, 3.5)
+
+[node name="Hud" parent="." instance=ExtResource("6_klq6b")]
+visible = false
+script = SubResource("GDScript_mx8sn")

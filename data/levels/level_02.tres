@@ -1,3 +1,15 @@
-[gd_resource type="Resource" format=3 uid="uid://bobshj7suo3m6"]
+[gd_resource type="Resource" script_class="LevelDef" load_steps=2 format=3 uid="uid://jqgxyrlp4aei"]
+
+[ext_resource type="Script" uid="uid://70j3w8fypxcw" path="res://data/LevelDef.gd" id="1_us535"]
 
 [resource]
+script = ExtResource("1_us535")
+name = "Level"
+record_n = 4
+cells = Array[Vector2i]([])
+ladders_x = Array[int]([])
+spawn = Vector2i(0, 0)
+altar = Vector2i(5, 0)
+button = Vector2i(3, 0)
+bridge = Vector2i(6, 0)
+metadata/_custom_type_script = "uid://70j3w8fypxcw"

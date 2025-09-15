@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://c4ohxcyvcolw3"]
+[gd_scene format=3 uid="uid://dw7sopu4a3gg7"]
 
 [node name="TimelineCell" type="Control"]
 custom_minimum_size = Vector2(40, 40)
