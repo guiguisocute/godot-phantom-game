@@ -97,7 +97,7 @@ theme_override_fonts/font = ExtResource("2_ekxnf")
 theme_override_font_sizes/font_size = 60
 text = "一个粗制滥造的Demo"
 
-[connection signal="pressed" from="VBoxContainer/startButton" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/startButton" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/startButton" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/settingButton" to="." method="_on_setting_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/exitButton" to="." method="_on_exit_button_pressed"]

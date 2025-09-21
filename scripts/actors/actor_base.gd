@@ -40,7 +40,7 @@ func _physics_process(delta: float) -> void:		# 这个官方函数的delta是完
 		
 	velocity.x = move_toward(velocity.x, 0, AX_SPEED * delta)
 	
-		
+# 加一个注释
 	
 	
 	
