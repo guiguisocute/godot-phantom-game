@@ -1,7 +1,8 @@
 extends ActorBase
 class_name PlayerActor
 func _init() -> void:
-	AX_SPEED = 260.0	# 测试是否能修改成员
+	pass
+
 
 
 
