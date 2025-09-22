@@ -30,7 +30,7 @@ func _physics_process(delta: float) -> void:		# 这个官方函数的delta是完
 	else:
 		if not is_on_floor():
 			velocity += get_gravity() * delta
-	
+	#
 
 	
 	if Input.is_action_just_pressed("goat_up") and floor_ok and velocity.y == 0:		# guiguisocute：后置的条件后面肯定要改的！毕竟只允许在梯子的cell里上下，现在只是测试一下范围
