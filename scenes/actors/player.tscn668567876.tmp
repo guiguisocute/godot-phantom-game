@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dprycjlucqgbx"]
+[gd_scene load_steps=14 format=3 uid="uid://dprycjlucqgbx"]
 
 [ext_resource type="Texture2D" uid="uid://bb4cb67lidiw8" path="res://assets/brackeys/sprites/knight.png" id="1_15tap"]
 [ext_resource type="Script" uid="uid://bvjwo01pb0yxy" path="res://scripts/actors/player.gd" id="1_ru62r"]
@@ -18,10 +18,6 @@ region = Rect2(64, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_j4ptl"]
 atlas = ExtResource("1_15tap")
 region = Rect2(96, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7wueq"]
-atlas = ExtResource("1_15tap")
-region = Rect2(64, 160, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_75bii"]
 atlas = ExtResource("1_15tap")
@@ -64,14 +60,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_7wueq")
-}],
-"loop": false,
-"name": &"jump",
-"speed": 20.0
-}, {
-"frames": [{
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_75bii")
 }, {
 "duration": 1.0,
@@ -88,7 +76,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"move",
-"speed": 30.0
+"speed": 10.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ktjr4"]
@@ -96,11 +84,16 @@ radius = 5.0
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_ru62r")
+AX_SPEED = null
+AY_SPEED = null
+JUMP_VELOCITY = null
+X_VELOCITY = null
+DEV_FREE_JUMP = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_ru62r")
-animation = &"jump"
+animation = &"move"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
