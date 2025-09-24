@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=3 uid="uid://dwyhc8ttvcopp"]
+
+[ext_resource type="Texture2D" uid="uid://bwe3imvcgvey6" path="res://assets/my_game/left-arrow.png" id="1_bwy8t"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bwy8t"]
+load_path = "res://.godot/imported/down-arrow.png-6dc38ce27f2914f0c80f9a7512216b52.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_go5vu"]
+atlas = SubResource("CompressedTexture2D_bwy8t")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4kw2p"]
+atlas = SubResource("CompressedTexture2D_bwy8t")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gd20t"]
+atlas = ExtResource("1_bwy8t")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eqyx7"]
+atlas = ExtResource("1_bwy8t")
+
+[node name="TouchscreenButton" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+
+[node name="up" type="TouchScreenButton" parent="."]
+position = Vector2(176, 532)
+rotation = -3.1415925
+scale = Vector2(0.16601563, 0.16601563)
+texture_normal = SubResource("AtlasTexture_go5vu")
+action = "goat_up"
+
+[node name="down" type="TouchScreenButton" parent="."]
+position = Vector2(91.00002, 631)
+scale = Vector2(0.16601563, 0.16601563)
+texture_normal = SubResource("AtlasTexture_4kw2p")
+action = "goat_down"
+
+[node name="left" type="TouchScreenButton" parent="."]
+position = Vector2(7.6293945e-06, 538.99994)
+scale = Vector2(0.166, 0.166)
+texture_normal = SubResource("AtlasTexture_gd20t")
+action = "goat_left"
+
+[node name="right" type="TouchScreenButton" parent="."]
+position = Vector2(267.99997, 623)
+rotation = -3.1415925
+scale = Vector2(0.166, 0.166)
+texture_normal = SubResource("AtlasTexture_eqyx7")
+action = "goat_right"

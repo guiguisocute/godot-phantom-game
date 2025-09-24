@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://dkok8wl6ivsgl"]
+[gd_scene load_steps=3 format=3 uid="uid://dkok8wl6ivsgl"]
 
 [ext_resource type="Script" uid="uid://dblaiidew8wa5" path="res://scripts/level/level(referl).gd" id="1_0gsnj"]
+[ext_resource type="PackedScene" uid="uid://bpr7gbnkoqt4k" path="res://scenes/ui/mobile_move_ui.tscn" id="2_an8b6"]
 
 [node name="LevelRefer" type="Node2D"]
 script = ExtResource("1_0gsnj")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MobileMoveUi" parent="CanvasLayer" instance=ExtResource("2_an8b6")]
