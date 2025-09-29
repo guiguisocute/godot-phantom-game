@@ -6,13 +6,24 @@ class_name ActorBase
 # guiguisocute：我服了啊GDsript因为不是强静态语言所F2修改变量名，我有点后悔选它了说实话，但是好像有插件可以做到？先不管先原生开发吧
 @export var JUMP_VELOCITY = -2000.0
 @export var X_VELOCITY = 2100
-@export var DEV_FREE_JUMP := true			# 
+@export var DEV_FREE_JUMP := true
+@onready var anim: AnimatedSprite2D = $AnimatedSprite2D
+#@onready var player: PlayerActor = $Player
 
+
+
+var position1 = 0
 var g = ProjectSettings.get_setting("physics/2d/default_gravity",9)
 var v_impulse_timer := 0.0
 var floor_ok  := DEV_FREE_JUMP or is_on_floor()
 
 func _physics_process(delta: float) -> void:		# 这个官方函数的delta是完全固定的数值，固定帧数
+	if position1 >= 0:
+		anim.set_flip_h(false)
+	else:
+		anim.set_flip_h(true)
+	
+
 	
 	if v_impulse_timer > 0.0: 
 		v_impulse_timer -= delta;
@@ -33,11 +44,20 @@ func _physics_process(delta: float) -> void:		# 这个官方函数的delta是完
 		
 	if Input.is_action_just_pressed("goat_right") and floor_ok and velocity.x == 0 :
 		velocity.x = X_VELOCITY
+		position1 = 1
 		
 		
 	if Input.is_action_just_pressed("goat_left") and floor_ok and velocity.x == 0:
 		velocity.x = -X_VELOCITY
+		position1 = -1
 		
+	if is_on_floor():
+		if velocity.x != 0:
+			anim.play("move")
+		else :
+			anim.play("idle")
+	else:
+		anim.play("jump")
 	velocity.x = move_toward(velocity.x, 0, AX_SPEED * delta)
 	
 # 加一个注释
