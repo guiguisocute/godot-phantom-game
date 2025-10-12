@@ -1,3 +1,10 @@
+> ⚠️ **Notice**
+> This repository is our group’s **course project**, created for learning **Git collaborative workflows** and the **basics of the Godot engine**.  
+> All four members are beginners — except for the repository owner, the other three have almost no prior programming experience.  
+> In the foreseeable future, this repository will remain in a poor state and has **no reference or learning value**.  
+> 
+> Thank you very much for visiting. Out of kindness, please **don’t waste your time on this repository**.
+
 ### 一个尝试用Godot复刻崩铁“黄金替罪羊”小游戏的课程作业项目
 
 
@@ -12,5 +19,3 @@
 
 不知道哪里看的：
  >你写的前十个全栈程序，不管他是网页，App，还是游戏。都是**垃圾**，所以赶紧去把他们写出来吧
-
-简而言之，在可见的未来里这个项目都是一坨，所以陌生人，虽然不知道你是怎么进来的，但是别Star
