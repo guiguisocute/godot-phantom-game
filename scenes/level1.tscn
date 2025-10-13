@@ -346,6 +346,7 @@ sources/2 = SubResource("TileSetAtlasSource_bbk5w")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(640, 360)
+metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("1_wwpf4")]
 position = Vector2(264, 281.00003)
@@ -369,6 +370,11 @@ tile_set = SubResource("TileSet_bbk5w")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="TouchscreenButton" parent="CanvasLayer" instance=ExtResource("6_6sh32")]
+offset_left = -2.0
+offset_top = 4.0
+offset_right = 1278.0
+offset_bottom = 724.0
+metadata/_edit_lock_ = true
 
 [node name="Label" type="Label" parent="CanvasLayer"]
 offset_right = 40.0
