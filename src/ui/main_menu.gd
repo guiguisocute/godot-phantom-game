@@ -3,7 +3,7 @@ extends Control
 
 func _on_start_pressed() -> void:
 	print("press start")
-	get_tree().change_scene_to_file("res://src/level/level1.tscn")
+	get_tree().change_scene_to_file("res://src/level/level1_old.tscn")
 	
 
 func _on_setting_button_pressed() -> void:

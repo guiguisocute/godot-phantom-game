@@ -15,7 +15,7 @@ extends Node
 # -----------------------------------------------------
 
 @export
-var starting_state: State   # 初始状态（例如 IdleState）
+var starting_state: State   # 初始状态（例如 IdleState，设置成export代表可以暴露给其它类和检查器）
 
 var current_state: State            # 当前状态对象（运行中的状态）
 
@@ -28,7 +28,7 @@ var current_state: State            # 当前状态对象（运行中的状态）
 func init(parent: Player) -> void:
 	# 遍历 StateMachine 的所有子节点（通常是各个状态节点）
 	for child in get_children():
-		child.parent = parent   # 将 Player 引用赋给每个子状态
+		child.parent = parent   # 将父节点（也就是parent）Player引用赋给每个子状态
 		# 这样状态中就能访问： parent.velocity, parent.animations 等
 
 	# 进入初始状态（通常是Idle）

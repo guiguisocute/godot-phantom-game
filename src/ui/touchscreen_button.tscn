@@ -26,7 +26,7 @@ offset_right = 1280.0
 offset_bottom = 720.0
 
 [node name="up" type="TouchScreenButton" parent="."]
-position = Vector2(176, 532)
+position = Vector2(207.99998, 870)
 rotation = -3.1415925
 scale = Vector2(0.16601563, 0.16601563)
 texture_normal = SubResource("AtlasTexture_go5vu")
@@ -35,7 +35,7 @@ action = "goat_up"
 visibility_mode = 1
 
 [node name="down" type="TouchScreenButton" parent="."]
-position = Vector2(90.00002, 631)
+position = Vector2(122.000015, 969)
 scale = Vector2(0.16601563, 0.16601563)
 texture_normal = SubResource("AtlasTexture_4kw2p")
 texture_pressed = ExtResource("1_go5vu")
@@ -43,7 +43,7 @@ action = "goat_down"
 visibility_mode = 1
 
 [node name="left" type="TouchScreenButton" parent="."]
-position = Vector2(7.6293945e-06, 538.99994)
+position = Vector2(31.999996, 876.9999)
 scale = Vector2(0.166, 0.166)
 texture_normal = SubResource("AtlasTexture_gd20t")
 texture_pressed = ExtResource("4_gulpb")
@@ -51,7 +51,7 @@ action = "goat_left"
 visibility_mode = 1
 
 [node name="right" type="TouchScreenButton" parent="."]
-position = Vector2(267.99997, 623)
+position = Vector2(299.99997, 961)
 rotation = -3.1415925
 scale = Vector2(0.166, 0.166)
 texture_normal = SubResource("AtlasTexture_eqyx7")

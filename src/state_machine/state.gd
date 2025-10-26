@@ -6,13 +6,12 @@
 # 它定义了每个状态应具备的接口和基本功能。
 # =====================================================
 
-class_name State
+class_name State		# 定义类名，在gdscript中每一个文件都是一个类，没有类名只能通过路径访问，如果有名的话就可以像python那种方式调用
 extends Node   # 继承自 Node，使其可作为场景树子节点存在
 
 # -----------------------------------------------------
 # === 可在编辑器中配置的变量（通过 @export 暴露） ===
 # -----------------------------------------------------
-
 @export
 var animation_name: String           # 对应状态播放的动画名称，例如 "idle"、"move"、"jump"
 @export
@@ -62,13 +61,13 @@ func process_input(event: InputEvent) -> State:
 
 
 # 普通逐帧逻辑（_process）
-# 通常用于非物理的处理，比如动画、视觉特效等。
+# 通常用于非物理的处理，比如动画、视觉特效等。		guiguisocute：在我们项目中一班用于黑厄的死亡检测
 func process_frame(delta: float) -> State:
 	return null   # 默认不切换状态（需要子类中重写）
 
 
 # 物理逻辑（_physics_process）
-# 通常用于移动、重力、碰撞检测等物理行为。
+# 通常用于移动、重力、碰撞检测等物理行为。guiguisocute：在我们这个项目这个状态只用于坠崖检测
 func process_physics(delta: float) -> State:
 	return null   # 默认不切换状态（需要子类中重写）
 
