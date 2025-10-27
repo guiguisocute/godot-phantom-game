@@ -1,9 +1,16 @@
-[gd_scene load_steps=17 format=3 uid="uid://dprycjlucqgbx"]
+[gd_scene load_steps=23 format=3 uid="uid://dprycjlucqgbx"]
 
 [ext_resource type="Texture2D" uid="uid://bb4cb67lidiw8" path="res://外部免费素材/brackeys/sprites/knight.png" id="1_15tap"]
-[ext_resource type="Script" uid="uid://bvjwo01pb0yxy" path="res://src/character/player/player_old.gd" id="1_ru62r"]
+[ext_resource type="Script" uid="uid://d227x8pa3c1ul" path="res://src/character/player/player.gd" id="1_i8wnn"]
 [ext_resource type="PackedScene" uid="uid://40kq2gmfp4nw" path="res://src/state_machine/state_machine.tscn" id="3_gjqgf"]
-[ext_resource type="Script" uid="uid://c0ui5epcsgg1i" path="res://src/character/player/states/jump.gd" id="4_st2ts"]
+[ext_resource type="Script" uid="uid://ckh3xe3cw771n" path="res://src/character/player/states/up.gd" id="4_i8wnn"]
+[ext_resource type="Script" uid="uid://d30vc1ubsx5jf" path="res://src/character/player/states/move.gd" id="5_fkujh"]
+[ext_resource type="Script" uid="uid://dg8vulvowk0ob" path="res://src/character/player/states/idle.gd" id="6_c3qcs"]
+[ext_resource type="Script" uid="uid://b6jen2bk6kufd" path="res://src/character/player/states/fall.gd" id="7_xw1uj"]
+[ext_resource type="Script" uid="uid://bbacv4cxknl0s" path="res://src/character/player/states/die_from_enermy.gd" id="8_faa7f"]
+[ext_resource type="Script" uid="uid://c4no2mskkycm4" path="res://src/character/player/states/die_from_spite.gd" id="9_q4g54"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_i8wnn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xb5yk"]
 atlas = ExtResource("1_15tap")
@@ -97,7 +104,11 @@ animations = [{
 radius = 5.0
 
 [node name="Player" type="CharacterBody2D"]
-script = ExtResource("1_ru62r")
+script = ExtResource("1_i8wnn")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(135, 308)
+shape = SubResource("WorldBoundaryShape2D_i8wnn")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -12)
@@ -109,15 +120,39 @@ autoplay = "idle"
 position = Vector2(0, -5)
 shape = SubResource("CircleShape2D_ktjr4")
 
-[node name="StateMachine" parent="." instance=ExtResource("3_gjqgf")]
+[node name="StateMachine" parent="." node_paths=PackedStringArray("starting_state") instance=ExtResource("3_gjqgf")]
+starting_state = NodePath("idle")
 
-[node name="jump" type="Node" parent="StateMachine"]
-script = ExtResource("4_st2ts")
+[node name="up" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "fall_state")]
+script = ExtResource("4_i8wnn")
+idle_state = NodePath("../idle")
+fall_state = NodePath("../fall")
+animation_name = "jump"
 
-[node name="move" type="Node" parent="StateMachine"]
+[node name="move" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "fall_state", "up_state")]
+script = ExtResource("5_fkujh")
+idle_state = NodePath("../idle")
+fall_state = NodePath("../fall")
+up_state = NodePath("../up")
+animation_name = "move"
 
-[node name="idle" type="Node" parent="StateMachine"]
+[node name="idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("move_state", "up_state", "fall_state")]
+script = ExtResource("6_c3qcs")
+move_state = NodePath("../move")
+up_state = NodePath("../up")
+fall_state = NodePath("../fall")
+animation_name = "idle"
 
-[node name="fall" type="Node" parent="StateMachine"]
+[node name="fall" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "move_state")]
+script = ExtResource("7_xw1uj")
+idle_state = NodePath("../idle")
+move_state = NodePath("../move")
+animation_name = "jump"
 
-[node name="die" type="Node" parent="StateMachine"]
+[node name="die_from_enermy" type="Node" parent="StateMachine"]
+script = ExtResource("8_faa7f")
+animation_name = "idle"
+
+[node name="die_from_spite" type="Node" parent="StateMachine"]
+script = ExtResource("9_q4g54")
+animation_name = "idle"
