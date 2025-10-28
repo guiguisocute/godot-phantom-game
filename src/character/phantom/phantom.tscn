@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://baovnmcfswix8"]
+[gd_scene load_steps=48 format=3 uid="uid://baovnmcfswix8"]
 
 [ext_resource type="Script" uid="uid://gre6sixmi5xx" path="res://src/character/phantom/phantom.gd" id="1_xb5yk"]
 [ext_resource type="Texture2D" uid="uid://dsskdd8p1ghtu" path="res://my_game_art/handsomeCharactorSprite/8. fall.png" id="2_ij5iq"]
@@ -306,6 +306,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h1pts"]
 size = Vector2(15, 42)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k08bt"]
+size = Vector2(1, 36)
+
 [node name="Phantom" type="CharacterBody2D"]
 script = ExtResource("1_xb5yk")
 
@@ -320,3 +323,11 @@ autoplay = "idle"
 visible = false
 position = Vector2(-0.5, -11)
 shape = SubResource("RectangleShape2D_h1pts")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(7.5, -9)
+shape = SubResource("RectangleShape2D_k08bt")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

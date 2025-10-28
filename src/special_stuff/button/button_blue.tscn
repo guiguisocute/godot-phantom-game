@@ -55,7 +55,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vmk5v"]
-size = Vector2(46, 16)
+size = Vector2(9, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v8sw4"]
 size = Vector2(16, 16)
@@ -69,7 +69,7 @@ script = ExtResource("2_nwwn1")
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-20, -10)
+position = Vector2(0, -9)
 shape = SubResource("RectangleShape2D_vmk5v")
 debug_color = Color(0.7642436, 0.33431834, 0.7651363, 0.41960785)
 

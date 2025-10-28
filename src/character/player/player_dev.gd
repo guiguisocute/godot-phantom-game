@@ -19,6 +19,7 @@ class_name  Player_dev
 # 状态变量
 var is_controlled := true               # 是否当前被控制
 var is_attacking := false               # 是否正在攻击
+var is_dead := false                    # 是否死亡
 var attack_timer := 0.0                 # 攻击计时器
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -27,6 +28,10 @@ func _ready() -> void:
 	pass
 
 func _physics_process(delta: float) -> void:
+	# 如果死亡，停止所有逻辑
+	if is_dead:
+		return
+	
 	# 如果不被控制，只执行物理模拟，不响应输入
 	if not is_controlled:
 		apply_gravity(delta)
@@ -89,6 +94,10 @@ func start_attack() -> void:
 
 func update_animation() -> void:
 	"""更新动画状态"""
+	# 死亡状态优先级最高
+	if is_dead:
+		return
+	
 	if is_attacking:
 		# 攻击动画由 start_attack 设置，这里不改变
 		return
@@ -111,3 +120,11 @@ func set_controlled(controlled: bool) -> void:
 	is_controlled = controlled
 	# 当失去控制时，可以添加视觉反馈
 	modulate.a = 1.0 if controlled else 0.5
+
+
+func _on_phantom_test() -> void:
+	print("收到去死信号")
+	is_dead = true
+	anim.play("death")
+	
+	

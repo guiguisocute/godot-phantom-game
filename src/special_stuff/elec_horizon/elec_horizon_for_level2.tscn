@@ -1,0 +1,62 @@
+[gd_scene load_steps=9 format=3 uid="uid://b6gcmd0ttsc6p"]
+
+[ext_resource type="Texture2D" uid="uid://dqqxchmbwwoka" path="res://my_game_art/tilesets/t2(包含电流).png" id="1_wowne"]
+[ext_resource type="Script" uid="uid://ffnq8hk41lug" path="res://src/special_stuff/elec_horizon/elec_horizon_for_level_1.gd" id="2_3gxbe"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wowne"]
+atlas = ExtResource("1_wowne")
+region = Rect2(80, 374, 80, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3gxbe"]
+atlas = ExtResource("1_wowne")
+region = Rect2(160, 374, 80, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qw1fw"]
+atlas = ExtResource("1_wowne")
+region = Rect2(240, 374, 80, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7qr6m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wowne")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3gxbe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qw1fw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7xro1"]
+size = Vector2(64, 11.5)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7xro1"]
+
+[node name="CurrentFloorHorizonForLevel1" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_7qr6m")
+autoplay = "default"
+frame_progress = 0.35782272
+script = ExtResource("2_3gxbe")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="area_shape" type="CollisionShape2D" parent="Area2D"]
+physics_interpolation_mode = 1
+position = Vector2(0, -14)
+shape = SubResource("RectangleShape2D_7xro1")
+debug_color = Color(0.73880976, 0.4155407, 0.57354593, 0.41960785)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_7xro1")
+
+[node name="phy_shape" type="CollisionShape2D" parent="StaticBody2D"]
+physics_interpolation_mode = 1
+position = Vector2(0, -2.25)
+shape = SubResource("RectangleShape2D_7xro1")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -6,9 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://baovnmcfswix8" path="res://src/character/phantom/phantom.tscn" id="2_m7ahb"]
 [ext_resource type="PackedScene" uid="uid://dprycjlucqgbx" path="res://src/character/player/player.tscn" id="3_s4pf3"]
 [ext_resource type="PackedScene" uid="uid://dwyhc8ttvcopp" path="res://src/ui/touchscreen_button.tscn" id="6_6sh32"]
-[ext_resource type="Script" uid="uid://4xoextluttcl" path="res://src/character/phantom/phantom_dev.gd" id="6_qq2l8"]
 [ext_resource type="PackedScene" uid="uid://gfb1wwmxwcsf" path="res://src/special_stuff/elec_horizon/elec_horizon_for_level1.tscn" id="7_b3l1t"]
 [ext_resource type="Script" uid="uid://rwrn0i127vmb" path="res://src/character/player/player_dev.gd" id="8_8oakj"]
+[ext_resource type="Script" uid="uid://4xoextluttcl" path="res://src/character/phantom/phantom_dev.gd" id="9_8oakj"]
 [ext_resource type="Texture2D" uid="uid://dgifyediet0qm" path="res://my_game_art/tilesets/0x72_16x16RobotTileset.v1.png" id="9_ajn6n"]
 [ext_resource type="PackedScene" uid="uid://dpf4iisrv2n6" path="res://src/special_stuff/button/button_blue.tscn" id="9_crgmb"]
 [ext_resource type="PackedScene" uid="uid://b3356a72iro70" path="res://src/special_stuff/destination/destination.tscn" id="10_crgmb"]
@@ -404,7 +404,7 @@ script = ExtResource("1_s4pf3")
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-65, 1080)
+position = Vector2(272, 465.80005)
 shape = SubResource("WorldBoundaryShape2D_w7c3h")
 
 [node name="blackground" type="Sprite2D" parent="."]
@@ -414,13 +414,12 @@ metadata/_edit_lock_ = true
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 scale = Vector2(3, 3)
-tile_map_data = PackedByteArray("AAAEAAYAAAAAAAQAAAAFAAYAAAABAAQAAAAGAAYAAAABAAQAAAAHAAYAAAAFAAQAAAAMAAYAAAAHAAUAAAARAAYAAAAIAAUAAAAIAAYAAAAAAAQAAAAJAAYAAAABAAQAAAAKAAYAAAABAAQAAAASAAYAAAAAAAQAAAATAAYAAAABAAQAAAAUAAYAAAABAAQAAAAVAAYAAAAFAAQAAAA=")
+tile_map_data = PackedByteArray("AAAEAAYAAAAAAAQAAAAFAAYAAAABAAQAAAAGAAYAAAABAAQAAAAHAAYAAAAFAAQAAAAMAAYAAAAHAAUAAAARAAYAAAAIAAUAAAAIAAYAAAAAAAQAAAAJAAYAAAABAAQAAAAKAAYAAAABAAQAAAASAAYAAAAAAAQAAAATAAYAAAABAAQAAAAUAAYAAAABAAQAAAAVAAYAAAAFAAQAAAAZAAcAAAAAAAQAAAAaAAcAAAABAAQAAAAbAAcAAAABAAQAAAAcAAcAAAABAAQAAAAdAAcAAAAFAAQAAAAEAAQAAAAGAAoAAAAEAAUAAAAGAAoAAAA=")
 tile_set = SubResource("TileSet_b3l1t")
 
 [node name="CurrentFloorHorizonForLevel1" parent="." instance=ExtResource("7_b3l1t")]
 position = Vector2(720, 312)
 scale = Vector2(3, 3)
-animation = &"pop"
 frame_progress = 0.0
 
 [node name="ButtonBlue" parent="." instance=ExtResource("9_crgmb")]
@@ -436,17 +435,17 @@ position = Vector2(264, 281.00003)
 scale = Vector2(3.1, 3.1)
 
 [node name="Spike" parent="spike_group" instance=ExtResource("1_b3l1t")]
-position = Vector2(-77.09677, 249.6774)
+position = Vector2(31.6129, 51.548386)
 scale = Vector2(1, 1)
 
 [node name="Spike2" parent="spike_group" instance=ExtResource("1_b3l1t")]
-position = Vector2(-61.935486, 249.6774)
+position = Vector2(46.774185, 51.548386)
 scale = Vector2(1, 1)
 
 [node name="Phantom" parent="." instance=ExtResource("2_m7ahb")]
 position = Vector2(216, 266)
 scale = Vector2(2, 2)
-script = ExtResource("6_qq2l8")
+script = ExtResource("9_8oakj")
 SPEED = 350.0
 JUMP_VELOCITY = -550.0
 ACCELERATION = 2200.0
@@ -482,3 +481,5 @@ text = "开发中版本，不代表最终品质"
 [node name="only_for_dev" type="Node" parent="." node_paths=PackedStringArray("player")]
 script = ExtResource("12_8oakj")
 player = NodePath("../Player")
+
+[connection signal="Charactor_pess_button_blue" from="ButtonBlue" to="CurrentFloorHorizonForLevel1" method="_on_button_blue_charactor_pess_button_blue"]
