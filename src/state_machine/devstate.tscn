@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://br2enabgnixnv"]
+
+[ext_resource type="Script" uid="uid://ba37apu2bd10f" path="res://src/character/character_switcher_dev.gd" id="1_ud50b"]
+
+[node name="Devstate" type="Node"]
+script = ExtResource("1_ud50b")
