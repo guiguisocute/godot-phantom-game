@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://bpr7gbnkoqt4k"]
 
-[ext_resource type="Texture2D" uid="uid://cfxbl7vrnellh" path="res://my_game_art/downchange-arrow.png" id="1_cl78r"]
-[ext_resource type="Texture2D" uid="uid://bwe3imvcgvey6" path="res://my_game_art/left-arrow.png" id="1_ue8b5"]
-[ext_resource type="Texture2D" uid="uid://x3c8tompp5n5" path="res://my_game_art/leftchange-arrow.png" id="3_awxdp"]
+[ext_resource type="Texture2D" uid="uid://cfxbl7vrnellh" path="res://my_game_art/touchscreen_button_ui/downchange-arrow.png" id="1_cl78r"]
+[ext_resource type="Texture2D" uid="uid://bwe3imvcgvey6" path="res://my_game_art/touchscreen_button_ui/left-arrow.png" id="1_ue8b5"]
+[ext_resource type="Texture2D" uid="uid://x3c8tompp5n5" path="res://my_game_art/touchscreen_button_ui/leftchange-arrow.png" id="3_awxdp"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_go5vu"]
 load_path = "res://.godot/imported/down-arrow.png-6dc38ce27f2914f0c80f9a7512216b52.ctex"

@@ -57,7 +57,7 @@ func _physics_process(delta: float) -> void:		# 这个官方函数的delta是完
 		else :
 			anim.play("idle")
 	else:
-		anim.play("jump")
+		anim.play("fall")
 	velocity.x = move_toward(velocity.x, 0, AX_SPEED * delta)
 	
 # 加一个注释

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bwe3imvcgvey6"
-path="res://.godot/imported/left-arrow.png-a71d77cba7f072209d0651c4a8e0bd7a.ctex"
+uid="uid://udhhpikxr6yk"
+path="res://.godot/imported/4. idle + Shield.png-3e2d73c410632a39c7ea7658122c5060.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://my_game_art/left-arrow.png"
-dest_files=["res://.godot/imported/left-arrow.png-a71d77cba7f072209d0651c4a8e0bd7a.ctex"]
+source_file="res://外部免费素材/SAHDOW Series - Frost Curse Boss/Sprite/4. idle + Shield.png"
+dest_files=["res://.godot/imported/4. idle + Shield.png-3e2d73c410632a39c7ea7658122c5060.ctex"]
 
 [params]
 

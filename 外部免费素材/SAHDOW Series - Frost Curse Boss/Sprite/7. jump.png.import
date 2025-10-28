@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://x3c8tompp5n5"
-path="res://.godot/imported/leftchange-arrow.png-4428e2647e6dd183c6209544c02edfbe.ctex"
+uid="uid://ly50vdhu6us6"
+path="res://.godot/imported/7. jump.png-ef62a81e93e2b857dc200d16d18233c8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://my_game_art/leftchange-arrow.png"
-dest_files=["res://.godot/imported/leftchange-arrow.png-4428e2647e6dd183c6209544c02edfbe.ctex"]
+source_file="res://外部免费素材/SAHDOW Series - Frost Curse Boss/Sprite/7. jump.png"
+dest_files=["res://.godot/imported/7. jump.png-ef62a81e93e2b857dc200d16d18233c8.ctex"]
 
 [params]
 

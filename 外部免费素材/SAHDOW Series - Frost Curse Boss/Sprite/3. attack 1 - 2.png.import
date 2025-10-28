@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cfxbl7vrnellh"
-path="res://.godot/imported/downchange-arrow.png-be6199a871800aa991ff26b6af8633fe.ctex"
+uid="uid://cyqo80xn3otdo"
+path="res://.godot/imported/3. attack 1 - 2.png-1752ef3015bae6125e3af0b42edf4e3d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://my_game_art/downchange-arrow.png"
-dest_files=["res://.godot/imported/downchange-arrow.png-be6199a871800aa991ff26b6af8633fe.ctex"]
+source_file="res://外部免费素材/SAHDOW Series - Frost Curse Boss/Sprite/3. attack 1 - 2.png"
+dest_files=["res://.godot/imported/3. attack 1 - 2.png-1752ef3015bae6125e3af0b42edf4e3d.ctex"]
 
 [params]
 

@@ -4,6 +4,7 @@ extends State
 @export var move_state: State
 @export var up_state: State
 @export var fall_state: State
+@export var attack_state: State
 
 func process_input(event: InputEvent) -> State:
 	# 检测跳跃输入
@@ -14,6 +15,9 @@ func process_input(event: InputEvent) -> State:
 	if Input.is_action_just_pressed('goat_right') or Input.is_action_just_pressed('goat_left'):
 		if parent.is_on_floor():
 			return move_state
+	
+	if Input.is_action_just_pressed("attack_test"):
+		return attack_state
 	
 	return null
 

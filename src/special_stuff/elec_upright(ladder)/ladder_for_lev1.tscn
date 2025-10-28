@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://4ii1q5l2n58m"]
+
+[ext_resource type="Texture2D" uid="uid://dqqxchmbwwoka" path="res://my_game_art/tilesets/t2(包含电流).png" id="1_j4efi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7xro1"]
+atlas = ExtResource("1_j4efi")
+region = Rect2(9, 376, 64, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_34a7k"]
+atlas = ExtResource("1_j4efi")
+region = Rect2(137, 376, 64, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hun3u"]
+atlas = ExtResource("1_j4efi")
+region = Rect2(265, 376, 64, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7qr6m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7xro1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_34a7k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hun3u")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j4efi"]
+size = Vector2(64, 6.000003)
+
+[node name="ladder_for_lev1" type="AnimatedSprite2D"]
+rotation = 1.5707964
+sprite_frames = SubResource("SpriteFrames_7qr6m")
+autoplay = "default"
+frame_progress = 0.9019493
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(5.2108035e-15, 1.1920929e-07)
+shape = SubResource("RectangleShape2D_j4efi")
+debug_color = Color(0.8601708, 0.00068345666, 0.8766454, 0.41960785)

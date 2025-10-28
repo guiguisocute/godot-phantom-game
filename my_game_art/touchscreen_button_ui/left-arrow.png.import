@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dqaynwgaudowa"
-path="res://.godot/imported/down-arrow.png-99269d24357c5d50a11af5a9897319b9.ctex"
+uid="uid://bwe3imvcgvey6"
+path="res://.godot/imported/left-arrow.png-c6579c5b1b1cafa9707c8054757a2066.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://my_game_art/down-arrow.png"
-dest_files=["res://.godot/imported/down-arrow.png-99269d24357c5d50a11af5a9897319b9.ctex"]
+source_file="res://my_game_art/touchscreen_button_ui/left-arrow.png"
+dest_files=["res://.godot/imported/left-arrow.png-c6579c5b1b1cafa9707c8054757a2066.ctex"]
 
 [params]
 

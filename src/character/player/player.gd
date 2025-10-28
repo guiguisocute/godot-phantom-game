@@ -10,7 +10,7 @@ extends CharacterBody2D  # 玩家是一个可移动的物理角色
 
 @export var target_move_distance: float = 200.0  # 单次移动目标距离（像素）
 @export var jump_speed = -300.0
-@export_range(0.0, 1.0, 0.1) var speed_affect: float = 0.5  # 速度系数（0=超慢，1=超快）
+@export_range(0.0, 2.0, 0.05) var speed_affect: float = 0.5  # 速度系数（0=超慢，1=超快）
 
 # 当场景加载完成时调用
 func _ready() -> void:
@@ -32,3 +32,13 @@ func _process(delta: float) -> void:
 
 func is_legalto_up() -> bool:
 	return is_on_floor()
+
+
+func _on_spike_player_hit() -> void:
+	print_rich("[b]玩家接触尖刺信号测试[/b]")
+	
+	
+
+
+func _on_spike_character_hit() -> void:
+	pass # Replace with function body.
