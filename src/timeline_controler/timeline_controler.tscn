@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://cexkudlishuq5"]
+
+[node name="TimelineControler" type="Node"]
+
+[node name="RecoderQueue" type="Node" parent="."]
+
+[node name="SignalStreamTransmit" type="Node" parent="."]
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0

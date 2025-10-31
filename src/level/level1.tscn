@@ -1,5 +1,6 @@
-[gd_scene load_steps=11 format=4 uid="uid://byoffs0r6m6v0"]
+[gd_scene load_steps=12 format=4 uid="uid://byoffs0r6m6v0"]
 
+[ext_resource type="Script" uid="uid://5ubyfv4fw486" path="res://src/level/level_1.gd" id="1_56b5l"]
 [ext_resource type="Texture2D" uid="uid://dq3a3p45kh35e" path="res://my_game_art/tilesets/background.png" id="1_fxhfu"]
 [ext_resource type="Texture2D" uid="uid://dgifyediet0qm" path="res://my_game_art/tilesets/0x72_16x16RobotTileset.v1.png" id="2_drb1a"]
 [ext_resource type="Script" uid="uid://rwrn0i127vmb" path="res://src/character/player/player_dev.gd" id="4_fawry"]
@@ -387,6 +388,7 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_kwi0t")
 
 [node name="Level1" type="Node2D"]
+script = ExtResource("1_56b5l")
 
 [node name="blackground" type="Sprite2D" parent="."]
 position = Vector2(964, 542)
