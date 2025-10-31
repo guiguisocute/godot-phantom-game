@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://gfb1wwmxwcsf"]
+[gd_scene load_steps=10 format=3 uid="uid://gfb1wwmxwcsf"]
 
 [ext_resource type="Texture2D" uid="uid://dqqxchmbwwoka" path="res://my_game_art/tilesets/t2(包含电流).png" id="1_7xro1"]
 [ext_resource type="Script" uid="uid://ffnq8hk41lug" path="res://src/special_stuff/elec_horizon/elec_horizon_for_level_1.gd" id="2_34a7k"]
+[ext_resource type="Script" uid="uid://bvs1squhnecok" path="res://src/special_stuff/elec_horizon/area_shape.gd" id="3_hun3u"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7xro1"]
 atlas = ExtResource("1_7xro1")
@@ -50,6 +51,7 @@ physics_interpolation_mode = 1
 position = Vector2(0, -14)
 shape = SubResource("RectangleShape2D_7xro1")
 debug_color = Color(0.73880976, 0.4155407, 0.57354593, 0.41960785)
+script = ExtResource("3_hun3u")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 physics_material_override = SubResource("PhysicsMaterial_7xro1")

@@ -65,6 +65,20 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_wu84c")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_bqqt6")
 text = "设置"
 
+[node name="credits" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_rtw2f")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8ln24")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wu84c")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_bqqt6")
+text = "制作人员"
+
 [node name="exitButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
@@ -92,11 +106,14 @@ offset_right = 278.0
 offset_bottom = -171.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.9098039)
+theme_override_constants/shadow_offset_y = 8
 theme_override_fonts/font = ExtResource("2_f0s2b")
 theme_override_font_sizes/font_size = 60
 text = "一个粗制滥造的Demo"
 
-[connection signal="pressed" from="VBoxContainer/startButton" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/startButton" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/startButton" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/settingButton" to="." method="_on_setting_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="VBoxContainer/exitButton" to="." method="_on_exit_button_pressed"]
