@@ -1,0 +1,95 @@
+[gd_scene load_steps=6 format=3 uid="uid://c7elt7043d4rs"]
+
+[ext_resource type="Script" uid="uid://5mkxpahgrrbq" path="res://src/ui/credits_menu.gd" id="1_j1weo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pds2h"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j1weo"]
+bg_color = Color(0.7038078, 0.7038079, 0.70380765, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5vrn1"]
+bg_color = Color(0.7038078, 0.7038079, 0.70380765, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ugt3m"]
+
+[node name="creditsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_j1weo")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -250.0
+offset_right = 250.0
+offset_bottom = 171.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 125
+text = "制作人员"
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -162.0
+offset_top = -265.0
+offset_right = 138.0
+offset_bottom = -128.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 100
+text = "曾梓豪"
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 0
+offset_left = 801.0
+offset_top = 412.0
+offset_right = 1101.0
+offset_bottom = 549.0
+theme_override_font_sizes/font_size = 100
+text = "徐雨航"
+
+[node name="Label4" type="Label" parent="."]
+layout_mode = 0
+offset_left = 855.0
+offset_top = 542.0
+offset_right = 1057.0
+offset_bottom = 679.0
+theme_override_font_sizes/font_size = 100
+text = "王毅"
+
+[node name="back" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -104.0
+offset_top = -145.0
+offset_right = 104.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.017732397, 0.01773239, 0.01773239, 1)
+theme_override_colors/font_focus_color = Color(0.0056611365, 0.005661154, 0.005661178, 1)
+theme_override_colors/font_pressed_color = Color(0.017732391, 0.017732391, 0.01773239, 1)
+theme_override_colors/font_hover_color = Color(0.021434585, 0.021434639, 0.021434741, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.00011382803, 0.00011382803, 0.00011382803, 1)
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxFlat_pds2h")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_j1weo")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5vrn1")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ugt3m")
+text = "返回"
+
+[connection signal="pressed" from="back" to="." method="_on_back_pressed"]
