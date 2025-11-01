@@ -1,6 +1,8 @@
 extends State
 
 @export var idle_state: State
+@export var death_spike_state:State
+@export var death_enermy_state:State
 
 var should_return_to_idle: bool = false
 
@@ -33,6 +35,13 @@ func process_physics(delta: float) -> State:
 		parent.velocity.y += gravity * delta
 	
 	parent.move_and_slide()
+	if parent.is_dead_spike:
+		return death_spike_state
+	
+	
+	if parent.is_dead_enermy:
+		return death_enermy_state
+	
 	
 	return null
 

@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://jdfqctc3wu6h"]
+
+[ext_resource type="Script" uid="uid://dpsordadax6vr" path="res://src/ui/death_interface.gd" id="1_hqo00"]
+
+[node name="death_interface" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_hqo00")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 517.625
+offset_top = 304.0
+offset_right = 1448.625
+offset_bottom = 414.0
+theme_override_font_sizes/font_size = 80
+text = "你死了，按R重新开始游戏"
+
+[node name="Control" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 947.0
+offset_top = 436.0
+offset_right = 1019.0
+offset_bottom = 467.0
+text = "重新开始"
+
+[connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]

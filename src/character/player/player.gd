@@ -1,6 +1,8 @@
 # 声明类名 Player，可被其他脚本识别和导入
 class_name Player
 extends CharacterBody2D  # 玩家是一个可移动的物理角色
+var is_dead_spike:bool = false
+var is_dead_enermy:bool = false
 
 
 # 延迟绑定节点（在_ready()后才赋值）
@@ -36,9 +38,26 @@ func is_legalto_up() -> bool:
 
 func _on_spike_player_hit() -> void:
 	print_rich("[b]玩家接触尖刺信号测试[/b]")
+	animations.play("death")
 	
 	
 
 
 func _on_spike_character_hit() -> void:
-	pass # Replace with function body.
+	is_dead_spike = true
+
+
+func _on_spike_2_character_hit() -> void:
+	is_dead_spike = true
+
+
+func _on_spike_3_character_hit() -> void:
+	is_dead_spike = true
+
+
+func _on_spike_4_character_hit() -> void:
+	is_dead_spike = true
+	
+
+func _on_phantom_test() -> void:
+	is_dead_enermy = true

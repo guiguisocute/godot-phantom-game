@@ -9,6 +9,8 @@ extends State
 @export var idle_state: State
 @export var fall_state: State
 @export var up_state: State
+@export var death_spike_state:State
+@export var death_enermy_state:State
 
 # =====================================================
 # === 内部计算变量（不暴露，仅用于 Debug） ===
@@ -121,6 +123,13 @@ func process_physics(delta: float) -> State:
 	
 	# 执行移动
 	parent.move_and_slide()
+	
+	if parent.is_dead_spike:
+		return death_spike_state
+	
+	
+	if parent.is_dead_enermy:
+		return death_enermy_state
 	
 	# === 状态切换判断 ===
 	

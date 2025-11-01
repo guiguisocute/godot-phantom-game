@@ -1,6 +1,6 @@
 [gd_scene load_steps=55 format=3 uid="uid://dprycjlucqgbx"]
 
-[ext_resource type="Script" uid="uid://d227x8pa3c1ul" path="res://src/character/player/player.gd" id="1_i8wnn"]
+[ext_resource type="Script" uid="uid://d227x8pa3c1ul" path="res://src/character/player/player.gd" id="1_kgdbm"]
 [ext_resource type="Texture2D" uid="uid://dsskdd8p1ghtu" path="res://my_game_art/handsomeCharactorSprite/8. fall.png" id="2_f5cfi"]
 [ext_resource type="Texture2D" uid="uid://b85sdjgywan5c" path="res://my_game_art/handsomeCharactorSprite/3. attack 1 - 1.png" id="2_q4g54"]
 [ext_resource type="Texture2D" uid="uid://bsjw8bmvr6jl3" path="res://my_game_art/handsomeCharactorSprite/1. idle.png" id="3_4rxfv"]
@@ -315,7 +315,7 @@ animations = [{
 size = Vector2(15, 42)
 
 [node name="Player" type="CharacterBody2D"]
-script = ExtResource("1_i8wnn")
+script = ExtResource("1_kgdbm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -11)
@@ -331,42 +331,52 @@ shape = SubResource("RectangleShape2D_xaxmc")
 [node name="StateMachine" parent="." node_paths=PackedStringArray("starting_state") instance=ExtResource("3_gjqgf")]
 starting_state = NodePath("idle")
 
-[node name="up" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "fall_state")]
+[node name="up" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "fall_state", "death_spike_state", "death_enermy_state")]
 script = ExtResource("4_i8wnn")
 idle_state = NodePath("../idle")
 fall_state = NodePath("../fall")
+death_spike_state = NodePath("../die_from_spike")
+death_enermy_state = NodePath("../die_from_enermy")
 animation_name = "up"
 
-[node name="move" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "fall_state", "up_state")]
+[node name="move" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "fall_state", "up_state", "death_spike_state", "death_enermy_state")]
 script = ExtResource("5_fkujh")
 idle_state = NodePath("../idle")
 fall_state = NodePath("../fall")
 up_state = NodePath("../up")
+death_spike_state = NodePath("../die_from_spike")
+death_enermy_state = NodePath("../die_from_enermy")
 animation_name = "move"
 
-[node name="idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("move_state", "up_state", "fall_state", "attack_state")]
+[node name="idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("move_state", "up_state", "fall_state", "attack_state", "death_spike_state", "death_enermy_state")]
 script = ExtResource("6_c3qcs")
 move_state = NodePath("../move")
 up_state = NodePath("../up")
 fall_state = NodePath("../fall")
 attack_state = NodePath("../attack")
+death_spike_state = NodePath("../die_from_spike")
+death_enermy_state = NodePath("../die_from_enermy")
 animation_name = "idle"
 
-[node name="fall" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "move_state")]
+[node name="fall" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "move_state", "death_spike_state", "death_enermy_state")]
 script = ExtResource("7_xw1uj")
 idle_state = NodePath("../idle")
 move_state = NodePath("../move")
+death_spike_state = NodePath("../die_from_spike")
+death_enermy_state = NodePath("../die_from_enermy")
 animation_name = "fall"
 
 [node name="die_from_enermy" type="Node" parent="StateMachine"]
 script = ExtResource("8_faa7f")
-animation_name = "idle"
+animation_name = "death"
 
 [node name="die_from_spike" type="Node" parent="StateMachine"]
 script = ExtResource("9_q4g54")
-animation_name = "idle"
+animation_name = "death"
 
-[node name="attack" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state")]
+[node name="attack" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "death_spike_state", "death_enermy_state")]
 script = ExtResource("15_kgdbm")
 idle_state = NodePath("../idle")
+death_spike_state = NodePath("../die_from_spike")
+death_enermy_state = NodePath("../die_from_enermy")
 animation_name = "attack"
