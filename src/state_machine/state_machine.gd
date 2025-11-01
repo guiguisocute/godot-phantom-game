@@ -19,6 +19,8 @@ var starting_state: State   # 初始状态（例如 IdleState，设置成export�
 
 var current_state: State            # 当前状态对象（运行中的状态）
 
+signal state_changed(previous: State, current: State)
+
 # -----------------------------------------------------
 # === 初始化（相当于 setup / start） ===
 # -----------------------------------------------------
@@ -29,10 +31,11 @@ func init(parent: Player) -> void:
 	# 遍历 StateMachine 的所有子节点（通常是各个状态节点）
 	for child in get_children():
 		child.parent = parent   # 将父节点（也就是parent）Player引用赋给每个子状态
-		# 这样状态中就能访问： parent.velocity, parent.animations 等
-
-	# 进入初始状态（通常是Idle）
+								# 这样状态中就能访问： parent.velocity, parent.animations 等
 	change_state(starting_state)
+
+# 如果这个状态定义了 action_emitted 信号，就把它连接到状态机自己的回调 _on_state_action
+# 便于集中处理所有动作事件。
 
 
 # -----------------------------------------------------
@@ -42,11 +45,18 @@ func init(parent: Player) -> void:
 # 可由状态返回触发（例如 process_input() 中返回 MoveState）。
 # -----------------------------------------------------
 func change_state(new_state: State) -> void:
+	if new_state == null or new_state == current_state:
+		return
+
+	var previous := current_state
+
 	if current_state:
-		current_state.exit()     # 调用当前状态的退出逻辑（如停止动画、清变量）
+		current_state.exit()
 
 	current_state = new_state
-	current_state.enter()         # 调用新状态的进入逻辑（如播放动画）
+	current_state.enter()
+
+	emit_signal("state_changed", previous, current_state)
 
 
 # -----------------------------------------------------

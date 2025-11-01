@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://do1ta5jafg2e1"]
+[gd_scene load_steps=15 format=4 uid="uid://do1ta5jafg2e1"]
 
 [ext_resource type="PackedScene" uid="uid://ci3qp1vafrfix" path="res://src/special_stuff/spike/spike.tscn" id="1_b3l1t"]
 [ext_resource type="Script" uid="uid://dsp6tbfkwoo7m" path="res://src/level/level_1_old.gd" id="1_s4pf3"]
@@ -12,8 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://dpf4iisrv2n6" path="res://src/special_stuff/button/button_blue.tscn" id="9_crgmb"]
 [ext_resource type="PackedScene" uid="uid://b3356a72iro70" path="res://src/special_stuff/destination/destination.tscn" id="10_crgmb"]
 [ext_resource type="Script" uid="uid://ba37apu2bd10f" path="res://src/character/character_switcher_dev.gd" id="12_8oakj"]
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_w7c3h"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_snp6h"]
 texture = ExtResource("9_ajn6n")
@@ -399,12 +397,6 @@ sources/0 = SubResource("TileSetAtlasSource_snp6h")
 
 [node name="Level1_old" type="Node2D"]
 script = ExtResource("1_s4pf3")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(272, 465.80005)
-shape = SubResource("WorldBoundaryShape2D_w7c3h")
 
 [node name="blackground" type="Sprite2D" parent="."]
 position = Vector2(964, 542)

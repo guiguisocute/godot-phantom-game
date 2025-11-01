@@ -11,7 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://dpf4iisrv2n6" path="res://src/special_stuff/button/button_blue.tscn" id="9_56b5l"]
 [ext_resource type="PackedScene" uid="uid://gfb1wwmxwcsf" path="res://src/special_stuff/elec_horizon/elec_horizon_for_level1.tscn" id="10_1hmhm"]
 [ext_resource type="PackedScene" uid="uid://ci3qp1vafrfix" path="res://src/special_stuff/spike/spike.tscn" id="11_donb7"]
-[ext_resource type="Script" uid="uid://rwrn0i127vmb" path="res://src/character/player/player_dev.gd" id="11_pv2oo"]
 [ext_resource type="PackedScene" uid="uid://b3356a72iro70" path="res://src/special_stuff/destination/destination.tscn" id="11_x8q88"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kwi0t"]
@@ -462,13 +461,6 @@ scale = Vector2(20, 20)
 [node name="Player" parent="." instance=ExtResource("4_kwi0t")]
 position = Vector2(456, 263)
 scale = Vector2(2, 2)
-script = ExtResource("11_pv2oo")
-SPEED = 300.0
-JUMP_VELOCITY = -500.0
-ACCELERATION = 2000.0
-FRICTION = 1500.0
-AIR_RESISTANCE = 100.0
-ATTACK_DURATION = 0.5
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
