@@ -7,12 +7,11 @@
 [ext_resource type="PackedScene" uid="uid://dprycjlucqgbx" path="res://src/character/player/player.tscn" id="3_s4pf3"]
 [ext_resource type="PackedScene" uid="uid://dwyhc8ttvcopp" path="res://src/ui/touchscreen_button.tscn" id="6_6sh32"]
 [ext_resource type="PackedScene" uid="uid://gfb1wwmxwcsf" path="res://src/special_stuff/elec_horizon/elec_horizon_for_level1.tscn" id="7_b3l1t"]
+[ext_resource type="Script" uid="uid://rwrn0i127vmb" path="res://src/character/player/player_dev.gd" id="8_8oakj"]
 [ext_resource type="Texture2D" uid="uid://dgifyediet0qm" path="res://my_game_art/tilesets/0x72_16x16RobotTileset.v1.png" id="9_ajn6n"]
 [ext_resource type="PackedScene" uid="uid://dpf4iisrv2n6" path="res://src/special_stuff/button/button_blue.tscn" id="9_crgmb"]
 [ext_resource type="PackedScene" uid="uid://b3356a72iro70" path="res://src/special_stuff/destination/destination.tscn" id="10_crgmb"]
 [ext_resource type="Script" uid="uid://ba37apu2bd10f" path="res://src/character/character_switcher_dev.gd" id="12_8oakj"]
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_w7c3h"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_snp6h"]
 texture = ExtResource("9_ajn6n")
@@ -399,12 +398,6 @@ sources/0 = SubResource("TileSetAtlasSource_snp6h")
 [node name="Level1_old" type="Node2D"]
 script = ExtResource("1_s4pf3")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(272, 465.80005)
-shape = SubResource("WorldBoundaryShape2D_w7c3h")
-
 [node name="blackground" type="Sprite2D" parent="."]
 position = Vector2(964, 542)
 texture = ExtResource("2_ajn6n")
@@ -467,6 +460,4 @@ script = ExtResource("12_8oakj")
 player = NodePath("../Player")
 
 [connection signal="Charactor_pess_button_blue" from="ButtonBlue" to="CurrentFloorHorizonForLevel1" method="_on_button_blue_charactor_pess_button_blue"]
-[connection signal="character_hit" from="spike_group/Spike" to="Player" method="_on_spike_character_hit"]
-[connection signal="character_hit" from="spike_group/Spike2" to="Player" method="_on_spike_2_character_hit"]
 [connection signal="test" from="Phantom" to="Player" method="_on_phantom_test"]

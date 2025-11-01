@@ -1,11 +1,17 @@
-[gd_scene load_steps=10 format=4 uid="uid://byoffs0r6m6v0"]
+[gd_scene load_steps=15 format=4 uid="uid://byoffs0r6m6v0"]
 
+[ext_resource type="Script" uid="uid://5ubyfv4fw486" path="res://src/level/level_1.gd" id="1_56b5l"]
 [ext_resource type="Texture2D" uid="uid://dq3a3p45kh35e" path="res://my_game_art/tilesets/background.png" id="1_fxhfu"]
 [ext_resource type="Texture2D" uid="uid://dgifyediet0qm" path="res://my_game_art/tilesets/0x72_16x16RobotTileset.v1.png" id="2_drb1a"]
-[ext_resource type="Texture2D" uid="uid://1b16v3ymwy22" path="res://my_game_art/tilesets/tile.png" id="2_jbfrm"]
-[ext_resource type="PackedScene" uid="uid://ci3qp1vafrfix" path="res://src/special_stuff/spike/spike.tscn" id="2_kwi0t"]
 [ext_resource type="PackedScene" uid="uid://dprycjlucqgbx" path="res://src/character/player/player.tscn" id="4_kwi0t"]
+[ext_resource type="PackedScene" uid="uid://baovnmcfswix8" path="res://src/character/phantom/phantom.tscn" id="5_mix2k"]
 [ext_resource type="PackedScene" uid="uid://dwyhc8ttvcopp" path="res://src/ui/touchscreen_button.tscn" id="6_6sh32"]
+[ext_resource type="Script" uid="uid://4xoextluttcl" path="res://src/character/phantom/phantom_dev.gd" id="6_56b5l"]
+[ext_resource type="PackedScene" uid="uid://br2enabgnixnv" path="res://src/state_machine/devstate.tscn" id="6_mix2k"]
+[ext_resource type="PackedScene" uid="uid://dpf4iisrv2n6" path="res://src/special_stuff/button/button_blue.tscn" id="9_56b5l"]
+[ext_resource type="PackedScene" uid="uid://gfb1wwmxwcsf" path="res://src/special_stuff/elec_horizon/elec_horizon_for_level1.tscn" id="10_1hmhm"]
+[ext_resource type="PackedScene" uid="uid://ci3qp1vafrfix" path="res://src/special_stuff/spike/spike.tscn" id="11_donb7"]
+[ext_resource type="PackedScene" uid="uid://b3356a72iro70" path="res://src/special_stuff/destination/destination.tscn" id="11_x8q88"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kwi0t"]
 texture = ExtResource("2_drb1a")
@@ -38,8 +44,11 @@ texture = ExtResource("2_drb1a")
 5:3/0 = 0
 6:3/0 = 0
 3:4/0 = 0
+3:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 4:4/0 = 0
+4:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 5:4/0 = 0
+5:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 6:4/0 = 0
 6:5/0 = 0
 6:6/0 = 0
@@ -52,6 +61,7 @@ texture = ExtResource("2_drb1a")
 7:3/0 = 0
 7:4/0 = 0
 7:5/0 = 0
+7:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 7:6/0 = 0
 7:7/0 = 0
 7:8/0 = 0
@@ -63,6 +73,7 @@ texture = ExtResource("2_drb1a")
 8:3/0 = 0
 8:4/0 = 0
 8:5/0 = 0
+8:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 8:6/0 = 0
 8:8/0 = 0
 8:9/0 = 0
@@ -175,6 +186,7 @@ texture = ExtResource("2_drb1a")
 16:1/0 = 0
 16:2/0 = 0
 0:4/0 = 0
+0:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 0:5/0 = 0
 0:6/0 = 0
 0:7/0 = 0
@@ -184,6 +196,7 @@ texture = ExtResource("2_drb1a")
 0:12/0 = 0
 0:13/0 = 0
 1:4/0 = 0
+1:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:5/0 = 0
 1:6/0 = 0
 1:7/0 = 0
@@ -193,6 +206,7 @@ texture = ExtResource("2_drb1a")
 1:12/0 = 0
 1:13/0 = 0
 2:4/0 = 0
+2:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:5/0 = 0
 2:6/0 = 0
 2:7/0 = 0
@@ -372,47 +386,80 @@ texture = ExtResource("2_drb1a")
 25:17/0 = 0
 25:18/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_drb1a"]
-texture = ExtResource("2_jbfrm")
-texture_region_size = Vector2i(64, 64)
-0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
-
 [sub_resource type="TileSet" id="TileSet_kwi0t"]
-tile_size = Vector2i(64, 64)
 physics_layer_0/collision_layer = 1
-sources/2 = SubResource("TileSetAtlasSource_drb1a")
 sources/0 = SubResource("TileSetAtlasSource_kwi0t")
 
 [node name="Level1" type="Node2D"]
+script = ExtResource("1_56b5l")
 
 [node name="blackground" type="Sprite2D" parent="."]
 position = Vector2(964, 542)
 texture = ExtResource("1_fxhfu")
 metadata/_edit_lock_ = true
 
-[node name="map" type="Node2D" parent="."]
-
-[node name="spitegroup" type="Node2D" parent="map"]
-
-[node name="Spike" parent="map/spitegroup" instance=ExtResource("2_kwi0t")]
-position = Vector2(97, 1051)
-
-[node name="Spike2" parent="map/spitegroup" instance=ExtResource("2_kwi0t")]
-position = Vector2(156, 1051)
-
-[node name="Spike3" parent="map/spitegroup" instance=ExtResource("2_kwi0t")]
-position = Vector2(217, 1051)
-
-[node name="Spike4" parent="map/spitegroup" instance=ExtResource("2_kwi0t")]
-position = Vector2(276, 1051)
-
-[node name="TileMapLayer" type="TileMapLayer" parent="map"]
-tile_map_data = PackedByteArray("AAAAAAAAAgAAAAAAAAABAAAAAgAAAAAAAAACAAAAAgAAAAAAAAADAAAAAgAAAAAAAAAEAAAAAgAAAAAAAAAFAAAAAgAAAAAAAAAGAAAAAgAAAAAAAAAHAAAAAgAAAAAAAAAIAAAAAgAAAAAAAAAKAAAAAgAAAAAAAAALAAAAAgAAAAAAAAAMAAAAAgAAAAAAAAANAAAAAgAAAAAAAAAOAAAAAgAAAAAAAAAPAAAAAgAAAAAAAAAQAAAAAgAAAAAAAAAUAAAAAgAAAAAAAAAVAAAAAgAAAAAAAAAWAAAAAgAAAAAAAAAXAAAAAgAAAAAAAAAYAAAAAgAAAAAAAAAZAAAAAgAAAAAAAAAaAAAAAgAAAAAAAAAbAAAAAgAAAAAAAAAcAAAAAgAAAAAAAAAdAAAAAgAAAAAAAAAAAAEAAgAAAAAAAAAAAAIAAgAAAAAAAAAAAAMAAgAAAAAAAAAAAAQAAgAAAAAAAAAAAAUAAgAAAAAAAAAAAAYAAgAAAAAAAAAAAAcAAgAAAAAAAAAAAAgAAgAAAAAAAAAAAAkAAgAAAAAAAAAAAAoAAgAAAAAAAAAAAAsAAgAAAAAAAAAAAAwAAgAAAAAAAAAAAA0AAgAAAAAAAAAAAA4AAgAAAAAAAAAAAA8AAgAAAAAAAAAAABAAAgAAAAAAAAAJAAAAAgAAAAAAAAARAAAAAgAAAAAAAAASAAAAAgAAAAAAAAATAAAAAgAAAAAAAAAdAAEAAgAAAAAAAAAdAAIAAgAAAAAAAAAdAAMAAgAAAAAAAAAdAAQAAgAAAAAAAAAdAAUAAgAAAAAAAAAdAAYAAgAAAAAAAAAdAAcAAgAAAAAAAAAdAAgAAgAAAAAAAAAdAAkAAgAAAAAAAAAdAAoAAgAAAAAAAAAdAAsAAgAAAAAAAAAdAAwAAgAAAAAAAAAdAA0AAgAAAAAAAAAdAA4AAgAAAAAAAAAdAA8AAgAAAAAAAAAdABAAAgAAAAAAAAA=")
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+scale = Vector2(3, 3)
+tile_map_data = PackedByteArray("AAAdACAAAAAAAAQAAAAHAAgAAAABAAQAAAAIAAgAAAABAAQAAAAJAAgAAAACAAQAAAAKAAgAAAABAAQAAAAMAAgAAAABAAQAAAAOAAgAAAABAAQAAAAPAAgAAAABAAQAAAAQAAgAAAABAAQAAAAYAAgAAAABAAQAAAAgAAgAAAABAAQAAAAhAAgAAAACAAQAAAAiAAgAAAAFAAQAAAAVAAgAAAAAAAQAAAAXAAgAAAABAAQAAAAUAAgAAAABAAQAAAATAAgAAAABAAQAAAASAAgAAAABAAQAAAAWAAgAAAABAAQAAAAaAAgAAAABAAQAAAAfAAgAAAAIAAUAAAAbAAgAAAAHAAUAAAALAAgAAAABAAQAAAAGAAgAAAAAAAQAAAANAAgAAAACAAQAAAARAAgAAAACAAQAAAAZAAgAAAACAAQAAAA=")
 tile_set = SubResource("TileSet_kwi0t")
 
+[node name="Phantom" parent="." instance=ExtResource("5_mix2k")]
+position = Vector2(412, 262)
+scale = Vector2(2, 2)
+script = ExtResource("6_56b5l")
+SPEED = 350.0
+JUMP_VELOCITY = -550.0
+ACCELERATION = 2200.0
+FRICTION = 1600.0
+AIR_RESISTANCE = 120.0
+ATTACK_DURATION = 0.5
+
+[node name="Devstate" parent="." instance=ExtResource("6_mix2k")]
+
+[node name="ButtonBlue" parent="." instance=ExtResource("9_56b5l")]
+position = Vector2(1032, 385.00003)
+scale = Vector2(3, 3)
+
+[node name="CurrentFloorHorizonForLevel1" parent="." instance=ExtResource("10_1hmhm")]
+position = Vector2(1416, 407.99997)
+scale = Vector2(2.2812493, 3)
+
+[node name="Destination" parent="." instance=ExtResource("11_x8q88")]
+position = Vector2(1608, 335)
+scale = Vector2(3, 3)
+
+[node name="Spikes" type="Node" parent="."]
+
+[node name="Spike" parent="Spikes" instance=ExtResource("11_donb7")]
+position = Vector2(158.00002, 921.00006)
+scale = Vector2(20, 20)
+
+[node name="Spike2" parent="Spikes" instance=ExtResource("11_donb7")]
+position = Vector2(453, 921)
+scale = Vector2(20, 20)
+
+[node name="Spike3" parent="Spikes" instance=ExtResource("11_donb7")]
+position = Vector2(750.99994, 920.99994)
+scale = Vector2(20, 20)
+
+[node name="Spike4" parent="Spikes" instance=ExtResource("11_donb7")]
+position = Vector2(1050, 921)
+scale = Vector2(20, 20)
+
+[node name="Spike5" parent="Spikes" instance=ExtResource("11_donb7")]
+position = Vector2(1350, 919.99994)
+scale = Vector2(20, 20)
+
+[node name="Spike6" parent="Spikes" instance=ExtResource("11_donb7")]
+position = Vector2(1649, 920)
+scale = Vector2(20, 20)
+
+[node name="Spike7" parent="Spikes" instance=ExtResource("11_donb7")]
+position = Vector2(1951.0001, 920)
+scale = Vector2(20, 20)
+
 [node name="Player" parent="." instance=ExtResource("4_kwi0t")]
-position = Vector2(148, 168)
+position = Vector2(456, 263)
 scale = Vector2(2, 2)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -423,7 +470,6 @@ offset_right = 1920.0
 offset_bottom = 1082.0
 metadata/_edit_lock_ = true
 
-[connection signal="character_hit" from="map/spitegroup/Spike" to="Player" method="_on_spike_character_hit"]
-[connection signal="character_hit" from="map/spitegroup/Spike2" to="Player" method="_on_spike_2_character_hit"]
-[connection signal="character_hit" from="map/spitegroup/Spike3" to="Player" method="_on_spike_3_character_hit"]
-[connection signal="character_hit" from="map/spitegroup/Spike4" to="Player" method="_on_spike_4_character_hit"]
+[connection signal="test" from="Phantom" to="Player" method="_on_phantom_test"]
+[connection signal="Charactor_pess_button_blue" from="ButtonBlue" to="CurrentFloorHorizonForLevel1" method="_on_button_blue_charactor_pess_button_blue"]
+[connection signal="Charactor_pop_button_blue" from="ButtonBlue" to="CurrentFloorHorizonForLevel1" method="_on_button_blue_charactor_pop_button_blue"]

@@ -16,10 +16,10 @@ func enter() -> void:		# 进入这个状态，你应该做什么？
 	super.enter()
 	parent.velocity.y = parent.jump_speed
 	
-func process_input(event: InputEvent) -> State:    # 如果在这个状态下，检测到了某个输入操作，会进入什么新的状态？
+func process_input(_event: InputEvent) -> State:    # 如果在这个状态下，检测到了某个输入操作，会进入什么新的状态？
 	return null
 	
-func process_frame(delta: float) -> State:     # 在这个状态下，需要你每帧执行什么操作？
+func process_frame(_delta: float) -> State:     # 在这个状态下，需要你每帧执行什么操作？
 	return null   # 默认不切换状态（需要子类中重写）
 	
 func process_physics(delta: float) -> State:	# 在这个状态下，需要你每物理帧执行什么操作？

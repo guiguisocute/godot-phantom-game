@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cexkudlishuq5"]
+
+[ext_resource type="Script" uid="uid://ly1sjv4itsuv" path="res://src/timeline_controler/recoder_queue.gd" id="1_wwm0m"]
+[ext_resource type="Script" uid="uid://dtu4dc8jiw7tm" path="res://src/timeline_controler/playback.gd" id="2_iiaxo"]
+
+[node name="TimelineControler" type="Node"]
+
+[node name="RecoderQueue" type="Node" parent="."]
+script = ExtResource("1_wwm0m")
+
+[node name="Playback" type="Node" parent="."]
+script = ExtResource("2_iiaxo")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0

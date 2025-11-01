@@ -1,7 +1,5 @@
-extends Node2D
-class_name Level1
+extends CollisionShape2D
 
-const TIMELINE_MAX_STEPS := 180
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

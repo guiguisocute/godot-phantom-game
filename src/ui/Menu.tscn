@@ -1,0 +1,106 @@
+[gd_scene load_steps=7 format=3 uid="uid://drb2qulgoltam"]
+
+[ext_resource type="Script" uid="uid://dpbnjygdhuby4" path="res://src/ui/Menu.gd" id="1_u3g7j"]
+[ext_resource type="FontFile" uid="uid://cn5tsqnv34853" path="res://外部免费素材/assetbundle/Uranus_Pixel_11Px.ttf" id="1_xdxe1"]
+
+[sub_resource type="Theme" id="Theme_xdxe1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xdxe1"]
+bg_color = Color(0.3696641, 0.6337507, 0.7973285, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5w4rr"]
+bg_color = Color(0.19043854, 0.39106938, 0.5072616, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sodnn"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_u3g7j")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -204.0
+offset_top = -98.0
+offset_right = 216.0
+offset_bottom = 367.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_xdxe1")
+theme_override_constants/separation = 15
+
+[node name="next" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_xdxe1")
+theme_override_font_sizes/font_size = 105
+theme_override_styles/normal = SubResource("StyleBoxFlat_xdxe1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5w4rr")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5w4rr")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_sodnn")
+text = "下一关"
+
+[node name="Setting" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_xdxe1")
+theme_override_font_sizes/font_size = 105
+theme_override_styles/normal = SubResource("StyleBoxFlat_xdxe1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5w4rr")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5w4rr")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_sodnn")
+text = "设置"
+
+[node name="backMainmenu" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_xdxe1")
+theme_override_font_sizes/font_size = 105
+theme_override_styles/normal = SubResource("StyleBoxFlat_xdxe1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5w4rr")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5w4rr")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_sodnn")
+text = "返回主菜单"
+
+[node name="Exit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_xdxe1")
+theme_override_font_sizes/font_size = 105
+theme_override_styles/normal = SubResource("StyleBoxFlat_xdxe1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5w4rr")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5w4rr")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_sodnn")
+text = "退出游戏"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 404.0
+offset_top = 68.0
+offset_right = 1517.0
+offset_bottom = 337.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.972549)
+theme_override_constants/shadow_offset_y = 18
+theme_override_fonts/font = ExtResource("1_xdxe1")
+theme_override_font_sizes/font_size = 240
+text = "恭 喜 过 关"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/next" to="." method="_on_next_pressed"]
+[connection signal="pressed" from="VBoxContainer/Setting" to="." method="_on_setting_pressed"]
+[connection signal="pressed" from="VBoxContainer/backMainmenu" to="." method="_on_back_mainmenu_pressed"]
+[connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]
