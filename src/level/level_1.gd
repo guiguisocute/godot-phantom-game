@@ -2,6 +2,7 @@
 extends Node2D
 
 @onready var timeline: TimelineControler = $TimelineControler
+@export var bgm: AudioStream
 
 func _ready() -> void:
 	# 检查 timeline 是否存在
@@ -13,6 +14,8 @@ func _ready() -> void:
 	
 	# 开始录制
 	timeline.start_recording()
+	if bgm:
+		SoundManager.play_bgm(bgm)
 
 ## level1接受信号测试
 func _on_step_recorded(step_name: String) -> void:

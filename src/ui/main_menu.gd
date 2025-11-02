@@ -1,5 +1,11 @@
 extends Control
 
+@export var bgm: AudioStream
+
+func _ready() -> void:
+	if bgm:
+		SoundManager.play_bgm(bgm)
+
 
 func _on_start_pressed() -> void:
 	print("press start")
