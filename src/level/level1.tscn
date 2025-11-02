@@ -1,6 +1,5 @@
-[gd_scene load_steps=17 format=4 uid="uid://byoffs0r6m6v0"]
+[gd_scene load_steps=16 format=4 uid="uid://byoffs0r6m6v0"]
 
-[ext_resource type="Script" uid="uid://5ubyfv4fw486" path="res://src/level/level_1.gd" id="1_56b5l"]
 [ext_resource type="Texture2D" uid="uid://dq3a3p45kh35e" path="res://my_game_art/tilesets/background.png" id="1_fxhfu"]
 [ext_resource type="Script" uid="uid://5ubyfv4fw486" path="res://src/level/level_1.gd" id="1_pv2oo"]
 [ext_resource type="Texture2D" uid="uid://dgifyediet0qm" path="res://my_game_art/tilesets/0x72_16x16RobotTileset.v1.png" id="2_drb1a"]
@@ -402,81 +401,178 @@ texture = ExtResource("1_fxhfu")
 metadata/_edit_lock_ = true
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
+position = Vector2(0, 152)
 scale = Vector2(3, 3)
-tile_map_data = PackedByteArray("AAAdACAAAAAAAAQAAAAHAAgAAAABAAQAAAAIAAgAAAABAAQAAAAJAAgAAAACAAQAAAAKAAgAAAABAAQAAAAMAAgAAAABAAQAAAAOAAgAAAABAAQAAAAPAAgAAAABAAQAAAAQAAgAAAABAAQAAAAYAAgAAAABAAQAAAAgAAgAAAABAAQAAAAhAAgAAAACAAQAAAAiAAgAAAAFAAQAAAAVAAgAAAAAAAQAAAAXAAgAAAABAAQAAAAUAAgAAAABAAQAAAATAAgAAAABAAQAAAASAAgAAAABAAQAAAAWAAgAAAABAAQAAAAaAAgAAAABAAQAAAAfAAgAAAAIAAUAAAAbAAgAAAAHAAUAAAALAAgAAAABAAQAAAAGAAgAAAAAAAQAAAANAAgAAAACAAQAAAARAAgAAAACAAQAAAAZAAgAAAACAAQAAAA=")
+tile_map_data = PackedByteArray("AAAHAAgAAAABAAQAAAAIAAgAAAABAAQAAAAJAAgAAAACAAQAAAAKAAgAAAABAAQAAAAMAAgAAAABAAQAAAAOAAgAAAABAAQAAAAPAAgAAAABAAQAAAAQAAgAAAABAAQAAAAYAAgAAAABAAQAAAAgAAgAAAABAAQAAAAhAAgAAAACAAQAAAAiAAgAAAAFAAQAAAAVAAgAAAAAAAQAAAAXAAgAAAABAAQAAAAUAAgAAAABAAQAAAATAAgAAAABAAQAAAASAAgAAAABAAQAAAAWAAgAAAABAAQAAAAaAAgAAAABAAQAAAAfAAgAAAAIAAUAAAAbAAgAAAAHAAUAAAALAAgAAAABAAQAAAAGAAgAAAAAAAQAAAANAAgAAAACAAQAAAARAAgAAAACAAQAAAAZAAgAAAACAAQAAAA=")
 tile_set = SubResource("TileSet_kwi0t")
 
-[node name="Devstate" parent="." instance=ExtResource("6_mix2k")]
-
 [node name="ButtonBlue" parent="." instance=ExtResource("9_56b5l")]
-position = Vector2(1032, 385.00003)
+position = Vector2(1032, 537)
 scale = Vector2(3, 3)
 
 [node name="CurrentFloorHorizonForLevel1" parent="." instance=ExtResource("10_1hmhm")]
-position = Vector2(1416, 407.99997)
+position = Vector2(1416, 559.99994)
 scale = Vector2(2.2812493, 3)
 
 [node name="Destination" parent="." instance=ExtResource("11_x8q88")]
-position = Vector2(1608, 335)
+position = Vector2(1608, 487)
 scale = Vector2(3, 3)
 
-[node name="Spikes" type="Node" parent="."]
+[node name="Spikes" type="Node2D" parent="."]
 
 [node name="Spike" parent="Spikes" instance=ExtResource("11_donb7")]
-position = Vector2(158.00002, 921.00006)
-scale = Vector2(20, 20)
+position = Vector2(32, 1045)
 
 [node name="Spike2" parent="Spikes" instance=ExtResource("11_donb7")]
-position = Vector2(453, 921)
-scale = Vector2(20, 20)
+position = Vector2(92, 1045)
 
 [node name="Spike3" parent="Spikes" instance=ExtResource("11_donb7")]
-position = Vector2(750.99994, 920.99994)
-scale = Vector2(20, 20)
+position = Vector2(151, 1045)
 
 [node name="Spike4" parent="Spikes" instance=ExtResource("11_donb7")]
-position = Vector2(1050, 921)
-scale = Vector2(20, 20)
+position = Vector2(211, 1045)
 
 [node name="Spike5" parent="Spikes" instance=ExtResource("11_donb7")]
-position = Vector2(1350, 919.99994)
-scale = Vector2(20, 20)
+position = Vector2(270, 1045)
 
 [node name="Spike6" parent="Spikes" instance=ExtResource("11_donb7")]
-position = Vector2(1649, 920)
-scale = Vector2(20, 20)
+position = Vector2(330, 1045)
 
 [node name="Spike7" parent="Spikes" instance=ExtResource("11_donb7")]
-position = Vector2(1951.0001, 920)
-scale = Vector2(20, 20)
+position = Vector2(389, 1045)
+
+[node name="Spike8" parent="Spikes" instance=ExtResource("11_donb7")]
+position = Vector2(449, 1045)
+
+[node name="Spike9" parent="Spikes" instance=ExtResource("11_donb7")]
+position = Vector2(509, 1045)
+
+[node name="Spike10" parent="Spikes" instance=ExtResource("11_donb7")]
+position = Vector2(569, 1045)
+
+[node name="Spike11" parent="Spikes" instance=ExtResource("11_donb7")]
+position = Vector2(628, 1045)
+
+[node name="Spike12" parent="Spikes" instance=ExtResource("11_donb7")]
+position = Vector2(688, 1045)
+
+[node name="Spike13" parent="Spikes" instance=ExtResource("11_donb7")]
+position = Vector2(747, 1045)
+
+[node name="Spike14" parent="Spikes" instance=ExtResource("11_donb7")]
+position = Vector2(807, 1045)
+
+[node name="Spike15" parent="Spikes" instance=ExtResource("11_donb7")]
+position = Vector2(866, 1045)
+
+[node name="Spike16" parent="Spikes" instance=ExtResource("11_donb7")]
+position = Vector2(926, 1045)
+
+[node name="Spike17" parent="Spikes" instance=ExtResource("11_donb7")]
+position = Vector2(990, 1045)
+
+[node name="Spike18" parent="Spikes" instance=ExtResource("11_donb7")]
+position = Vector2(1050, 1045)
+
+[node name="Spike19" parent="Spikes" instance=ExtResource("11_donb7")]
+position = Vector2(1109, 1045)
+
+[node name="Spike20" parent="Spikes" instance=ExtResource("11_donb7")]
+position = Vector2(1169, 1045)
+
+[node name="Spike21" parent="Spikes" instance=ExtResource("11_donb7")]
+position = Vector2(1228, 1045)
+
+[node name="Spike22" parent="Spikes" instance=ExtResource("11_donb7")]
+position = Vector2(1288, 1045)
+
+[node name="Spike23" parent="Spikes" instance=ExtResource("11_donb7")]
+position = Vector2(1347, 1045)
+
+[node name="Spike24" parent="Spikes" instance=ExtResource("11_donb7")]
+position = Vector2(1407, 1045)
+
+[node name="Spike25" parent="Spikes" instance=ExtResource("11_donb7")]
+position = Vector2(1467, 1045)
+
+[node name="Spike26" parent="Spikes" instance=ExtResource("11_donb7")]
+position = Vector2(1527, 1045)
+
+[node name="Spike27" parent="Spikes" instance=ExtResource("11_donb7")]
+position = Vector2(1586, 1045)
+
+[node name="Spike28" parent="Spikes" instance=ExtResource("11_donb7")]
+position = Vector2(1646, 1045)
+
+[node name="Spike29" parent="Spikes" instance=ExtResource("11_donb7")]
+position = Vector2(1705, 1045)
+
+[node name="Spike30" parent="Spikes" instance=ExtResource("11_donb7")]
+position = Vector2(1765, 1045)
+
+[node name="Spike31" parent="Spikes" instance=ExtResource("11_donb7")]
+position = Vector2(1824, 1045)
+
+[node name="Spike32" parent="Spikes" instance=ExtResource("11_donb7")]
+position = Vector2(1884, 1045)
 
 [node name="Phantom" parent="." instance=ExtResource("5_mix2k")]
-position = Vector2(456, 263)
+position = Vector2(456, 379)
 scale = Vector2(2, 2)
 timeline_controler_path = NodePath("../TimelineControler")
 player_path = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("4_kwi0t")]
-position = Vector2(456, 263)
+position = Vector2(456, 379)
 scale = Vector2(2, 2)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+scale = Vector2(1.205, 1.205)
+transform = Transform2D(1.205, 0, 0, 1.205, 0, 0)
 
 [node name="TouchscreenButton" parent="CanvasLayer" instance=ExtResource("6_6sh32")]
-offset_top = 2.0
-offset_right = 1920.0
-offset_bottom = 1082.0
+offset_left = 25.726143
+offset_top = -233.195
+offset_right = 1945.7262
+offset_bottom = 846.805
 metadata/_edit_lock_ = true
 
 [node name="TimelineControler" parent="." instance=ExtResource("13_pv2oo")]
 player_path = NodePath("../Player")
 
+[node name="Devstate" parent="." instance=ExtResource("6_mix2k")]
+
 [connection signal="Charactor_pess_button_blue" from="ButtonBlue" to="CurrentFloorHorizonForLevel1" method="_on_button_blue_charactor_pess_button_blue"]
 [connection signal="Charactor_pop_button_blue" from="ButtonBlue" to="CurrentFloorHorizonForLevel1" method="_on_button_blue_charactor_pop_button_blue"]
 [connection signal="character_hit" from="Spikes/Spike" to="Player" method="_on_spike_character_hit"]
-[connection signal="character_hit" from="Spikes/Spike2" to="Player" method="_on_spike_2_character_hit"]
-[connection signal="character_hit" from="Spikes/Spike3" to="Player" method="_on_spike_3_character_hit"]
-[connection signal="character_hit" from="Spikes/Spike4" to="Player" method="_on_spike_4_character_hit"]
-[connection signal="character_hit" from="Spikes/Spike5" to="Player" method="_on_spike_5_character_hit"]
-[connection signal="character_hit" from="Spikes/Spike6" to="Player" method="_on_spike_6_character_hit"]
-[connection signal="character_hit" from="Spikes/Spike7" to="Player" method="_on_spike_7_character_hit"]
+[connection signal="character_hit" from="Spikes/Spike2" to="Player" method="_on_spike_character_hit"]
+[connection signal="character_hit" from="Spikes/Spike3" to="Player" method="_on_spike_character_hit"]
+[connection signal="character_hit" from="Spikes/Spike4" to="Player" method="_on_spike_character_hit"]
+[connection signal="character_hit" from="Spikes/Spike5" to="Player" method="_on_spike_character_hit"]
+[connection signal="character_hit" from="Spikes/Spike6" to="Player" method="_on_spike_character_hit"]
+[connection signal="character_hit" from="Spikes/Spike7" to="Player" method="_on_spike_character_hit"]
+[connection signal="character_hit" from="Spikes/Spike8" to="Player" method="_on_spike_character_hit"]
+[connection signal="character_hit" from="Spikes/Spike9" to="Player" method="_on_spike_character_hit"]
+[connection signal="character_hit" from="Spikes/Spike10" to="Player" method="_on_spike_character_hit"]
+[connection signal="character_hit" from="Spikes/Spike11" to="Player" method="_on_spike_character_hit"]
+[connection signal="character_hit" from="Spikes/Spike12" to="Player" method="_on_spike_character_hit"]
+[connection signal="character_hit" from="Spikes/Spike13" to="Player" method="_on_spike_character_hit"]
+[connection signal="character_hit" from="Spikes/Spike14" to="Player" method="_on_spike_character_hit"]
+[connection signal="character_hit" from="Spikes/Spike15" to="Player" method="_on_spike_character_hit"]
+[connection signal="character_hit" from="Spikes/Spike16" to="Player" method="_on_spike_character_hit"]
+[connection signal="character_hit" from="Spikes/Spike17" to="Player" method="_on_spike_character_hit"]
+[connection signal="character_hit" from="Spikes/Spike18" to="Player" method="_on_spike_character_hit"]
+[connection signal="character_hit" from="Spikes/Spike19" to="Player" method="_on_spike_character_hit"]
+[connection signal="character_hit" from="Spikes/Spike20" to="Player" method="_on_spike_character_hit"]
+[connection signal="character_hit" from="Spikes/Spike21" to="Player" method="_on_spike_character_hit"]
+[connection signal="character_hit" from="Spikes/Spike22" to="Player" method="_on_spike_character_hit"]
+[connection signal="character_hit" from="Spikes/Spike23" to="Player" method="_on_spike_character_hit"]
+[connection signal="character_hit" from="Spikes/Spike24" to="Player" method="_on_spike_character_hit"]
+[connection signal="character_hit" from="Spikes/Spike25" to="Player" method="_on_spike_character_hit"]
+[connection signal="character_hit" from="Spikes/Spike26" to="Player" method="_on_spike_character_hit"]
+[connection signal="character_hit" from="Spikes/Spike27" to="Player" method="_on_spike_character_hit"]
+[connection signal="character_hit" from="Spikes/Spike28" to="Player" method="_on_spike_character_hit"]
+[connection signal="character_hit" from="Spikes/Spike29" to="Player" method="_on_spike_character_hit"]
+[connection signal="character_hit" from="Spikes/Spike30" to="Player" method="_on_spike_character_hit"]
+[connection signal="character_hit" from="Spikes/Spike31" to="Player" method="_on_spike_character_hit"]
+[connection signal="character_hit" from="Spikes/Spike32" to="Player" method="_on_spike_character_hit"]
