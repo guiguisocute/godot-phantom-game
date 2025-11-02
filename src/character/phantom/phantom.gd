@@ -1,6 +1,7 @@
 # phantom.gd - 幻影角色（回放玩家操作）
 class_name Phantom
 extends CharacterBody2D
+signal  crush
 
 
 # =====================================================
@@ -212,6 +213,7 @@ func _on_spike_phantom_hit() -> void:
 func _on_area_2d_front_body_entered(body: Node2D) -> void:
 	if body is Player or body is Player_dev:
 		anim.play("attack")
+		crush.emit()
 
 	
 
@@ -220,3 +222,4 @@ func _on_area_2d_back_body_entered(body: Node2D) -> void:
 	if body is Player or body is Player_dev: 
 		self.scale.x *= -1
 		anim.play("attack")
+		crush.emit()

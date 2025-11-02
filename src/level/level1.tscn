@@ -576,3 +576,4 @@ player_path = NodePath("../Player")
 [connection signal="character_hit" from="Spikes/Spike30" to="Player" method="_on_spike_character_hit"]
 [connection signal="character_hit" from="Spikes/Spike31" to="Player" method="_on_spike_character_hit"]
 [connection signal="character_hit" from="Spikes/Spike32" to="Player" method="_on_spike_character_hit"]
+[connection signal="crush" from="Phantom" to="Player" method="_on_phantom_crush"]

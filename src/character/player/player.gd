@@ -46,29 +46,5 @@ func _on_spike_character_hit() -> void:
 	is_dead_spike = true
 
 
-func _on_spike_2_character_hit() -> void:
-	is_dead_spike = true
-
-
-func _on_spike_3_character_hit() -> void:
-	is_dead_spike = true
-
-
-func _on_spike_4_character_hit() -> void:
-	is_dead_spike = true
-	
-
-func _on_spike_5_character_hit() -> void:
-	is_dead_spike = true
-
-
-func _on_spike_6_character_hit() -> void:
-	is_dead_spike = true
-
-
-func _on_spike_7_character_hit() -> void:
-		is_dead_spike = true
-
-
-func _on_phantom_test() -> void:
+func _on_phantom_crush() -> void:
 	is_dead_enermy = true
