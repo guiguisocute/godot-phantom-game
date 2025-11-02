@@ -1,11 +1,22 @@
-[gd_scene load_steps=2 format=3 uid="uid://jdfqctc3wu6h"]
+[gd_scene load_steps=4 format=3 uid="uid://jdfqctc3wu6h"]
 
 [ext_resource type="Script" uid="uid://dpsordadax6vr" path="res://src/ui/death_interface.gd" id="1_hqo00"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hqo00"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gy3h3"]
+bg_color = Color(1, 1, 1, 1)
 
 [node name="death_interface" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_hqo00")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
@@ -13,6 +24,9 @@ offset_left = 517.625
 offset_top = 304.0
 offset_right = 1448.625
 offset_bottom = 414.0
+theme_override_colors/font_shadow_color = Color(0.05490196, 0.03529412, 0.007843138, 0.9529412)
+theme_override_constants/shadow_offset_x = 8
+theme_override_constants/shadow_offset_y = 4
 theme_override_font_sizes/font_size = 80
 text = "你死了，按R重新开始游戏"
 
@@ -23,10 +37,26 @@ offset_bottom = 40.0
 
 [node name="Button" type="Button" parent="Control"]
 layout_mode = 0
-offset_left = 947.0
-offset_top = 436.0
-offset_right = 1019.0
-offset_bottom = 467.0
+offset_left = 854.0
+offset_top = 424.0
+offset_right = 1062.0
+offset_bottom = 501.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_hqo00")
 text = "重新开始"
 
+[node name="Button2" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 828.0
+offset_top = 521.0
+offset_right = 1086.0
+offset_bottom = 598.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_gy3h3")
+text = "返回主菜单"
+
 [connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Control/Button2" to="." method="_on_button_2_pressed"]

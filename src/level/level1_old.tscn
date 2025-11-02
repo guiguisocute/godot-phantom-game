@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://do1ta5jafg2e1"]
+[gd_scene load_steps=14 format=4 uid="uid://do1ta5jafg2e1"]
 
 [ext_resource type="PackedScene" uid="uid://ci3qp1vafrfix" path="res://src/special_stuff/spike/spike.tscn" id="1_b3l1t"]
 [ext_resource type="Script" uid="uid://dsp6tbfkwoo7m" path="res://src/level/level_1_old.gd" id="1_s4pf3"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://dprycjlucqgbx" path="res://src/character/player/player.tscn" id="3_s4pf3"]
 [ext_resource type="PackedScene" uid="uid://dwyhc8ttvcopp" path="res://src/ui/touchscreen_button.tscn" id="6_6sh32"]
 [ext_resource type="PackedScene" uid="uid://gfb1wwmxwcsf" path="res://src/special_stuff/elec_horizon/elec_horizon_for_level1.tscn" id="7_b3l1t"]
-[ext_resource type="Script" uid="uid://rwrn0i127vmb" path="res://src/character/player/player_dev.gd" id="8_8oakj"]
 [ext_resource type="Texture2D" uid="uid://dgifyediet0qm" path="res://my_game_art/tilesets/0x72_16x16RobotTileset.v1.png" id="9_ajn6n"]
 [ext_resource type="PackedScene" uid="uid://dpf4iisrv2n6" path="res://src/special_stuff/button/button_blue.tscn" id="9_crgmb"]
 [ext_resource type="PackedScene" uid="uid://b3356a72iro70" path="res://src/special_stuff/destination/destination.tscn" id="10_crgmb"]

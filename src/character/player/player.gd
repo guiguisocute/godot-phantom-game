@@ -38,7 +38,6 @@ func is_legalto_up() -> bool:
 
 func _on_spike_player_hit() -> void:
 	print_rich("[b]玩家接触尖刺信号测试[/b]")
-	animations.play("death")
 	
 	
 
@@ -58,6 +57,18 @@ func _on_spike_3_character_hit() -> void:
 func _on_spike_4_character_hit() -> void:
 	is_dead_spike = true
 	
+
+func _on_spike_5_character_hit() -> void:
+	is_dead_spike = true
+
+
+func _on_spike_6_character_hit() -> void:
+	is_dead_spike = true
+
+
+func _on_spike_7_character_hit() -> void:
+		is_dead_spike = true
+
 
 func _on_phantom_test() -> void:
 	is_dead_enermy = true

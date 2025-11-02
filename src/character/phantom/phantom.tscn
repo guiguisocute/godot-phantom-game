@@ -336,5 +336,6 @@ shape = SubResource("RectangleShape2D_k08bt")
 position = Vector2(-8, -9)
 shape = SubResource("RectangleShape2D_k08bt")
 
+[connection signal="test" from="." to="." method="_on_test"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_front_body_entered"]
 [connection signal="body_entered" from="Area2D2" to="." method="_on_area_2d_back_body_entered"]

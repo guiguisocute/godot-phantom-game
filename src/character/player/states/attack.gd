@@ -35,9 +35,10 @@ func process_physics(delta: float) -> State:
 		parent.velocity.y += gravity * delta
 	
 	parent.move_and_slide()
+	
+	#是否死亡判断
 	if parent.is_dead_spike:
 		return death_spike_state
-	
 	
 	if parent.is_dead_enermy:
 		return death_enermy_state

@@ -2,6 +2,7 @@ extends  State
 
 func enter() -> void:		# 进入这个状态，你应该做什么？
 	super.enter()
+	Game.record_current_scene()
 	print("我要死了")
 	await get_tree().create_timer(0.5).timeout
 	get_tree().change_scene_to_file("res://src/ui/death_interface.tscn")
