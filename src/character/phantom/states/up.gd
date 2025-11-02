@@ -2,6 +2,7 @@ extends  State
 
 @export var idle_state: State
 @export var fall_state: State
+@export var attack_state: State
 
 
 func is_on_ladder_down()->bool:
@@ -28,6 +29,16 @@ func process_physics(delta: float) -> State:	# 在这个状态下，需要你每
 	if parent.velocity.y == 0 and parent.is_on_floor() :
 		return idle_state
 	parent.move_and_slide()
+	
+	if parent.Player_enter_front:
+		parent.Player_enter_front = false
+		return attack_state
+	if parent.Player_enter_back:
+		parent.Player_enter_back = false
+		parent.scale.x *= -1	
+		return attack_state
+		
+	
 	return null
 
 func exit() -> void:     # 退出这个状态的时候，应该做什么

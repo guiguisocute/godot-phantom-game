@@ -353,11 +353,12 @@ script = ExtResource("9_dylm3")
 idle_state = NodePath("../idle")
 fall_state = NodePath("../fall")
 
-[node name="move" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "fall_state", "up_state")]
+[node name="move" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "fall_state", "up_state", "attack_state")]
 script = ExtResource("10_egypi")
 idle_state = NodePath("../idle")
 fall_state = NodePath("../fall")
 up_state = NodePath("../up")
+attack_state = NodePath("../attack")
 animation_name = "move"
 
 [node name="idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("move_state", "up_state", "fall_state", "attack_state")]
