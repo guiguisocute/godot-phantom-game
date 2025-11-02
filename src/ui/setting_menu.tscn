@@ -1,0 +1,102 @@
+[gd_scene load_steps=10 format=3 uid="uid://bkfa4byorbpoj"]
+
+[ext_resource type="FontFile" uid="uid://cm04yb2xx484f" path="res://freeasset/brackeys/fonts/PixelOperator8-Bold.ttf" id="1_4nprl"]
+[ext_resource type="Script" uid="uid://c6ri23cf7opp6" path="res://src/ui/setting_menu.gd" id="1_31c7k"]
+[ext_resource type="Script" uid="uid://ghyw0o61n372" path="res://src/ui/audio_control.gd" id="3_2qoq3"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_f8tcr"]
+color = Color(1, 1, 1, 1)
+thickness = 8
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_2qoq3"]
+color = Color(0.17860705, 0.41012463, 1, 1)
+thickness = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4nprl"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_31c7k"]
+bg_color = Color(0.7038078, 0.7038079, 0.70380765, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2qoq3"]
+bg_color = Color(0.7038078, 0.7038079, 0.70380765, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f8tcr"]
+
+[node name="SettingMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_31c7k")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -349.5
+offset_right = 349.5
+offset_bottom = 282.0
+grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.972549)
+theme_override_constants/shadow_offset_y = 8
+theme_override_fonts/font = ExtResource("1_4nprl")
+theme_override_font_sizes/font_size = 120
+text = "设 置"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 814.0
+offset_top = 323.0
+offset_right = 1105.0
+offset_bottom = 398.0
+theme_override_font_sizes/font_size = 50
+text = "音量调节"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioControl" type="HSlider" parent="."]
+layout_mode = 0
+offset_left = 789.0
+offset_top = 412.0
+offset_right = 1130.0
+offset_bottom = 450.0
+theme_override_styles/slider = SubResource("StyleBoxLine_f8tcr")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_2qoq3")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_2qoq3")
+max_value = 1.0
+step = 0.05
+value = 0.5
+script = ExtResource("3_2qoq3")
+audio_bus_name = "BGM"
+
+[node name="back" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -104.0
+offset_top = -145.0
+offset_right = 104.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.017732397, 0.01773239, 0.01773239, 1)
+theme_override_colors/font_focus_color = Color(0.0056611365, 0.005661154, 0.005661178, 1)
+theme_override_colors/font_pressed_color = Color(0.017732391, 0.017732391, 0.01773239, 1)
+theme_override_colors/font_hover_color = Color(0.021434585, 0.021434639, 0.021434741, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.00011382803, 0.00011382803, 0.00011382803, 1)
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxFlat_4nprl")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_31c7k")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2qoq3")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_f8tcr")
+text = "返回"
+
+[connection signal="value_changed" from="AudioControl" to="AudioControl" method="_on_value_changed"]
+[connection signal="pressed" from="back" to="." method="_on_back_pressed"]
