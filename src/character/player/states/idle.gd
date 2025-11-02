@@ -5,6 +5,8 @@ extends State
 @export var up_state: State
 @export var fall_state: State
 @export var attack_state: State
+@export var death_spike_state:State
+@export var death_enermy_state:State
 
 func process_input(event: InputEvent) -> State:
 	# 检测跳跃输入
@@ -35,5 +37,15 @@ func process_physics(delta: float) -> State:
 	# 如果离开地面，切换到下落状态
 	if not parent.is_on_floor():
 		return fall_state
+	
+	#
+	if parent.is_dead_spike:
+		return death_spike_state
+	
+	
+	if parent.is_dead_enermy:
+		return death_enermy_state
+	
+	
 	
 	return null

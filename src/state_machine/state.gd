@@ -9,6 +9,9 @@
 class_name State		# 定义类名，在gdscript中每一个文件都是一个类，没有类名只能通过路径访问，如果有名的话就可以像python那种方式调用
 extends Node   # 继承自 Node，使其可作为场景树子节点存在
 
+
+
+
 # -----------------------------------------------------
 # === 可在编辑器中配置的变量（通过 @export 暴露） ===
 # -----------------------------------------------------
@@ -23,14 +26,16 @@ var animation_name: String           # 对应状态播放的动画名称，例�
 # 这样状态中可以直接使用相同的重力逻辑，无需重复写死数值。
 var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-# 保存该状态所属角色（通常是 Player）对象的引用，
+# 保存该状态所属角色（Player 或 Phantom）对象的引用，
 # 用于在状态中访问角色的属性（velocity、动画、碰撞检测等）。
-var parent: Player
+var parent: CharacterBody2D  # 🔥 改为 CharacterBody2D，支持 Player 和 Phantom
 
 
 # -----------------------------------------------------
 # === 状态生命周期接口 ===
 # -----------------------------------------------------
+
+
 
 # 当状态被“切换进入”时调用（相当于 enter() 生命周期）
 func enter() -> void:

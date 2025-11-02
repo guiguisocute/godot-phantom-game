@@ -22,6 +22,7 @@ var is_attacking := false               # 是否正在攻击
 var is_dead := false                    # 是否死亡
 var attack_timer := 0.0                 # 攻击计时器
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+var death_screen_scene = preload("res://src/ui/death_interface.tscn")
 
 func _ready() -> void:
 	# 初始化
@@ -125,6 +126,30 @@ func set_controlled(controlled: bool) -> void:
 func _on_phantom_test() -> void:
 	print("收到去死信号")
 	is_dead = true
+	await get_tree().create_timer(0.5).timeout
 	anim.play("death")
+
 	
 	
+func _on_spike_character_hit() -> void:
+	print("我要死了")
+	is_dead = true
+	anim.play("death")
+	await get_tree().create_timer(0.5).timeout
+	get_tree().change_scene_to_file("res://src/ui/death_interface.tscn")
+
+
+func _on_spike_2_character_hit() -> void:
+	print("我要死了2")
+	is_dead = true
+	anim.play("death")
+
+
+func _on_spike_3_character_hit() -> void:
+	is_dead = true
+	anim.play("death")
+
+
+func _on_spike_4_character_hit() -> void:
+	is_dead = true
+	anim.play("death")

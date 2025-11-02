@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://c7elt7043d4rs"]
+[gd_scene load_steps=7 format=3 uid="uid://c7elt7043d4rs"]
 
 [ext_resource type="Script" uid="uid://5mkxpahgrrbq" path="res://src/ui/credits_menu.gd" id="1_j1weo"]
+[ext_resource type="FontFile" uid="uid://cm04yb2xx484f" path="res://freeasset/brackeys/fonts/PixelOperator8-Bold.ttf" id="2_5vrn1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pds2h"]
 bg_color = Color(1, 1, 1, 1)
@@ -31,6 +32,9 @@ offset_left = -250.0
 offset_right = 250.0
 offset_bottom = 171.0
 grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.95686275)
+theme_override_constants/shadow_offset_y = 10
+theme_override_fonts/font = ExtResource("2_5vrn1")
 theme_override_font_sizes/font_size = 125
 text = "制作人员"
 

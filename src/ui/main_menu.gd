@@ -13,7 +13,7 @@ func _on_start_pressed() -> void:
 	
 
 func _on_setting_button_pressed() -> void:
-	print("pressed setting")
+	get_tree().change_scene_to_file("res://src/ui/setting_menu.tscn")
 
 
 func _on_exit_button_pressed() -> void:

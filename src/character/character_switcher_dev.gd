@@ -20,16 +20,6 @@ func _ready() -> void:
 	if player == null or phantom == null:
 		push_error("Character Switcher: 无法找到 Player 或 Phantom 节点！")
 		return
-	
-	# 检查角色是否使用了正确的脚本
-	if not player.has_method("set_controlled"):
-		push_error("Character Switcher: Player 节点未使用 player_dev.gd 脚本！请在场景中将 Player 的脚本改为 player_dev.gd")
-		return
-	
-	if not phantom.has_method("set_controlled"):
-		push_error("Character Switcher: Phantom 节点未使用 phantom_dev.gd 脚本！请在场景中将 Phantom 的脚本改为 phantom_dev.gd")
-		return
-	
 	# 初始化控制状态
 	update_control_state()
 
