@@ -4,6 +4,8 @@ extends State
 @export var idle_state: State
 @export var fall_state: State
 @export var up_state: State
+@export var death_spike_state:State
+@export var death_enermy_state:State
 
 # =====================================================
 # === 内部计算变量 ===
@@ -111,15 +113,23 @@ func process_physics(delta: float) -> State:
 	# 执行移动
 	parent.move_and_slide()
 	
-	# === 状态切换判断 ===
+	#是否死亡判断
+	if parent.is_dead_spike:
+		return death_spike_state
 	
-	# 1. 速度接近零 -> 回到 idle
+	if parent.is_dead_enermy:
+		return death_enermy_state
+	
+	# === 状态切换判断 ===
+		# 1. 离开地面 -> 进入 fall
+	if not parent.is_on_floor() and abs(parent.velocity.x) < 10:
+		return fall_state
+		
+	# 2. 速度接近零 -> 回到 idle
 	if abs(parent.velocity.x) < 10:
 		return idle_state
 	
-	# 2. 离开地面 -> 进入 fall
-	if not parent.is_on_floor() and abs(parent.velocity.x) < 10:
-		return fall_state
+
 	
 	return null
 

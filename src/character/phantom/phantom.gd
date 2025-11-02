@@ -209,5 +209,14 @@ func _on_spike_phantom_hit() -> void:
 	print("[Phantom] 💀 黑厄接触尖刺信号测试")
 
 
+func _on_area_2d_front_body_entered(body: Node2D) -> void:
+	if body is Player or body is Player_dev:
+		anim.play("attack")
 
 	
+
+
+func _on_area_2d_back_body_entered(body: Node2D) -> void:
+	if body is Player or body is Player_dev: 
+		self.scale.x *= -1
+		anim.play("attack")
