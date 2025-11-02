@@ -29,13 +29,11 @@ func enter() -> void:
 	start_position = parent.position.x
 	has_reached_target = false
 	
-	# 确定移动方向
-	if Input.is_action_pressed('goat_right'):
-		move_direction = 1
-		parent.animations.flip_h = false
-	elif Input.is_action_pressed('goat_left'):
-		move_direction = -1
-		parent.animations.flip_h = true
+	# 🔥 确定移动方向（使用指令而非键盘输入）
+	var direction = parent.get_move_direction()
+	if direction != 0:
+		move_direction = direction
+		parent.animations.flip_h = (direction < 0)
 	else:
 		# 兜底：根据当前速度方向判断
 		move_direction = 1 if parent.velocity.x >= 0 else -1

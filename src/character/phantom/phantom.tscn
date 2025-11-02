@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://baovnmcfswix8"]
+[gd_scene load_steps=56 format=3 uid="uid://baovnmcfswix8"]
 
 [ext_resource type="Script" uid="uid://gre6sixmi5xx" path="res://src/character/phantom/phantom.gd" id="1_xb5yk"]
 [ext_resource type="Texture2D" uid="uid://dsskdd8p1ghtu" path="res://my_game_art/handsomeCharactorSprite/8. fall.png" id="2_ij5iq"]
@@ -7,6 +7,14 @@
 [ext_resource type="Texture2D" uid="uid://bsjw8bmvr6jl3" path="res://my_game_art/handsomeCharactorSprite/1. idle.png" id="3_iht3s"]
 [ext_resource type="Texture2D" uid="uid://dpry52fp0fn7e" path="res://my_game_art/handsomeCharactorSprite/2. run.png" id="4_k08bt"]
 [ext_resource type="Texture2D" uid="uid://civb05qeyxe6f" path="res://my_game_art/handsomeCharactorSprite/7. jump.png" id="5_eiw83"]
+[ext_resource type="PackedScene" uid="uid://40kq2gmfp4nw" path="res://src/state_machine/state_machine.tscn" id="8_21soy"]
+[ext_resource type="Script" uid="uid://cevtv63fmaki1" path="res://src/character/phantom/states/up.gd" id="9_dylm3"]
+[ext_resource type="Script" uid="uid://dmjaqk13262f6" path="res://src/character/phantom/states/move.gd" id="10_egypi"]
+[ext_resource type="Script" uid="uid://c2b03i2hl3b1k" path="res://src/character/phantom/states/idle.gd" id="11_21aor"]
+[ext_resource type="Script" uid="uid://q3i0h7ir1vwq" path="res://src/character/phantom/states/fall.gd" id="12_rbro1"]
+[ext_resource type="Script" uid="uid://qioe8jy4nxvk" path="res://src/character/phantom/states/attack.gd" id="13_cx16l"]
+[ext_resource type="Script" uid="uid://cdnx5ma0g00en" path="res://src/character/phantom/die_from_spite.gd" id="13_egypi"]
+[ext_resource type="Script" uid="uid://dnip1b0uh04so" path="res://src/character/phantom/die_from_destination.gd" id="14_21aor"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q4g54"]
 atlas = ExtResource("2_k08bt")
@@ -316,7 +324,7 @@ script = ExtResource("1_xb5yk")
 modulate = Color(0.97856194, 0.23591217, 1.92523e-07, 1)
 position = Vector2(0, -11)
 sprite_frames = SubResource("SpriteFrames_r7o35")
-animation = &"idle"
+animation = &"move"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -329,5 +337,45 @@ shape = SubResource("RectangleShape2D_h1pts")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(7.5, -9)
 shape = SubResource("RectangleShape2D_k08bt")
+
+[node name="StateMachine" parent="." node_paths=PackedStringArray("starting_state") instance=ExtResource("8_21soy")]
+starting_state = NodePath("fall")
+
+[node name="up" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "fall_state")]
+script = ExtResource("9_dylm3")
+idle_state = NodePath("../idle")
+fall_state = NodePath("../fall")
+
+[node name="move" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "fall_state", "up_state")]
+script = ExtResource("10_egypi")
+idle_state = NodePath("../idle")
+fall_state = NodePath("../fall")
+up_state = NodePath("../up")
+animation_name = "move"
+
+[node name="idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("move_state", "up_state", "fall_state", "attack_state")]
+script = ExtResource("11_21aor")
+move_state = NodePath("../move")
+up_state = NodePath("../up")
+fall_state = NodePath("../fall")
+attack_state = NodePath("../attack")
+animation_name = "idle"
+
+[node name="fall" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "move_state")]
+script = ExtResource("12_rbro1")
+idle_state = NodePath("../idle")
+move_state = NodePath("../move")
+animation_name = "fall"
+
+[node name="die_from_spite" type="Node" parent="StateMachine"]
+script = ExtResource("13_egypi")
+
+[node name="die_from_destination" type="Node" parent="StateMachine"]
+script = ExtResource("14_21aor")
+
+[node name="attack" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state")]
+script = ExtResource("13_cx16l")
+idle_state = NodePath("../idle")
+animation_name = "attack"
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

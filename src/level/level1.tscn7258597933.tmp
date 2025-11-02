@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://byoffs0r6m6v0"]
+[gd_scene load_steps=16 format=4 uid="uid://byoffs0r6m6v0"]
 
 [ext_resource type="Script" uid="uid://5ubyfv4fw486" path="res://src/level/level_1.gd" id="1_56b5l"]
 [ext_resource type="Texture2D" uid="uid://dq3a3p45kh35e" path="res://my_game_art/tilesets/background.png" id="1_fxhfu"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dprycjlucqgbx" path="res://src/character/player/player.tscn" id="4_kwi0t"]
 [ext_resource type="PackedScene" uid="uid://baovnmcfswix8" path="res://src/character/phantom/phantom.tscn" id="5_mix2k"]
 [ext_resource type="PackedScene" uid="uid://dwyhc8ttvcopp" path="res://src/ui/touchscreen_button.tscn" id="6_6sh32"]
+[ext_resource type="Script" uid="uid://4xoextluttcl" path="res://src/character/phantom/phantom_dev.gd" id="6_56b5l"]
 [ext_resource type="PackedScene" uid="uid://br2enabgnixnv" path="res://src/state_machine/devstate.tscn" id="6_mix2k"]
 [ext_resource type="PackedScene" uid="uid://dpf4iisrv2n6" path="res://src/special_stuff/button/button_blue.tscn" id="9_56b5l"]
 [ext_resource type="PackedScene" uid="uid://gfb1wwmxwcsf" path="res://src/special_stuff/elec_horizon/elec_horizon_for_level1.tscn" id="10_1hmhm"]
@@ -403,6 +404,17 @@ scale = Vector2(3, 3)
 tile_map_data = PackedByteArray("AAAdACAAAAAAAAQAAAAHAAgAAAABAAQAAAAIAAgAAAABAAQAAAAJAAgAAAACAAQAAAAKAAgAAAABAAQAAAAMAAgAAAABAAQAAAAOAAgAAAABAAQAAAAPAAgAAAABAAQAAAAQAAgAAAABAAQAAAAYAAgAAAABAAQAAAAgAAgAAAABAAQAAAAhAAgAAAACAAQAAAAiAAgAAAAFAAQAAAAVAAgAAAAAAAQAAAAXAAgAAAABAAQAAAAUAAgAAAABAAQAAAATAAgAAAABAAQAAAASAAgAAAABAAQAAAAWAAgAAAABAAQAAAAaAAgAAAABAAQAAAAfAAgAAAAIAAUAAAAbAAgAAAAHAAUAAAALAAgAAAABAAQAAAAGAAgAAAAAAAQAAAANAAgAAAACAAQAAAARAAgAAAACAAQAAAAZAAgAAAACAAQAAAA=")
 tile_set = SubResource("TileSet_kwi0t")
 
+[node name="Phantom" parent="." instance=ExtResource("5_mix2k")]
+position = Vector2(412, 262)
+scale = Vector2(2, 2)
+script = ExtResource("6_56b5l")
+SPEED = 350.0
+JUMP_VELOCITY = -550.0
+ACCELERATION = 2200.0
+FRICTION = 1600.0
+AIR_RESISTANCE = 120.0
+ATTACK_DURATION = 0.5
+
 [node name="Devstate" parent="." instance=ExtResource("6_mix2k")]
 
 [node name="ButtonBlue" parent="." instance=ExtResource("9_56b5l")]
@@ -451,12 +463,6 @@ scale = Vector2(20, 20)
 position = Vector2(456, 263)
 scale = Vector2(2, 2)
 
-[node name="Phantom" parent="." instance=ExtResource("5_mix2k")]
-position = Vector2(456, 263)
-scale = Vector2(2, 2)
-timeline_controler_path = NodePath("../TimelineControler")
-player_path = NodePath("../Player")
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="TouchscreenButton" parent="CanvasLayer" instance=ExtResource("6_6sh32")]
@@ -466,7 +472,8 @@ offset_bottom = 1082.0
 metadata/_edit_lock_ = true
 
 [node name="TimelineControler" parent="." instance=ExtResource("13_pv2oo")]
-player_path = NodePath("../Player")
+max_steps = 5
 
+[connection signal="test" from="Phantom" to="Player" method="_on_phantom_test"]
 [connection signal="Charactor_pess_button_blue" from="ButtonBlue" to="CurrentFloorHorizonForLevel1" method="_on_button_blue_charactor_pess_button_blue"]
 [connection signal="Charactor_pop_button_blue" from="ButtonBlue" to="CurrentFloorHorizonForLevel1" method="_on_button_blue_charactor_pop_button_blue"]

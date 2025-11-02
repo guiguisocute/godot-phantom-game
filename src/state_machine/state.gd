@@ -26,9 +26,9 @@ var animation_name: String           # 对应状态播放的动画名称，例�
 # 这样状态中可以直接使用相同的重力逻辑，无需重复写死数值。
 var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-# 保存该状态所属角色（通常是 Player）对象的引用，
+# 保存该状态所属角色（Player 或 Phantom）对象的引用，
 # 用于在状态中访问角色的属性（velocity、动画、碰撞检测等）。
-var parent: Player
+var parent: CharacterBody2D  # 🔥 改为 CharacterBody2D，支持 Player 和 Phantom
 
 
 # -----------------------------------------------------

@@ -1,6 +1,6 @@
 # 声明类名 Player，可被其他脚本识别和导入
 class_name Player
-extends CharacterBody2D  # 玩家是一个可移动的物理角色
+extends CharacterBody2D
 
 
 # 延迟绑定节点（在_ready()后才赋值）

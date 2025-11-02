@@ -24,14 +24,15 @@ signal state_changed(previous: State, current: State)
 # -----------------------------------------------------
 # === 初始化（相当于 setup / start） ===
 # -----------------------------------------------------
-# 由 Player 调用，将自身（父节点）传入状态机。
-# 每个状态都要能访问到 Player，所以这里要统一传递引用。
+# 由 Player 或 Phantom 调用，将自身（父节点）传入状态机。
+# 每个状态都要能访问到父节点，所以这里要统一传递引用。
 # -----------------------------------------------------
-func init(parent: Player) -> void:
+func init(parent: CharacterBody2D) -> void:
 	# 遍历 StateMachine 的所有子节点（通常是各个状态节点）
 	for child in get_children():
-		child.parent = parent   # 将父节点（也就是parent）Player引用赋给每个子状态
-								# 这样状态中就能访问： parent.velocity, parent.animations 等
+		# 🔥 只处理 State 类型的子节点
+		if child is State:
+			child.parent = parent   # 将父节点引用赋给每个子状态, 这样状态中就能访问： parent.velocity, parent.animations 等
 	change_state(starting_state)
 
 # 如果这个状态定义了 action_emitted 信号，就把它连接到状态机自己的回调 _on_state_action
@@ -52,7 +53,6 @@ func change_state(new_state: State) -> void:
 
 	if current_state:
 		current_state.exit()
-
 	current_state = new_state
 	current_state.enter()
 
