@@ -75,7 +75,7 @@ git clone -b dev https://github.com/guiguisocute/godot-phantom-game.git
    - **包名**：修改 `package/unique_name` 为你自己的包名（例如 `com.yourname.goldengoat`）
    - **版本**：可以修改 `version/code` 和 `version/name`
    - **架构**：默认已选择 `arm64-v8a`（适用于大多数现代Android手机）
-   - **最小SDK版本**：如果使用Gradle构建，在 `gradle_build/min_sdk` 中设置具体数值（推荐 `21` 或更高，支持Android 5.0+）
+   - **最小SDK版本**：如果使用Gradle构建，在 `gradle_build/min_sdk` 中设置具体数值（推荐设置为 21 或更高，支持Android 5.0+）
 
 ### 步骤3：导出APK
 
@@ -151,7 +151,7 @@ A: 需要在手机设置中允许安装未知来源的应用：
 
 A: 这个项目已经配置为移动端渲染模式，但如果仍然卡顿：
 - 可以尝试降低游戏分辨率，在Godot编辑器中进入 `项目` -> `项目设置` -> `显示` -> `窗口`
-- 修改 `window/size/viewport_width`（当前为1920）和 `window/size/viewport_height`（当前为1080）为更低的值，如 `1280x720` 或 `960x540`
+- 修改 `window/size/viewport_width`（当前为1920）和 `window/size/viewport_height`（当前为1080）为更低的值，例如宽度设为1280、高度设为720，或宽度设为960、高度设为540
 - 优化游戏资源和代码
 
 ### Q: 导出时提示缺少Android构建模板
