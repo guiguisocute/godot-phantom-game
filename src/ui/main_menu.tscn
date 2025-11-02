@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cgkc36k1sud16"]
+[gd_scene load_steps=8 format=3 uid="uid://cgkc36k1sud16"]
 
 [ext_resource type="Script" uid="uid://cxnela6sqdrky" path="res://src/ui/main_menu.gd" id="1_qoywa"]
-[ext_resource type="FontFile" uid="uid://cm04yb2xx484f" path="res://外部免费素材/brackeys/fonts/PixelOperator8-Bold.ttf" id="2_f0s2b"]
+[ext_resource type="AudioStream" uid="uid://cq34aa1byllv0" path="res://freeasset/brackeys/music/time_for_adventure.mp3" id="2_5mgu5"]
+[ext_resource type="FontFile" uid="uid://cm04yb2xx484f" path="res://freeasset/brackeys/fonts/PixelOperator8-Bold.ttf" id="2_f0s2b"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rtw2f"]
 bg_color = Color(1, 1, 1, 1)
@@ -21,6 +22,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_qoywa")
+bgm = ExtResource("2_5mgu5")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1

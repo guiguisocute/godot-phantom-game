@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://drb2qulgoltam"]
 
 [ext_resource type="Script" uid="uid://dpbnjygdhuby4" path="res://src/ui/Menu.gd" id="1_u3g7j"]
-[ext_resource type="FontFile" uid="uid://cn5tsqnv34853" path="res://外部免费素材/assetbundle/Uranus_Pixel_11Px.ttf" id="1_xdxe1"]
+[ext_resource type="FontFile" uid="uid://cn5tsqnv34853" path="res://freeasset/assetbundle/Uranus_Pixel_11Px.ttf" id="1_xdxe1"]
 
 [sub_resource type="Theme" id="Theme_xdxe1"]
 
