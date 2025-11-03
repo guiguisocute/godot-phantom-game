@@ -126,7 +126,6 @@ func process_physics(delta: float) -> State:
 		return attack_state
 	if parent.Player_enter_back:
 		parent.Player_enter_back = false
-		parent.scale.x *= -1	
 		return attack_state
 		
 		
