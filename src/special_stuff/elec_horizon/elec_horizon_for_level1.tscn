@@ -45,6 +45,7 @@ frame_progress = 0.35782272
 script = ExtResource("2_34a7k")
 
 [node name="Area2D" type="Area2D" parent="."]
+visible = false
 
 [node name="area_shape" type="CollisionShape2D" parent="Area2D"]
 physics_interpolation_mode = 1
@@ -54,6 +55,7 @@ debug_color = Color(0.73880976, 0.4155407, 0.57354593, 0.41960785)
 script = ExtResource("3_hun3u")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+visible = false
 physics_material_override = SubResource("PhysicsMaterial_7xro1")
 
 [node name="phy_shape" type="CollisionShape2D" parent="StaticBody2D"]

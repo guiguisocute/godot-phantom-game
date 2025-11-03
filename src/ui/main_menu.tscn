@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://cgkc36k1sud16"]
+[gd_scene load_steps=9 format=3 uid="uid://cgkc36k1sud16"]
 
 [ext_resource type="Script" uid="uid://cxnela6sqdrky" path="res://src/ui/main_menu.gd" id="1_qoywa"]
 [ext_resource type="AudioStream" uid="uid://dfp5kw2b61g0u" path="res://my_game_art/HOYO-MiX - 行星漂流 Drift.mp3" id="2_5mgu5"]
 [ext_resource type="FontFile" uid="uid://cm04yb2xx484f" path="res://freeasset/brackeys/fonts/PixelOperator8-Bold.ttf" id="2_f0s2b"]
+[ext_resource type="Texture2D" uid="uid://dq3a3p45kh35e" path="res://my_game_art/tilesets/background.png" id="3_5mgu5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rtw2f"]
 bg_color = Color(1, 1, 1, 1)
@@ -23,6 +24,10 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_qoywa")
 bgm = ExtResource("2_5mgu5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("3_5mgu5")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1

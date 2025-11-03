@@ -519,7 +519,7 @@ position = Vector2(1884, 1045)
 
 [node name="Phantom" parent="." instance=ExtResource("5_mix2k")]
 visible = true
-position = Vector2(456, 379)
+position = Vector2(541, 476)
 scale = Vector2(2, 2)
 timeline_controler_path = NodePath("../TimelineControler")
 player_path = NodePath("../Player")
