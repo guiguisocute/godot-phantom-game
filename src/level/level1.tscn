@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dq3a3p45kh35e" path="res://my_game_art/tilesets/background.png" id="1_fxhfu"]
 [ext_resource type="Script" uid="uid://5ubyfv4fw486" path="res://src/level/level_1.gd" id="1_pv2oo"]
 [ext_resource type="Texture2D" uid="uid://dgifyediet0qm" path="res://my_game_art/tilesets/0x72_16x16RobotTileset.v1.png" id="2_drb1a"]
-[ext_resource type="AudioStream" uid="uid://iyaj8oki51vg" path="res://freeasset/assetbundle/Audio/BGM.ogg" id="2_sghjx"]
+[ext_resource type="AudioStream" uid="uid://dfp5kw2b61g0u" path="res://my_game_art/HOYO-MiX - 行星漂流 Drift.mp3" id="2_sghjx"]
 [ext_resource type="PackedScene" uid="uid://dprycjlucqgbx" path="res://src/character/player/player.tscn" id="4_kwi0t"]
 [ext_resource type="PackedScene" uid="uid://baovnmcfswix8" path="res://src/character/phantom/phantom.tscn" id="5_mix2k"]
 [ext_resource type="PackedScene" uid="uid://dwyhc8ttvcopp" path="res://src/ui/touchscreen_button.tscn" id="6_6sh32"]

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dfp5kw2b61g0u"
+path="res://.godot/imported/HOYO-MiX - 行星漂流 Drift.mp3-d79d94bada1876099c18febced02e27a.mp3str"
+
+[deps]
+
+source_file="res://my_game_art/HOYO-MiX - 行星漂流 Drift.mp3"
+dest_files=["res://.godot/imported/HOYO-MiX - 行星漂流 Drift.mp3-d79d94bada1876099c18febced02e27a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://cgkc36k1sud16"]
 
 [ext_resource type="Script" uid="uid://cxnela6sqdrky" path="res://src/ui/main_menu.gd" id="1_qoywa"]
-[ext_resource type="AudioStream" uid="uid://cq34aa1byllv0" path="res://freeasset/brackeys/music/time_for_adventure.mp3" id="2_5mgu5"]
+[ext_resource type="AudioStream" uid="uid://dfp5kw2b61g0u" path="res://my_game_art/HOYO-MiX - 行星漂流 Drift.mp3" id="2_5mgu5"]
 [ext_resource type="FontFile" uid="uid://cm04yb2xx484f" path="res://freeasset/brackeys/fonts/PixelOperator8-Bold.ttf" id="2_f0s2b"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rtw2f"]
@@ -114,8 +114,8 @@ theme_override_fonts/font = ExtResource("2_f0s2b")
 theme_override_font_sizes/font_size = 60
 text = "WuWaStarRail'sDemo"
 
-[connection signal="pressed" from="VBoxContainer/startButton" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/startButton" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/startButton" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/settingButton" to="." method="_on_setting_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="VBoxContainer/exitButton" to="." method="_on_exit_button_pressed"]
