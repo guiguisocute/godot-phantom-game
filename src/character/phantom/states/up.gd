@@ -34,8 +34,7 @@ func process_physics(delta: float) -> State:	# 在这个状态下，需要你每
 		parent.Player_enter_front = false
 		return attack_state
 	if parent.Player_enter_back:
-		parent.Player_enter_back = false
-		parent.scale.x *= -1	
+		parent.Player_enter_back = false	
 		return attack_state
 		
 	
