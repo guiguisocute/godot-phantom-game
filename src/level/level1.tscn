@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://byoffs0r6m6v0"]
+[gd_scene load_steps=18 format=4 uid="uid://byoffs0r6m6v0"]
 
 [ext_resource type="Texture2D" uid="uid://dq3a3p45kh35e" path="res://my_game_art/tilesets/background.png" id="1_fxhfu"]
 [ext_resource type="Script" uid="uid://5ubyfv4fw486" path="res://src/level/level_1.gd" id="1_pv2oo"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://jdfqctc3wu6h" path="res://src/ui/death_interface.tscn" id="11_sghjx"]
 [ext_resource type="PackedScene" uid="uid://b3356a72iro70" path="res://src/special_stuff/destination/destination.tscn" id="11_x8q88"]
 [ext_resource type="PackedScene" uid="uid://cexkudlishuq5" path="res://src/timeline_controler/timeline_controler.tscn" id="13_pv2oo"]
+[ext_resource type="Script" uid="uid://dgcdojma51fnx" path="res://src/timeline_controler/timeline_ui.gd" id="15_v8ycm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kwi0t"]
 texture = ExtResource("2_drb1a")
@@ -518,19 +519,20 @@ position = Vector2(1824, 1045)
 position = Vector2(1884, 1045)
 
 [node name="Phantom" parent="." instance=ExtResource("5_mix2k")]
-visible = true
-position = Vector2(541, 476)
+position = Vector2(456, 476)
 scale = Vector2(2, 2)
 timeline_controler_path = NodePath("../TimelineControler")
 player_path = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("4_kwi0t")]
-position = Vector2(456, 479)
+position = Vector2(456, 476)
 scale = Vector2(2, 2)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 scale = Vector2(1.205, 1.205)
 transform = Transform2D(1.205, 0, 0, 1.205, 0, 0)
+script = ExtResource("15_v8ycm")
+timeline_controller_path = NodePath("../TimelineControler")
 
 [node name="TouchscreenButton" parent="CanvasLayer" instance=ExtResource("6_6sh32")]
 offset_left = 25.726143
