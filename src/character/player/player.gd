@@ -3,7 +3,10 @@ class_name Player
 extends CharacterBody2D  # 玩家是一个可移动的物理角色
 var is_dead_spike:bool = false
 var is_dead_enermy:bool = false
+var is_legal_to_jump:bool = false
 signal death
+signal character_on_ladder
+
 
 # 延迟绑定节点（在_ready()后才赋值）
 @onready var animations = $AnimatedSprite2D       # 角色动画节点
@@ -33,15 +36,13 @@ func _process(delta: float) -> void:
 	
 
 func is_legalto_up() -> bool:
-	return is_on_floor()
-
-
-func _on_spike_player_hit() -> void:
-	print_rich("[b]玩家接触尖刺信号测试[/b]")
+	return is_on_floor() and is_legal_to_jump
 	
 	
-
-
+func _on_character_in_elec_area() -> void:
+	character_on_ladder.emit()
+	
+	
 func _on_spike_character_hit() -> void:
 	is_dead_spike = true
 	death.emit()
