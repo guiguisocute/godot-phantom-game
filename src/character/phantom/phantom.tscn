@@ -313,11 +313,14 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h1pts"]
 size = Vector2(12, 42)
+size = Vector2(12, 42)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k08bt"]
 size = Vector2(1, 36)
 
 [node name="Phantom" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 3
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_xb5yk")
@@ -330,6 +333,7 @@ animation = &"move"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -11)
 position = Vector2(0, -11)
 shape = SubResource("RectangleShape2D_h1pts")
 
@@ -346,6 +350,7 @@ collision_layer = 4
 collision_mask = 3
 
 [node name="CollisionShape2DBack" type="CollisionShape2D" parent="Area2D2"]
+visibility_layer = 3
 visibility_layer = 3
 position = Vector2(-8, -9)
 shape = SubResource("RectangleShape2D_k08bt")
