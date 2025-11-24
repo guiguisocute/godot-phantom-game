@@ -19,6 +19,7 @@ config/icon="uid://d3clxr10uexfq"
 
 Game="*res://src/autoload/game.gd"
 SoundManager="*res://src/ui/sound_manager.tscn"
+SceneManager="*res://src/ui/SceneManager.gd"
 
 [display]
 

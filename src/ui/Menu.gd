@@ -4,11 +4,12 @@ extends Control
 
 func _on_next_pressed() -> void:
 	print("press start")
-	get_tree().change_scene_to_file("res://src/level/level1.tscn")
+	SceneManager.push_scene("res://src/level/level1.tscn")
 
 
 func _on_setting_pressed() -> void:
 	print("pressed setting")
+	SceneManager.push_scene("res://src/ui/setting_menu.tscn")
 
 
 func _on_exit_pressed() -> void:
@@ -17,4 +18,4 @@ func _on_exit_pressed() -> void:
 
 
 func _on_back_mainmenu_pressed() -> void:
-	get_tree().change_scene_to_file("res://src/ui/main_menu.tscn")
+	SceneManager.pop_scene()
