@@ -13,7 +13,7 @@ config_version=5
 config/name="Goldengoat"
 run/main_scene="uid://cgkc36k1sud16"
 config/features=PackedStringArray("4.5", "Mobile")
-config/icon="res://icon.svg"
+config/icon="uid://d3clxr10uexfq"
 
 [autoload]
 
