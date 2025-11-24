@@ -12,6 +12,7 @@ texture = ExtResource("1_fx2w2")
 script = ExtResource("2_mb117")
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-0.5, 4.5)

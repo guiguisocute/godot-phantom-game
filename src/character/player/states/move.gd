@@ -118,6 +118,7 @@ func process_physics(delta: float) -> State:
 		return death_spike_state
 	
 	if parent.is_dead_enermy:
+		parent.animations.play("idle")
 		return death_enermy_state
 	
 	# === 状态切换判断 ===

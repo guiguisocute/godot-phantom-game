@@ -315,6 +315,8 @@ animations = [{
 size = Vector2(15, 42)
 
 [node name="Player" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 3
 script = ExtResource("1_kgdbm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -324,7 +326,6 @@ animation = &"idle"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(0, -11)
 shape = SubResource("RectangleShape2D_xaxmc")
 
