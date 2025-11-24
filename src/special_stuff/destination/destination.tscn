@@ -35,10 +35,9 @@ frame_progress = 0.98655033
 script = ExtResource("2_tp03w")
 
 [node name="Area2D" type="Area2D" parent="."]
-visible = false
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-visible = false
 position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_5llyn")
 debug_color = Color(0.8385683, 0.26489228, 0.70473456, 0.41960785)

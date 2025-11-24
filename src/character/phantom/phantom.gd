@@ -21,6 +21,8 @@ var Player_enter_back:bool = false
 @onready var anim = $AnimatedSprite2D
 @onready var animations = $AnimatedSprite2D
 @onready var state_machine = $StateMachine
+@onready var attack_area_front = $Area2D
+@onready var attack_area_back = $Area2D2
 
 # =====================================================
 # === 移动参数（从 Player 复制） ===
@@ -41,6 +43,7 @@ var _playback_node: Node = null        # Playback 节点引用
 # =====================================================
 func _ready() -> void:
 	# 🔥 初始状态：禁用并隐藏
+
 	process_mode = Node.PROCESS_MODE_DISABLED
 	visible = false
 	print("[Phantom] 初始状态：已禁用")
@@ -76,11 +79,6 @@ func _copy_player_parameters() -> void:
 	
 	if "speed_affect" in player:
 		speed_affect = player.speed_affect
-	
-	print("[Phantom] ✅ 已从 Player 复制参数：")
-	print("  - target_move_distance: ", target_move_distance)
-	print("  - jump_speed: ", jump_speed)
-	print("  - speed_affect: ", speed_affect)
 
 ## 连接到 Playback 节点
 func _connect_to_playback() -> void:
@@ -126,7 +124,18 @@ func _on_playback_started() -> void:
 	
 	process_mode = Node.PROCESS_MODE_INHERIT
 	visible = true
-	
+	attack_area_back.monitoring = false
+	attack_area_front.monitoring = false
+	set_collision_mask_value(2, false)
+	var player = get_node_or_null(player_path)
+	while true:
+		var args = await player.state_machine.state_changed
+		var new_state = args[1]
+		if new_state.name == "idle":
+			break;
+	attack_area_back.monitoring = true
+	attack_area_front.monitoring = true
+	set_collision_mask_value(2, true)			# 为了那点1%的情况居然写了这么一大坨（126~138），真的服了……
 	# 重置状态
 	_current_command = ""
 	_command_consumed = true
@@ -134,8 +143,7 @@ func _on_playback_started() -> void:
 ## 接收 Playback 指令
 func _on_playback_command(command: String) -> void:
 	print("[Phantom] 📥 收到指令：", command)
-	print("[Phantom] 🔍 DEBUG: 当前状态 = %s" % state_machine.current_state.name)
-	print("[Phantom] 🔍 DEBUG: is_on_floor() = %s" % is_on_floor())
+	print("[Phantom] 🔍 当前状态 = %s" % state_machine.current_state.name)
 	_current_command = command
 	_command_consumed = false  # 标记为未消费
 
@@ -174,7 +182,7 @@ func has_jump_command() -> bool:
 func has_attack_command() -> bool:
 	return has_command("attack")
 
-## 获取当前移动方向（不消费指令，仅读取）
+## 获取当前移动方向
 func get_move_direction() -> int:
 	if _current_command == "right":
 		return 1
@@ -182,7 +190,7 @@ func get_move_direction() -> int:
 		return -1
 	return 0
 
-## 检查指令是否按下（持续型，用于 move 状态）
+## 检查指令是否按下
 func is_command_pressed(action: String) -> bool:
 	return _current_command == action
 
@@ -207,8 +215,6 @@ func _process(delta: float) -> void:
 # =====================================================
 # === 测试接口 ===
 # =====================================================
-func _on_spike_phantom_hit() -> void:
-	print("[Phantom] 💀 黑厄接触尖刺信号测试")
 
 #碰撞时怎么办
 func _on_area_2d_front_body_entered(body: Node2D) -> void:

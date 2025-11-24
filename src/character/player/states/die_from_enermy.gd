@@ -3,6 +3,7 @@ extends  State
 func enter() -> void:		# 进入这个状态，你应该做什么？
 	print("我要死了")
 	#Game.record_current_scene()
+	parent.velocity = Vector2(0,0)
 	await get_tree().create_timer(0.5).timeout
 	super.enter()
 	await get_tree().create_timer(0.5).timeout
