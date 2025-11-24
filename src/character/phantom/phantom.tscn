@@ -333,9 +333,17 @@ position = Vector2(-0.5, -11)
 shape = SubResource("RectangleShape2D_h1pts")
 
 [node name="Area2D" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2DFront" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(7.5, -9)
+shape = SubResource("RectangleShape2D_k08bt")
+
+[node name="Area2D2" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2DBack" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(-8, -9)
 shape = SubResource("RectangleShape2D_k08bt")
 
 [node name="StateMachine" parent="." node_paths=PackedStringArray("starting_state") instance=ExtResource("8_21soy")]
@@ -346,11 +354,12 @@ script = ExtResource("9_dylm3")
 idle_state = NodePath("../idle")
 fall_state = NodePath("../fall")
 
-[node name="move" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "fall_state", "up_state")]
+[node name="move" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "fall_state", "up_state", "attack_state")]
 script = ExtResource("10_egypi")
 idle_state = NodePath("../idle")
 fall_state = NodePath("../fall")
 up_state = NodePath("../up")
+attack_state = NodePath("../attack")
 animation_name = "move"
 
 [node name="idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("move_state", "up_state", "fall_state", "attack_state")]
@@ -378,4 +387,5 @@ script = ExtResource("13_cx16l")
 idle_state = NodePath("../idle")
 animation_name = "attack"
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_front_body_entered"]
+[connection signal="body_entered" from="Area2D2" to="." method="_on_area_2d_back_body_entered"]

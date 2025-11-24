@@ -1,9 +1,9 @@
-[gd_scene load_steps=16 format=4 uid="uid://byoffs0r6m6v0"]
+[gd_scene load_steps=17 format=4 uid="uid://byoffs0r6m6v0"]
 
 [ext_resource type="Texture2D" uid="uid://dq3a3p45kh35e" path="res://my_game_art/tilesets/background.png" id="1_fxhfu"]
 [ext_resource type="Script" uid="uid://5ubyfv4fw486" path="res://src/level/level_1.gd" id="1_pv2oo"]
 [ext_resource type="Texture2D" uid="uid://dgifyediet0qm" path="res://my_game_art/tilesets/0x72_16x16RobotTileset.v1.png" id="2_drb1a"]
-[ext_resource type="AudioStream" uid="uid://iyaj8oki51vg" path="res://freeasset/assetbundle/Audio/BGM.ogg" id="2_sghjx"]
+[ext_resource type="AudioStream" uid="uid://dfp5kw2b61g0u" path="res://my_game_art/HOYO-MiX - 行星漂流 Drift.mp3" id="2_sghjx"]
 [ext_resource type="PackedScene" uid="uid://dprycjlucqgbx" path="res://src/character/player/player.tscn" id="4_kwi0t"]
 [ext_resource type="PackedScene" uid="uid://baovnmcfswix8" path="res://src/character/phantom/phantom.tscn" id="5_mix2k"]
 [ext_resource type="PackedScene" uid="uid://dwyhc8ttvcopp" path="res://src/ui/touchscreen_button.tscn" id="6_6sh32"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dpf4iisrv2n6" path="res://src/special_stuff/button/button_blue.tscn" id="9_56b5l"]
 [ext_resource type="PackedScene" uid="uid://gfb1wwmxwcsf" path="res://src/special_stuff/elec_horizon/elec_horizon_for_level1.tscn" id="10_1hmhm"]
 [ext_resource type="PackedScene" uid="uid://ci3qp1vafrfix" path="res://src/special_stuff/spike/spike.tscn" id="11_donb7"]
+[ext_resource type="PackedScene" uid="uid://jdfqctc3wu6h" path="res://src/ui/death_interface.tscn" id="11_sghjx"]
 [ext_resource type="PackedScene" uid="uid://b3356a72iro70" path="res://src/special_stuff/destination/destination.tscn" id="11_x8q88"]
 [ext_resource type="PackedScene" uid="uid://cexkudlishuq5" path="res://src/timeline_controler/timeline_controler.tscn" id="13_pv2oo"]
 
@@ -517,13 +518,13 @@ position = Vector2(1824, 1045)
 position = Vector2(1884, 1045)
 
 [node name="Phantom" parent="." instance=ExtResource("5_mix2k")]
-position = Vector2(456, 379)
+position = Vector2(454, 479)
 scale = Vector2(2, 2)
 timeline_controler_path = NodePath("../TimelineControler")
 player_path = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("4_kwi0t")]
-position = Vector2(456, 379)
+position = Vector2(456, 479)
 scale = Vector2(2, 2)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -536,6 +537,13 @@ offset_top = -233.195
 offset_right = 1945.7262
 offset_bottom = 846.805
 metadata/_edit_lock_ = true
+
+[node name="death_interface" parent="CanvasLayer" instance=ExtResource("11_sghjx")]
+visible = false
+offset_left = -161.82571
+offset_top = -19.087135
+offset_right = -161.82571
+offset_bottom = -19.087135
 
 [node name="TimelineControler" parent="." instance=ExtResource("13_pv2oo")]
 player_path = NodePath("../Player")
@@ -576,3 +584,5 @@ player_path = NodePath("../Player")
 [connection signal="character_hit" from="Spikes/Spike30" to="Player" method="_on_spike_character_hit"]
 [connection signal="character_hit" from="Spikes/Spike31" to="Player" method="_on_spike_character_hit"]
 [connection signal="character_hit" from="Spikes/Spike32" to="Player" method="_on_spike_character_hit"]
+[connection signal="crush" from="Phantom" to="Player" method="_on_phantom_crush"]
+[connection signal="death" from="Player" to="CanvasLayer/death_interface" method="_on_player_death"]

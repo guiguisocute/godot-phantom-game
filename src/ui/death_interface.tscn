@@ -11,6 +11,10 @@ bg_color = Color(1, 1, 1, 1)
 [node name="death_interface" type="Control"]
 layout_mode = 3
 anchors_preset = 0
+offset_left = -35.0
+offset_top = -32.0
+offset_right = -35.0
+offset_bottom = -32.0
 script = ExtResource("1_hqo00")
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -34,6 +38,7 @@ text = "你死了，按R重新开始游戏"
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+mouse_filter = 2
 
 [node name="Button" type="Button" parent="Control"]
 layout_mode = 0

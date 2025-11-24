@@ -32,6 +32,14 @@ func process_physics(delta: float) -> State:
 	if parent.has_attack_command():
 		return attack_state
 	
+	
+	if parent.Player_enter_front:
+		parent.Player_enter_front = false
+		return attack_state
+	if parent.Player_enter_back:
+		parent.Player_enter_back = false
+		return attack_state
+		
 	# 如果离开地面，切换到下落状态
 	if not parent.is_on_floor():
 		return fall_state

@@ -3,7 +3,7 @@ class_name Player
 extends CharacterBody2D  # 玩家是一个可移动的物理角色
 var is_dead_spike:bool = false
 var is_dead_enermy:bool = false
-
+signal death
 
 # 延迟绑定节点（在_ready()后才赋值）
 @onready var animations = $AnimatedSprite2D       # 角色动画节点
@@ -44,31 +44,9 @@ func _on_spike_player_hit() -> void:
 
 func _on_spike_character_hit() -> void:
 	is_dead_spike = true
+	death.emit()
 
 
-func _on_spike_2_character_hit() -> void:
-	is_dead_spike = true
-
-
-func _on_spike_3_character_hit() -> void:
-	is_dead_spike = true
-
-
-func _on_spike_4_character_hit() -> void:
-	is_dead_spike = true
-	
-
-func _on_spike_5_character_hit() -> void:
-	is_dead_spike = true
-
-
-func _on_spike_6_character_hit() -> void:
-	is_dead_spike = true
-
-
-func _on_spike_7_character_hit() -> void:
-		is_dead_spike = true
-
-
-func _on_phantom_test() -> void:
+func _on_phantom_crush() -> void:
 	is_dead_enermy = true
+	death.emit()

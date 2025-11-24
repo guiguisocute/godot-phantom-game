@@ -4,6 +4,7 @@ extends State
 @export var idle_state: State
 @export var fall_state: State
 @export var up_state: State
+@export var attack_state: State
 
 # =====================================================
 # === 内部计算变量 ===
@@ -118,7 +119,16 @@ func process_physics(delta: float) -> State:
 	# 2. 离开地面 -> 进入 fall
 	if not parent.is_on_floor() and abs(parent.velocity.x) < 10:
 		return fall_state
-	
+		
+		
+	if parent.Player_enter_front:
+		parent.Player_enter_front = false
+		return attack_state
+	if parent.Player_enter_back:
+		parent.Player_enter_back = false
+		return attack_state
+		
+		
 	return null
 
 

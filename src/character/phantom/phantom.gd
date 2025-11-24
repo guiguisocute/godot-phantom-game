@@ -1,7 +1,9 @@
 # phantom.gd - 幻影角色（回放玩家操作）
 class_name Phantom
 extends CharacterBody2D
-
+signal  crush
+var Player_enter_front:bool = false
+var Player_enter_back:bool = false
 
 # =====================================================
 # === 信号定义 ===
@@ -208,15 +210,19 @@ func _process(delta: float) -> void:
 func _on_spike_phantom_hit() -> void:
 	print("[Phantom] 💀 黑厄接触尖刺信号测试")
 
-
+#碰撞时怎么办
 func _on_area_2d_front_body_entered(body: Node2D) -> void:
-	if body is Player or body is Player_dev:
-		anim.play("attack")
+	if body is Player or body is Player_dev: 
+		if anim.flip_h:
+			anim.set_flip_h(false)
+		Player_enter_front = true
+		crush.emit()
 
 	
-
-
 func _on_area_2d_back_body_entered(body: Node2D) -> void:
 	if body is Player or body is Player_dev: 
-		self.scale.x *= -1
-		anim.play("attack")
+		if !anim.flip_h:
+			anim.set_flip_h(true)
+		Player_enter_back = true
+		crush.emit()
+		
