@@ -46,6 +46,7 @@ script = ExtResource("2_34a7k")
 
 [node name="Area2D" type="Area2D" parent="."]
 visible = false
+collision_mask = 7
 
 [node name="area_shape" type="CollisionShape2D" parent="Area2D"]
 physics_interpolation_mode = 1

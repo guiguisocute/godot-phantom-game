@@ -435,11 +435,9 @@ scale = Vector2(1, 1)
 
 [node name="Phantom" parent="." instance=ExtResource("2_m7ahb")]
 position = Vector2(251, 268)
-position = Vector2(251, 268)
 scale = Vector2(2, 2)
 
 [node name="Player" parent="." instance=ExtResource("3_s4pf3")]
-position = Vector2(301, 268)
 position = Vector2(301, 268)
 scale = Vector2(2, 2)
 
