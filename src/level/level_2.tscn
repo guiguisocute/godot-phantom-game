@@ -1,14 +1,16 @@
-[gd_scene load_steps=20 format=4 uid="uid://2gn1hukw4r2o"]
+[gd_scene load_steps=21 format=4 uid="uid://2gn1hukw4r2o"]
 
-[ext_resource type="Script" uid="uid://5ubyfv4fw486" path="res://src/level/level_1.gd" id="1_0j22y"]
-[ext_resource type="AudioStream" uid="uid://dfp5kw2b61g0u" path="res://my_game_art/HOYO-MiX - 行星漂流 Drift.mp3" id="2_5vdjf"]
+[ext_resource type="Script" uid="uid://yedgku8ih7qa" path="res://src/level/level_2.gd" id="1_bboj5"]
 [ext_resource type="Texture2D" uid="uid://dq3a3p45kh35e" path="res://my_game_art/tilesets/background.png" id="3_66b86"]
 [ext_resource type="Texture2D" uid="uid://dgifyediet0qm" path="res://my_game_art/tilesets/0x72_16x16RobotTileset.v1.png" id="4_bboj5"]
 [ext_resource type="PackedScene" uid="uid://dpf4iisrv2n6" path="res://src/special_stuff/button/button_blue.tscn" id="5_2ujpt"]
 [ext_resource type="PackedScene" uid="uid://c0y3ru61e6br" path="res://src/special_stuff/button/button_orange.tscn" id="6_5vdjf"]
 [ext_resource type="PackedScene" uid="uid://gfb1wwmxwcsf" path="res://src/special_stuff/elec_horizon/elec_horizon_for_level1.tscn" id="6_tp26p"]
+[ext_resource type="Script" uid="uid://coxj0stmajvn7" path="res://src/special_stuff/button/button_orange.gd" id="7_bboj5"]
 [ext_resource type="PackedScene" uid="uid://b3356a72iro70" path="res://src/special_stuff/destination/destination.tscn" id="7_ysjgs"]
+[ext_resource type="PackedScene" uid="uid://b6gcmd0ttsc6p" path="res://src/special_stuff/elec_horizon/elec_horizon_for_level2.tscn" id="8_66b86"]
 [ext_resource type="PackedScene" uid="uid://ci3qp1vafrfix" path="res://src/special_stuff/spike/spike.tscn" id="8_ca64c"]
+[ext_resource type="Script" uid="uid://bke21s0xhmoxr" path="res://src/special_stuff/elec_horizon/elec_horizon_for_level_2_blue.gd" id="9_2ujpt"]
 [ext_resource type="PackedScene" uid="uid://baovnmcfswix8" path="res://src/character/phantom/phantom.tscn" id="9_57oj7"]
 [ext_resource type="PackedScene" uid="uid://dprycjlucqgbx" path="res://src/character/player/player.tscn" id="10_8vkhf"]
 [ext_resource type="Script" uid="uid://dgcdojma51fnx" path="res://src/timeline_controler/timeline_ui.gd" id="11_q01y7"]
@@ -57,6 +59,7 @@ texture = ExtResource("4_bboj5")
 6:5/0 = 0
 6:6/0 = 0
 6:7/0 = 0
+6:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 6:9/0 = 0
 6:10/0 = 0
 6:11/0 = 0
@@ -238,6 +241,7 @@ texture = ExtResource("4_bboj5")
 5:5/0 = 0
 5:6/0 = 0
 5:7/0 = 0
+5:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 5:8/0 = 0
 5:10/0 = 0
 5:11/0 = 0
@@ -394,11 +398,8 @@ texture = ExtResource("4_bboj5")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_kwi0t")
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_5vdjf"]
-
 [node name="Level2" type="Node2D"]
-script = ExtResource("1_0j22y")
-bgm = ExtResource("2_5vdjf")
+script = ExtResource("1_bboj5")
 
 [node name="blackground" type="Sprite2D" parent="."]
 position = Vector2(964, 542)
@@ -408,28 +409,29 @@ metadata/_edit_lock_ = true
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(0, 152)
 scale = Vector2(3, 3)
-tile_map_data = PackedByteArray("AAAIAAEAAAAAAAQAAAAOAAEAAAABAAQAAAAPAAEAAAACAAQAAAAHAAEAAAACAAQAAAAQAAEAAAABAAQAAAARAAEAAAABAAQAAAASAAEAAAABAAQAAAATAAEAAAACAAQAAAAUAAEAAAABAAQAAAAVAAEAAAABAAQAAAAWAAEAAAABAAQAAAAaAAYAAAABAAQAAAAcAAYAAAAFAAQAAAAbAAYAAAACAAQAAAAZAAYAAAABAAQAAAAYAAYAAAABAAQAAAAXAAYAAAACAAQAAAAZAAEAAAAHAAUAAAAdAAEAAAAIAAUAAAAYAAEAAAABAAQAAAAWAAYAAAABAAQAAAAVAAYAAAABAAQAAAAUAAYAAAABAAQAAAATAAYAAAACAAQAAAASAAYAAAAAAAQAAAAJAAEAAAAFAAcAAAANAAEAAAAGAAcAAAA=")
+tile_map_data = PackedByteArray("AAAKAAYAAAAAAAQAAAALAAYAAAACAAQAAAAMAAYAAAABAAQAAAANAAEAAAAFAAcAAAANAAYAAAABAAQAAAARAAEAAAAGAAcAAAARAAYAAAAFAAQAAAARAAsAAAAAAAQAAAASAAEAAAABAAQAAAASAAsAAAABAAQAAAATAAEAAAACAAQAAAAUAAEAAAABAAQAAAAUAAsAAAABAAQAAAAVAAEAAAABAAQAAAAVAAYAAAAAAAQAAAAVAAsAAAABAAQAAAAWAAEAAAABAAQAAAAWAAYAAAABAAQAAAAWAAsAAAABAAQAAAAXAAYAAAACAAQAAAAXAAsAAAACAAQAAAAYAAEAAAABAAQAAAAYAAYAAAABAAQAAAAYAAsAAAABAAQAAAAZAAEAAAABAAQAAAAZAAYAAAABAAQAAAAZAAsAAAABAAQAAAAaAAYAAAABAAQAAAAbAAYAAAACAAQAAAAcAAYAAAABAAQAAAAdAAEAAAAHAAUAAAAKAAEAAAAAAAQAAAALAAEAAAACAAQAAAAMAAEAAAABAAQAAAAOAAYAAAABAAQAAAAPAAYAAAACAAQAAAAQAAYAAAABAAQAAAAXAAEAAAACAAQAAAAaAAEAAAABAAQAAAAaAAsAAAABAAQAAAAbAAsAAAACAAQAAAAcAAEAAAABAAQAAAAcAAsAAAABAAQAAAAdAAYAAAABAAQAAAAdAAsAAAAFAAQAAAAeAAYAAAABAAQAAAAfAAYAAAACAAQAAAAgAAYAAAAFAAQAAAAhAAEAAAAIAAUAAAAHAAsAAAACAAQAAAAGAAsAAAAAAAQAAAAIAAsAAAAFAAQAAAAPABAAAAACAAQAAAAOABAAAAAAAAQAAAAQABAAAAAFAAQAAAAbABAAAAACAAQAAAAaABAAAAAAAAQAAAAcABAAAAABAAQAAAAdABAAAAABAAQAAAAeABAAAAABAAQAAAAfABAAAAACAAQAAAAgABAAAAABAAQAAAAhABAAAAABAAQAAAAjABAAAAACAAQAAAAiABAAAAABAAQAAAAkABAAAAAFAAQAAAA=")
 tile_set = SubResource("TileSet_kwi0t")
 
 [node name="ButtonBlue" parent="." instance=ExtResource("5_2ujpt")]
-position = Vector2(961, 9)
+position = Vector2(939, 680)
 scale = Vector2(3, 3)
 
 [node name="ButtonOrange" parent="." instance=ExtResource("6_5vdjf")]
-position = Vector2(1128, 206.00002)
+position = Vector2(1320, 206)
 scale = Vector2(3, 3)
+script = ExtResource("7_bboj5")
 
-[node name="CurrentFloorHorizonForLevel1" parent="." instance=ExtResource("6_tp26p")]
-position = Vector2(1321, 224)
+[node name="BlueElectrcity" parent="." instance=ExtResource("6_tp26p")]
+position = Vector2(1514.0001, 224.00002)
 scale = Vector2(2.2812493, 3)
+script = ExtResource("9_2ujpt")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(1321, 224)
-scale = Vector2(2.2812493, 3)
-sprite_frames = SubResource("SpriteFrames_5vdjf")
+[node name="OrangeElectricity" parent="." instance=ExtResource("8_66b86")]
+position = Vector2(745, 214.745)
+scale = Vector2(2.3833334, 2.5625)
 
 [node name="Destination" parent="." instance=ExtResource("7_ysjgs")]
-position = Vector2(936.00006, 392.00003)
+position = Vector2(1127, 392.00003)
 scale = Vector2(3, 3)
 
 [node name="Spikes" type="Node2D" parent="."]
@@ -531,13 +533,13 @@ position = Vector2(1824, 1045)
 position = Vector2(1884, 1045)
 
 [node name="Phantom" parent="." instance=ExtResource("9_57oj7")]
-position = Vector2(354, 161)
+position = Vector2(1127, 179)
 scale = Vector2(2, 2)
 timeline_controler_path = NodePath("../TimelineControler")
 player_path = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("10_8vkhf")]
-position = Vector2(354, 160)
+position = Vector2(1127, 179)
 scale = Vector2(2, 2)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -562,9 +564,14 @@ offset_bottom = -19.087135
 
 [node name="TimelineControler" parent="." instance=ExtResource("14_n2c1g")]
 player_path = NodePath("../Player")
+max_steps = 7
 
 [node name="Devstate" parent="." instance=ExtResource("15_4qybn")]
 
+[connection signal="Charactor_pess_button_blue" from="ButtonBlue" to="BlueElectrcity" method="_on_button_blue_charactor_pess_button_blue"]
+[connection signal="Charactor_pop_button_blue" from="ButtonBlue" to="BlueElectrcity" method="_on_button_blue_charactor_pop_button_blue"]
+[connection signal="Charactor_pess_button_orange" from="ButtonOrange" to="OrangeElectricity" method="_on_button_orange_charactor_pess_button_orange"]
+[connection signal="Charactor_pop_button_orange" from="ButtonOrange" to="OrangeElectricity" method="_on_button_orange_charactor_pop_button_orange"]
 [connection signal="character_hit" from="Spikes/Spike" to="Player" method="_on_spike_character_hit"]
 [connection signal="character_hit" from="Spikes/Spike2" to="Player" method="_on_spike_character_hit"]
 [connection signal="character_hit" from="Spikes/Spike3" to="Player" method="_on_spike_character_hit"]

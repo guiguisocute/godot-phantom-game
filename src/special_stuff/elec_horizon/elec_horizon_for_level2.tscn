@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://b6gcmd0ttsc6p"]
 
 [ext_resource type="Texture2D" uid="uid://d0qolbpyswdv1" path="res://my_game_art/tilesets/橙色电流.png" id="1_wowne"]
-[ext_resource type="Script" uid="uid://ffnq8hk41lug" path="res://src/special_stuff/elec_horizon/elec_horizon_for_level_1.gd" id="2_3gxbe"]
+[ext_resource type="Script" uid="uid://cm148uclr04xm" path="res://src/special_stuff/elec_horizon/elec_horizon_for_level_2.gd" id="2_wowne"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3gxbe"]
 atlas = ExtResource("1_wowne")
@@ -54,8 +54,8 @@ size = Vector2(60, 11.5)
 [node name="CurrentFloorHorizonForLevel1" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_7qr6m")
 autoplay = "default"
-frame_progress = 0.6747786
-script = ExtResource("2_3gxbe")
+frame_progress = 0.8151481
+script = ExtResource("2_wowne")
 
 [node name="Area2D" type="Area2D" parent="."]
 
