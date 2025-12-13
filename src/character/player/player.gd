@@ -4,6 +4,7 @@ extends CharacterBody2D  # 玩家是一个可移动的物理角色
 var is_dead_spike:bool = false
 var is_dead_enermy:bool = false
 var is_legal_to_jump:bool = false
+var is_legal_to_down:bool = false  # 新增：是否允许快速下落（需要特殊条件）
 signal death
 signal character_on_ladder
 
@@ -37,6 +38,10 @@ func _process(delta: float) -> void:
 
 func is_legalto_up() -> bool:
 	return is_on_floor() and is_legal_to_jump
+
+## 检查是否允许快速下落（需要在特殊区域，如梯子顶部、可穿透平台等）
+func is_legalto_down() -> bool:
+	return is_legal_to_down  # 由外部区域（如梯子 Area2D）设置
 	
 	
 func _on_character_in_elec_area() -> void:

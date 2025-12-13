@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://dprycjlucqgbx"]
+[gd_scene load_steps=56 format=3 uid="uid://dprycjlucqgbx"]
 
 [ext_resource type="Script" uid="uid://d227x8pa3c1ul" path="res://src/character/player/player.gd" id="1_kgdbm"]
 [ext_resource type="Texture2D" uid="uid://dsskdd8p1ghtu" path="res://my_game_art/handsomeCharactorSprite/8. fall.png" id="2_f5cfi"]
@@ -15,6 +15,7 @@
 [ext_resource type="Script" uid="uid://bbacv4cxknl0s" path="res://src/character/player/states/die_from_enermy.gd" id="8_faa7f"]
 [ext_resource type="Script" uid="uid://c4no2mskkycm4" path="res://src/character/player/states/die_from_spite.gd" id="9_q4g54"]
 [ext_resource type="Script" uid="uid://b2lafpeiqwls2" path="res://src/character/player/states/attack.gd" id="15_kgdbm"]
+[ext_resource type="Script" uid="uid://1o7s2fyar6wi" path="res://src/character/player/down.gd" id="16_wpuif"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q4g54"]
 atlas = ExtResource("2_q4g54")
@@ -381,3 +382,6 @@ idle_state = NodePath("../idle")
 death_spike_state = NodePath("../die_from_spike")
 death_enermy_state = NodePath("../die_from_enermy")
 animation_name = "attack"
+
+[node name="down" type="Node" parent="StateMachine"]
+script = ExtResource("16_wpuif")

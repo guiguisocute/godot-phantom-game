@@ -94,7 +94,7 @@ func _on_player_state_changed(previous: State, current: State) -> void:
 	print("[Playback] 🔍 DEBUG: _current_step_index = %d" % _current_step_index)
 	
 	# 🔥 只在玩家从 idle 切换到其他状态时发送指令
-	if prev_name == "idle" and curr_name != "idle" and curr_name != "die_from_enermy":
+	if prev_name == "idle" and curr_name == "move" and curr_name != "die_from_enermy":
 		print("[Playback] 🔍 DEBUG: 检测到从 idle 跳出，发送指令")
 		_send_next_command()
 	else:

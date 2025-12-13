@@ -105,7 +105,7 @@ func _on_state_changed(previous: State, current: State) -> void:
 	print("[Recorder] 状态切换：", prev_name, " → ", curr_name)
 	
 	# 从 idle 切换到其他状态 → 记录导致切换的输入
-	if prev_name == "idle" and curr_name != "idle":
+	if prev_name == "idle" and curr_name == "move":
 		print("[Recorder] 从 idle 跳出")
 		_record_step()
 	# 切换回 idle → 检查是否达到步数限制
