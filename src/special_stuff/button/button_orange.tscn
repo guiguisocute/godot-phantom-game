@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://c0y3ru61e6br"]
 
-[ext_resource type="Script" uid="uid://2r7d1ragpads" path="res://src/special_stuff/button/button_blue.gd" id="2_1gjhy"]
 [ext_resource type="Texture2D" uid="uid://pkok55jvpxk" path="res://my_game_art/tilesets/orange——button.png" id="2_dyd1y"]
+[ext_resource type="Script" uid="uid://coxj0stmajvn7" path="res://src/special_stuff/button/button_orange.gd" id="2_xnnrp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xnnrp"]
 atlas = ExtResource("2_dyd1y")
@@ -66,7 +66,7 @@ scale = Vector2(0.9375, 1)
 sprite_frames = SubResource("SpriteFrames_w0sbf")
 animation = &"press"
 autoplay = "default"
-script = ExtResource("2_1gjhy")
+script = ExtResource("2_xnnrp")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_mask = 7

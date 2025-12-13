@@ -1,30 +1,30 @@
 [gd_scene load_steps=7 format=3 uid="uid://4ii1q5l2n58m"]
 
-[ext_resource type="Texture2D" uid="uid://dqqxchmbwwoka" path="res://my_game_art/tilesets/t2(包含电流).png" id="1_j4efi"]
+[ext_resource type="Texture2D" uid="uid://bmif2cnj7upi4" path="res://my_game_art/tilesets/蓝橙绿电流.png" id="1_j4efi"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7xro1"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_d1u8s"]
 atlas = ExtResource("1_j4efi")
-region = Rect2(9, 376, 64, 16)
+region = Rect2(483, 0, 16, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_34a7k"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_2aot5"]
 atlas = ExtResource("1_j4efi")
-region = Rect2(137, 376, 64, 16)
+region = Rect2(483, 32, 16, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hun3u"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_c8lbt"]
 atlas = ExtResource("1_j4efi")
-region = Rect2(265, 376, 64, 16)
+region = Rect2(483, 64, 16, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7qr6m"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_7xro1")
+"texture": SubResource("AtlasTexture_d1u8s")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_34a7k")
+"texture": SubResource("AtlasTexture_2aot5")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_hun3u")
+"texture": SubResource("AtlasTexture_c8lbt")
 }],
 "loop": true,
 "name": &"default",
@@ -32,17 +32,19 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j4efi"]
-size = Vector2(64, 6.000003)
+size = Vector2(32.12332, 6.0381002)
 
 [node name="ladder_for_lev1" type="AnimatedSprite2D"]
-rotation = 1.5707964
+position = Vector2(-0.06142426, 0.061422344)
+scale = Vector2(1.0076778, 0.996161)
 sprite_frames = SubResource("SpriteFrames_7qr6m")
 autoplay = "default"
-frame_progress = 0.9019493
+frame_progress = 0.9205868
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(5.2108035e-15, 1.1920929e-07)
+position = Vector2(0.019048799, -0.061659053)
+rotation = 1.5707964
 shape = SubResource("RectangleShape2D_j4efi")
 debug_color = Color(0.8601708, 0.00068345666, 0.8766454, 0.41960785)

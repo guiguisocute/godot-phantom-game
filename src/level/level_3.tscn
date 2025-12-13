@@ -1,10 +1,11 @@
-[gd_scene load_steps=20 format=4 uid="uid://ldkybybu7f45"]
+[gd_scene load_steps=21 format=4 uid="uid://ldkybybu7f45"]
 
 [ext_resource type="Script" uid="uid://5ubyfv4fw486" path="res://src/level/level_1.gd" id="1_g0tlw"]
 [ext_resource type="AudioStream" uid="uid://dfp5kw2b61g0u" path="res://my_game_art/HOYO-MiX - 行星漂流 Drift.mp3" id="2_keufu"]
 [ext_resource type="Texture2D" uid="uid://dq3a3p45kh35e" path="res://my_game_art/tilesets/background.png" id="3_joegk"]
 [ext_resource type="Texture2D" uid="uid://dgifyediet0qm" path="res://my_game_art/tilesets/0x72_16x16RobotTileset.v1.png" id="4_m8gss"]
 [ext_resource type="PackedScene" uid="uid://dpf4iisrv2n6" path="res://src/special_stuff/button/button_blue.tscn" id="5_wnq0t"]
+[ext_resource type="PackedScene" uid="uid://4ii1q5l2n58m" path="res://src/special_stuff/elec_upright(ladder)/ladder_for_lev1.tscn" id="5_wt5hq"]
 [ext_resource type="PackedScene" uid="uid://gfb1wwmxwcsf" path="res://src/special_stuff/elec_horizon/elec_horizon_for_level1.tscn" id="6_ra6nl"]
 [ext_resource type="PackedScene" uid="uid://b3356a72iro70" path="res://src/special_stuff/destination/destination.tscn" id="7_gxey3"]
 [ext_resource type="PackedScene" uid="uid://ci3qp1vafrfix" path="res://src/special_stuff/spike/spike.tscn" id="8_4hpui"]
@@ -57,6 +58,7 @@ texture = ExtResource("4_m8gss")
 6:4/0 = 0
 6:5/0 = 0
 6:6/0 = 0
+6:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 6:7/0 = 0
 6:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 6:9/0 = 0
@@ -69,6 +71,7 @@ texture = ExtResource("4_m8gss")
 7:5/0 = 0
 7:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 7:6/0 = 0
+7:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 7:7/0 = 0
 7:8/0 = 0
 7:9/0 = 0
@@ -239,6 +242,7 @@ texture = ExtResource("4_m8gss")
 4:13/0 = 0
 5:5/0 = 0
 5:6/0 = 0
+5:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 5:7/0 = 0
 5:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 5:8/0 = 0
@@ -409,38 +413,46 @@ metadata/_edit_lock_ = true
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(0, 152)
 scale = Vector2(3, 3)
-tile_map_data = PackedByteArray("AAAFAAQAAAACAAQAAAAGAAQAAAABAAQAAAAHAAQAAAAFAAcAAAAOAAQAAAAGAAcAAAAQAAQAAAABAAQAAAARAAQAAAACAAQAAAASAAQAAAABAAQAAAATAAQAAAABAAQAAAAUAAQAAAABAAQAAAAVAAQAAAACAAQAAAAVAAkAAAACAAQAAAAWAAQAAAABAAQAAAAXAAQAAAABAAQAAAAYAAQAAAABAAQAAAAZAAQAAAACAAQAAAAaAAQAAAAFAAQAAAADAAQAAAAAAAQAAAAEAAQAAAABAAQAAAALAAQAAAAGAAcAAAAMAAQAAAAFAAcAAAAOAAkAAAABAAQAAAAPAAQAAAABAAQAAAATAAkAAAAGAAcAAAAUAAkAAAABAAQAAAAWAAkAAAABAAQAAAAXAAkAAAABAAQAAAAaAAkAAAAGAAcAAAAYAAkAAAAFAAcAAAAbAAkAAAABAAQAAAAcAAkAAAABAAQAAAAdAAkAAAACAAQAAAAeAAkAAAAFAAQAAAANAA4AAAACAAQAAAAOAA4AAAABAAQAAAAPAA4AAAABAAQAAAAQAA4AAAABAAQAAAASAA4AAAABAAQAAAATAA4AAAABAAQAAAAUAA4AAAABAAQAAAARAA4AAAACAAQAAAAVAA4AAAACAAQAAAAMAA4AAAABAAQAAAALAA4AAAABAAQAAAAKAA4AAAABAAQAAAAIAA4AAAABAAQAAAAHAA4AAAABAAQAAAAGAA4AAAABAAQAAAAEAA4AAAABAAQAAAADAA4AAAAAAAQAAAAFAA4AAAACAAQAAAAJAA4AAAACAAQAAAAWAA4AAAABAAQAAAAXAA4AAAABAAQAAAAYAA4AAAABAAQAAAAaAA4AAAABAAQAAAAbAA4AAAABAAQAAAAcAA4AAAABAAQAAAAeAA4AAAABAAQAAAAfAA4AAAAHAAUAAAAjAA4AAAAIAAUAAAAkAA4AAAABAAQAAAAlAA4AAAACAAQAAAAmAA4AAAAFAAQAAAAPAAkAAAAFAAcAAAA=")
+tile_map_data = PackedByteArray("AAAFAAQAAAACAAQAAAAGAAQAAAABAAQAAAAHAAQAAAAFAAcAAAAOAAQAAAAGAAYAAAAQAAQAAAABAAQAAAARAAQAAAACAAQAAAASAAQAAAABAAQAAAATAAQAAAABAAQAAAAUAAQAAAABAAQAAAAVAAQAAAACAAQAAAAVAAkAAAACAAQAAAAWAAQAAAABAAQAAAAXAAQAAAABAAQAAAAYAAQAAAABAAQAAAAZAAQAAAACAAQAAAAaAAQAAAAFAAQAAAADAAQAAAAAAAQAAAAEAAQAAAABAAQAAAALAAQAAAAGAAcAAAAMAAQAAAAFAAYAAAAOAAkAAAABAAQAAAAPAAQAAAABAAQAAAATAAkAAAAGAAcAAAAUAAkAAAABAAQAAAAWAAkAAAABAAQAAAAXAAkAAAABAAQAAAAaAAkAAAAGAAYAAAAYAAkAAAAFAAYAAAAbAAkAAAABAAQAAAAcAAkAAAABAAQAAAAdAAkAAAACAAQAAAAeAAkAAAAFAAQAAAANAA4AAAACAAQAAAAOAA4AAAABAAQAAAAPAA4AAAABAAQAAAAQAA4AAAABAAQAAAASAA4AAAABAAQAAAATAA4AAAABAAQAAAAUAA4AAAABAAQAAAARAA4AAAACAAQAAAAVAA4AAAACAAQAAAAMAA4AAAABAAQAAAALAA4AAAABAAQAAAAKAA4AAAABAAQAAAAIAA4AAAABAAQAAAAHAA4AAAABAAQAAAAGAA4AAAABAAQAAAAEAA4AAAABAAQAAAADAA4AAAAAAAQAAAAFAA4AAAACAAQAAAAJAA4AAAACAAQAAAAWAA4AAAABAAQAAAAXAA4AAAABAAQAAAAYAA4AAAABAAQAAAAaAA4AAAABAAQAAAAbAA4AAAABAAQAAAAcAA4AAAABAAQAAAAeAA4AAAABAAQAAAAfAA4AAAAHAAUAAAAjAA4AAAAIAAUAAAAkAA4AAAABAAQAAAAlAA4AAAACAAQAAAAmAA4AAAAFAAQAAAAPAAkAAAAFAAcAAAA=")
 tile_set = SubResource("TileSet_kwi0t")
 
-[node name="ButtonBlue" parent="." instance=ExtResource("5_wnq0t")]
-position = Vector2(1416, 824)
-scale = Vector2(3, 3)
+[node name="ladder" type="Node2D" parent="."]
 
-[node name="ButtonOrange2" parent="." instance=ExtResource("16_keufu")]
+[node name="ladder_for_lev1" parent="ladder" instance=ExtResource("5_wt5hq")]
+position = Vector2(648, 465.5)
+scale = Vector2(7.8749995, 7.4687476)
+
+[node name="ladder_for_lev2" parent="ladder" instance=ExtResource("5_wt5hq")]
+position = Vector2(1224, 705)
+scale = Vector2(7.8749995, 7.4687476)
+
+[node name="CurrentFloorHorizonForLevel4" parent="ladder" instance=ExtResource("17_joegk")]
+position = Vector2(456, 359)
+scale = Vector2(2.4101253, 3)
+
+[node name="CurrentFloorHorizonForLevel3" parent="ladder" instance=ExtResource("17_joegk")]
+position = Vector2(840, 599)
+scale = Vector2(2.3999999, 3)
+
+[node name="CurrentFloorHorizonForLevel1" parent="ladder" instance=ExtResource("6_ra6nl")]
+position = Vector2(1608, 848.4)
+scale = Vector2(2.2812493, 3)
+
+[node name="button" type="Node2D" parent="."]
+
+[node name="ButtonOrange2" parent="button" instance=ExtResource("16_keufu")]
 position = Vector2(1224, 824)
 scale = Vector2(3, 3)
 animation = &"default"
 
-[node name="ButtonOrange" parent="." instance=ExtResource("16_keufu")]
+[node name="ButtonBlue" parent="button" instance=ExtResource("5_wnq0t")]
+position = Vector2(1416, 824)
+scale = Vector2(3, 3)
+
+[node name="ButtonOrange" parent="button" instance=ExtResource("16_keufu")]
 position = Vector2(648, 584)
 scale = Vector2(3, 3)
 animation = &"default"
-
-[node name="CurrentFloorHorizonForLevel2" parent="." instance=ExtResource("17_joegk")]
-position = Vector2(456, 359)
-scale = Vector2(2.4101253, 3)
-
-[node name="CurrentFloorHorizonForLevel3" parent="." instance=ExtResource("17_joegk")]
-position = Vector2(840, 599)
-scale = Vector2(2.3999999, 3)
-
-[node name="CurrentFloorHorizonForLevel1" parent="." instance=ExtResource("6_ra6nl")]
-position = Vector2(1608, 848.4)
-scale = Vector2(2.2812493, 3)
-
-[node name="Destination" parent="." instance=ExtResource("7_gxey3")]
-position = Vector2(1800, 776)
-scale = Vector2(3, 3)
 
 [node name="Spikes" type="Node2D" parent="."]
 
@@ -540,6 +552,10 @@ position = Vector2(1824, 1045)
 [node name="Spike32" parent="Spikes" instance=ExtResource("8_4hpui")]
 position = Vector2(1884, 1045)
 
+[node name="Destination" parent="." instance=ExtResource("7_gxey3")]
+position = Vector2(1800, 776)
+scale = Vector2(3, 3)
+
 [node name="Phantom" parent="." instance=ExtResource("9_g005c")]
 position = Vector2(263, 260)
 scale = Vector2(2, 2)
@@ -572,11 +588,20 @@ offset_bottom = -19.087135
 
 [node name="TimelineControler" parent="." instance=ExtResource("14_cqw4t")]
 player_path = NodePath("../Player")
+max_steps = 6
 
 [node name="Devstate" parent="." instance=ExtResource("15_tndmk")]
 
-[connection signal="Charactor_pess_button_blue" from="ButtonBlue" to="CurrentFloorHorizonForLevel1" method="_on_button_blue_charactor_pess_button_blue"]
-[connection signal="Charactor_pop_button_blue" from="ButtonBlue" to="CurrentFloorHorizonForLevel1" method="_on_button_blue_charactor_pop_button_blue"]
+[connection signal="Charactor_pess_button_orange" from="button/ButtonOrange2" to="ladder/CurrentFloorHorizonForLevel4" method="_on_button_orange_2_charactor_pess_button_orange"]
+[connection signal="Charactor_pess_button_orange" from="button/ButtonOrange2" to="ladder/CurrentFloorHorizonForLevel3" method="_on_button_orange_2_charactor_pess_button_orange"]
+[connection signal="Charactor_pop_button_orange" from="button/ButtonOrange2" to="ladder/CurrentFloorHorizonForLevel4" method="_on_button_orange_2_charactor_pop_button_orange"]
+[connection signal="Charactor_pop_button_orange" from="button/ButtonOrange2" to="ladder/CurrentFloorHorizonForLevel3" method="_on_button_orange_2_charactor_pop_button_orange"]
+[connection signal="Charactor_pess_button_blue" from="button/ButtonBlue" to="ladder/CurrentFloorHorizonForLevel1" method="_on_button_blue_charactor_pess_button_blue"]
+[connection signal="Charactor_pop_button_blue" from="button/ButtonBlue" to="ladder/CurrentFloorHorizonForLevel1" method="_on_button_blue_charactor_pop_button_blue"]
+[connection signal="Charactor_pess_button_orange" from="button/ButtonOrange" to="ladder/CurrentFloorHorizonForLevel4" method="_on_button_orange_charactor_pess_button_orange"]
+[connection signal="Charactor_pess_button_orange" from="button/ButtonOrange" to="ladder/CurrentFloorHorizonForLevel3" method="_on_button_orange_charactor_pess_button_orange"]
+[connection signal="Charactor_pop_button_orange" from="button/ButtonOrange" to="ladder/CurrentFloorHorizonForLevel4" method="_on_button_orange_charactor_pop_button_orange"]
+[connection signal="Charactor_pop_button_orange" from="button/ButtonOrange" to="ladder/CurrentFloorHorizonForLevel3" method="_on_button_orange_charactor_pop_button_orange"]
 [connection signal="character_hit" from="Spikes/Spike" to="Player" method="_on_spike_character_hit"]
 [connection signal="character_hit" from="Spikes/Spike2" to="Player" method="_on_spike_character_hit"]
 [connection signal="character_hit" from="Spikes/Spike3" to="Player" method="_on_spike_character_hit"]

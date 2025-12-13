@@ -1,27 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://b6gcmd0ttsc6p"]
+[gd_scene load_steps=11 format=3 uid="uid://b6gcmd0ttsc6p"]
 
 [ext_resource type="Texture2D" uid="uid://d0qolbpyswdv1" path="res://my_game_art/tilesets/橙色电流.png" id="1_wowne"]
+[ext_resource type="Script" uid="uid://c1xhdob55gsis" path="res://src/special_stuff/elec_horizon/elec_horizon_for_level_3.gd" id="2_x5tp8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3gxbe"]
 atlas = ExtResource("1_wowne")
 region = Rect2(0, 396, 60, 16)
-region = Rect2(0, 396, 60, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qw1fw"]
 atlas = ExtResource("1_wowne")
-region = Rect2(60, 396, 60, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_t50nu"]
-atlas = ExtResource("1_wowne")
-region = Rect2(120, 396, 60, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bg1sy"]
-atlas = ExtResource("1_wowne")
-region = Rect2(180, 396, 60, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_om3rj"]
-atlas = ExtResource("1_wowne")
-region = Rect2(240, 396, 60, 16)
 region = Rect2(60, 396, 60, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t50nu"]
@@ -77,6 +64,7 @@ size = Vector2(60, 10)
 sprite_frames = SubResource("SpriteFrames_7qr6m")
 autoplay = "default"
 frame_progress = 0.39774105
+script = ExtResource("2_x5tp8")
 
 [node name="Area2D" type="Area2D" parent="."]
 
