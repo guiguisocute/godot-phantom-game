@@ -1,5 +1,5 @@
 extends AnimatedSprite2D
-signal Charactor_pass_elect
+signal Charactor_pass_elect_blue
 
 
 
@@ -16,19 +16,20 @@ signal Charactor_pass_elect
 
 func _ready() -> void:
 	self.process_mode = Node.PROCESS_MODE_DISABLED
-	self.set_visible(false)
+	self.set_visible(true)
+	self.process_mode = Node.PROCESS_MODE_INHERIT
 	
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is Player or body is Phantom or body is Phantom_dev or body is Player_dev:
 		print_rich("[color=blue]💡 %s 正在通过蓝色水平电流！[/color]" % body.name)
-		Charactor_pass_elect.emit()
+		Charactor_pass_elect_blue.emit()
 
 
 func _on_button_blue_charactor_pess_button_blue() -> void:
-	self.set_visible(true)
-	self.process_mode = Node.PROCESS_MODE_INHERIT
+	self.set_visible(false)
+	self.process_mode = Node.PROCESS_MODE_DISABLED
 
 func _on_button_blue_charactor_pop_button_blue() -> void:
-	self.process_mode = Node.PROCESS_MODE_DISABLED
-	self.set_visible(false)
+	self.process_mode = Node.PROCESS_MODE_INHERIT
+	self.set_visible(true)

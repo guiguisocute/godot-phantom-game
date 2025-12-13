@@ -1,30 +1,25 @@
-[gd_scene load_steps=11 format=3 uid="uid://c0y3ru61e6br"]
+[gd_scene load_steps=9 format=3 uid="uid://c0y3ru61e6br"]
 
-[ext_resource type="Texture2D" uid="uid://dqqxchmbwwoka" path="res://my_game_art/tilesets/t2(包含电流).png" id="1_xnnrp"]
 [ext_resource type="Script" uid="uid://2r7d1ragpads" path="res://src/special_stuff/button/button_blue.gd" id="2_1gjhy"]
 [ext_resource type="Texture2D" uid="uid://pkok55jvpxk" path="res://my_game_art/tilesets/orange——button.png" id="2_dyd1y"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nwwn1"]
-atlas = ExtResource("1_xnnrp")
-region = Rect2(0, 326, 16, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8448i"]
 atlas = ExtResource("2_dyd1y")
 region = Rect2(0, 328, 16, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2tm0i"]
-atlas = ExtResource("2_dyd1y")
-region = Rect2(35, 328, 16, 32)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_na20b"]
 atlas = ExtResource("2_dyd1y")
 region = Rect2(70, 328, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2tm0i"]
+atlas = ExtResource("2_dyd1y")
+region = Rect2(35, 328, 16, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_w0sbf"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_nwwn1")
+"texture": SubResource("AtlasTexture_8448i")
 }],
 "loop": true,
 "name": &"default",
@@ -32,13 +27,13 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_8448i")
+"texture": SubResource("AtlasTexture_na20b")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_2tm0i")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_na20b")
+"texture": SubResource("AtlasTexture_8448i")
 }],
 "loop": false,
 "name": &"popup",
@@ -46,13 +41,13 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_na20b")
+"texture": SubResource("AtlasTexture_8448i")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_2tm0i")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_8448i")
+"texture": SubResource("AtlasTexture_na20b")
 }],
 "loop": false,
 "name": &"press",
@@ -67,10 +62,7 @@ size = Vector2(16, 16)
 
 [node name="ButtonOrange" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_w0sbf")
-animation = &"popup"
 autoplay = "default"
-frame = 2
-frame_progress = 1.0
 script = ExtResource("2_1gjhy")
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -85,7 +77,7 @@ debug_color = Color(0.7642436, 0.33431834, 0.7651363, 0.41960785)
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="phy_shape" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(0, 8)
+position = Vector2(0, 6)
 shape = SubResource("RectangleShape2D_v8sw4")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

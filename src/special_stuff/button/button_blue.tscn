@@ -62,7 +62,7 @@ size = Vector2(16, 16)
 
 [node name="ButtonBlue" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_w0sbf")
-animation = &"popup"
+animation = &"press"
 autoplay = "default"
 script = ExtResource("2_nwwn1")
 
