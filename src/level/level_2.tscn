@@ -1,6 +1,7 @@
-[gd_scene load_steps=21 format=4 uid="uid://2gn1hukw4r2o"]
+[gd_scene load_steps=22 format=4 uid="uid://2gn1hukw4r2o"]
 
 [ext_resource type="Script" uid="uid://yedgku8ih7qa" path="res://src/level/level_2.gd" id="1_bboj5"]
+[ext_resource type="AudioStream" uid="uid://dfp5kw2b61g0u" path="res://my_game_art/HOYO-MiX - 行星漂流 Drift.mp3" id="2_2ujpt"]
 [ext_resource type="Texture2D" uid="uid://dq3a3p45kh35e" path="res://my_game_art/tilesets/background.png" id="3_66b86"]
 [ext_resource type="Texture2D" uid="uid://dgifyediet0qm" path="res://my_game_art/tilesets/0x72_16x16RobotTileset.v1.png" id="4_bboj5"]
 [ext_resource type="PackedScene" uid="uid://dpf4iisrv2n6" path="res://src/special_stuff/button/button_blue.tscn" id="5_2ujpt"]
@@ -400,6 +401,7 @@ sources/0 = SubResource("TileSetAtlasSource_kwi0t")
 
 [node name="Level2" type="Node2D"]
 script = ExtResource("1_bboj5")
+bgm = ExtResource("2_2ujpt")
 
 [node name="blackground" type="Sprite2D" parent="."]
 position = Vector2(964, 542)
