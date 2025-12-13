@@ -5,9 +5,23 @@
 [sub_resource type="AtlasTexture" id="AtlasTexture_3gxbe"]
 atlas = ExtResource("1_wowne")
 region = Rect2(0, 396, 60, 16)
+region = Rect2(0, 396, 60, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qw1fw"]
 atlas = ExtResource("1_wowne")
+region = Rect2(60, 396, 60, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t50nu"]
+atlas = ExtResource("1_wowne")
+region = Rect2(120, 396, 60, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bg1sy"]
+atlas = ExtResource("1_wowne")
+region = Rect2(180, 396, 60, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_om3rj"]
+atlas = ExtResource("1_wowne")
+region = Rect2(240, 396, 60, 16)
 region = Rect2(60, 396, 60, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t50nu"]
@@ -30,6 +44,15 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_qw1fw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t50nu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bg1sy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_om3rj")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_t50nu")
