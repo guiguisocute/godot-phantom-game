@@ -67,8 +67,10 @@ autoplay = "default"
 script = ExtResource("2_nwwn1")
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visibility_layer = 7
 position = Vector2(0, -9)
 shape = SubResource("RectangleShape2D_vmk5v")
 debug_color = Color(0.7642436, 0.33431834, 0.7651363, 0.41960785)

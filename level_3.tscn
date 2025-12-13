@@ -1,23 +1,24 @@
-[gd_scene load_steps=18 format=4 uid="uid://byoffs0r6m6v0"]
+[gd_scene load_steps=19 format=4 uid="uid://ldkybybu7f45"]
 
-[ext_resource type="Texture2D" uid="uid://dq3a3p45kh35e" path="res://my_game_art/tilesets/background.png" id="1_fxhfu"]
-[ext_resource type="Script" uid="uid://5ubyfv4fw486" path="res://src/level/level_1.gd" id="1_pv2oo"]
-[ext_resource type="Texture2D" uid="uid://dgifyediet0qm" path="res://my_game_art/tilesets/0x72_16x16RobotTileset.v1.png" id="2_drb1a"]
-[ext_resource type="AudioStream" uid="uid://dfp5kw2b61g0u" path="res://my_game_art/HOYO-MiX - 行星漂流 Drift.mp3" id="2_sghjx"]
-[ext_resource type="PackedScene" uid="uid://dprycjlucqgbx" path="res://src/character/player/player.tscn" id="4_kwi0t"]
-[ext_resource type="PackedScene" uid="uid://baovnmcfswix8" path="res://src/character/phantom/phantom.tscn" id="5_mix2k"]
-[ext_resource type="PackedScene" uid="uid://dwyhc8ttvcopp" path="res://src/ui/touchscreen_button.tscn" id="6_6sh32"]
-[ext_resource type="PackedScene" uid="uid://br2enabgnixnv" path="res://src/state_machine/devstate.tscn" id="6_mix2k"]
-[ext_resource type="PackedScene" uid="uid://dpf4iisrv2n6" path="res://src/special_stuff/button/button_blue.tscn" id="9_56b5l"]
-[ext_resource type="PackedScene" uid="uid://gfb1wwmxwcsf" path="res://src/special_stuff/elec_horizon/elec_horizon_for_level1.tscn" id="10_1hmhm"]
-[ext_resource type="PackedScene" uid="uid://ci3qp1vafrfix" path="res://src/special_stuff/spike/spike.tscn" id="11_donb7"]
-[ext_resource type="PackedScene" uid="uid://jdfqctc3wu6h" path="res://src/ui/death_interface.tscn" id="11_sghjx"]
-[ext_resource type="PackedScene" uid="uid://b3356a72iro70" path="res://src/special_stuff/destination/destination.tscn" id="11_x8q88"]
-[ext_resource type="PackedScene" uid="uid://cexkudlishuq5" path="res://src/timeline_controler/timeline_controler.tscn" id="13_pv2oo"]
-[ext_resource type="Script" uid="uid://dgcdojma51fnx" path="res://src/timeline_controler/timeline_ui.gd" id="15_v8ycm"]
+[ext_resource type="Script" uid="uid://5ubyfv4fw486" path="res://src/level/level_1.gd" id="1_g0tlw"]
+[ext_resource type="AudioStream" uid="uid://dfp5kw2b61g0u" path="res://my_game_art/HOYO-MiX - 行星漂流 Drift.mp3" id="2_keufu"]
+[ext_resource type="Texture2D" uid="uid://dq3a3p45kh35e" path="res://my_game_art/tilesets/background.png" id="3_joegk"]
+[ext_resource type="Texture2D" uid="uid://dgifyediet0qm" path="res://my_game_art/tilesets/0x72_16x16RobotTileset.v1.png" id="4_m8gss"]
+[ext_resource type="PackedScene" uid="uid://dpf4iisrv2n6" path="res://src/special_stuff/button/button_blue.tscn" id="5_wnq0t"]
+[ext_resource type="PackedScene" uid="uid://gfb1wwmxwcsf" path="res://src/special_stuff/elec_horizon/elec_horizon_for_level1.tscn" id="6_ra6nl"]
+[ext_resource type="PackedScene" uid="uid://b3356a72iro70" path="res://src/special_stuff/destination/destination.tscn" id="7_gxey3"]
+[ext_resource type="PackedScene" uid="uid://ci3qp1vafrfix" path="res://src/special_stuff/spike/spike.tscn" id="8_4hpui"]
+[ext_resource type="PackedScene" uid="uid://baovnmcfswix8" path="res://src/character/phantom/phantom.tscn" id="9_g005c"]
+[ext_resource type="PackedScene" uid="uid://dprycjlucqgbx" path="res://src/character/player/player.tscn" id="10_dhf26"]
+[ext_resource type="Script" uid="uid://dgcdojma51fnx" path="res://src/timeline_controler/timeline_ui.gd" id="11_ox7xt"]
+[ext_resource type="PackedScene" uid="uid://dwyhc8ttvcopp" path="res://src/ui/touchscreen_button.tscn" id="12_v4n82"]
+[ext_resource type="PackedScene" uid="uid://jdfqctc3wu6h" path="res://src/ui/death_interface.tscn" id="13_fo8ya"]
+[ext_resource type="PackedScene" uid="uid://cexkudlishuq5" path="res://src/timeline_controler/timeline_controler.tscn" id="14_cqw4t"]
+[ext_resource type="PackedScene" uid="uid://br2enabgnixnv" path="res://src/state_machine/devstate.tscn" id="15_tndmk"]
+[ext_resource type="PackedScene" uid="uid://c0y3ru61e6br" path="res://src/special_stuff/button/button_orange.tscn" id="16_keufu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kwi0t"]
-texture = ExtResource("2_drb1a")
+texture = ExtResource("4_m8gss")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -393,167 +394,173 @@ texture = ExtResource("2_drb1a")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_kwi0t")
 
-[node name="Level1" type="Node2D"]
-script = ExtResource("1_pv2oo")
-bgm = ExtResource("2_sghjx")
+[node name="Level3" type="Node2D"]
+script = ExtResource("1_g0tlw")
+bgm = ExtResource("2_keufu")
 
 [node name="blackground" type="Sprite2D" parent="."]
 position = Vector2(964, 542)
-texture = ExtResource("1_fxhfu")
+texture = ExtResource("3_joegk")
 metadata/_edit_lock_ = true
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(0, 152)
 scale = Vector2(3, 3)
-tile_map_data = PackedByteArray("AAAHAAgAAAABAAQAAAAIAAgAAAABAAQAAAAJAAgAAAACAAQAAAAKAAgAAAABAAQAAAAMAAgAAAABAAQAAAAOAAgAAAABAAQAAAAPAAgAAAABAAQAAAAQAAgAAAABAAQAAAAYAAgAAAABAAQAAAAgAAgAAAABAAQAAAAhAAgAAAACAAQAAAAiAAgAAAAFAAQAAAAVAAgAAAAAAAQAAAAXAAgAAAABAAQAAAAUAAgAAAABAAQAAAATAAgAAAABAAQAAAASAAgAAAABAAQAAAAWAAgAAAABAAQAAAAaAAgAAAABAAQAAAAfAAgAAAAIAAUAAAAbAAgAAAAHAAUAAAALAAgAAAABAAQAAAAGAAgAAAAAAAQAAAANAAgAAAACAAQAAAARAAgAAAACAAQAAAAZAAgAAAACAAQAAAA=")
+tile_map_data = PackedByteArray("AAAFAAQAAAACAAQAAAAGAAQAAAABAAQAAAAHAAQAAAAFAAcAAAAOAAQAAAAGAAcAAAAQAAQAAAABAAQAAAARAAQAAAACAAQAAAASAAQAAAABAAQAAAATAAQAAAABAAQAAAAUAAQAAAABAAQAAAAVAAQAAAACAAQAAAAVAAkAAAACAAQAAAAWAAQAAAABAAQAAAAXAAQAAAABAAQAAAAYAAQAAAABAAQAAAAZAAQAAAACAAQAAAAaAAQAAAAFAAQAAAADAAQAAAAAAAQAAAAEAAQAAAABAAQAAAALAAQAAAAGAAcAAAAMAAQAAAAFAAcAAAAOAAkAAAABAAQAAAAPAAQAAAABAAQAAAAPAAkAAAAFAAcAAAATAAkAAAAGAAcAAAAUAAkAAAABAAQAAAAWAAkAAAABAAQAAAAXAAkAAAABAAQAAAAaAAkAAAAGAAcAAAAYAAkAAAAFAAcAAAAbAAkAAAABAAQAAAAcAAkAAAABAAQAAAAdAAkAAAACAAQAAAAeAAkAAAAFAAQAAAANAA4AAAACAAQAAAAOAA4AAAABAAQAAAAPAA4AAAABAAQAAAAQAA4AAAABAAQAAAASAA4AAAABAAQAAAATAA4AAAABAAQAAAAUAA4AAAABAAQAAAARAA4AAAACAAQAAAAVAA4AAAACAAQAAAAMAA4AAAABAAQAAAALAA4AAAABAAQAAAAKAA4AAAABAAQAAAAIAA4AAAABAAQAAAAHAA4AAAABAAQAAAAGAA4AAAABAAQAAAAEAA4AAAABAAQAAAADAA4AAAAAAAQAAAAFAA4AAAACAAQAAAAJAA4AAAACAAQAAAAWAA4AAAABAAQAAAAXAA4AAAABAAQAAAAYAA4AAAABAAQAAAAaAA4AAAABAAQAAAAbAA4AAAABAAQAAAAcAA4AAAABAAQAAAAeAA4AAAABAAQAAAAfAA4AAAAHAAUAAAAjAA4AAAAIAAUAAAAkAA4AAAABAAQAAAAlAA4AAAACAAQAAAAmAA4AAAAFAAQAAAA=")
 tile_set = SubResource("TileSet_kwi0t")
 
-[node name="ButtonBlue" parent="." instance=ExtResource("9_56b5l")]
-position = Vector2(1032, 537)
+[node name="ButtonBlue" parent="." instance=ExtResource("5_wnq0t")]
+position = Vector2(1416, 824)
 scale = Vector2(3, 3)
 
-[node name="CurrentFloorHorizonForLevel1" parent="." instance=ExtResource("10_1hmhm")]
-position = Vector2(1416, 559.99994)
+[node name="ButtonOrange" parent="." instance=ExtResource("16_keufu")]
+position = Vector2(649, 590)
+scale = Vector2(3, 3)
+
+[node name="CurrentFloorHorizonForLevel1" parent="." instance=ExtResource("6_ra6nl")]
+position = Vector2(1608, 848.4)
 scale = Vector2(2.2812493, 3)
 
-[node name="Destination" parent="." instance=ExtResource("11_x8q88")]
-position = Vector2(1608, 487)
+[node name="Destination" parent="." instance=ExtResource("7_gxey3")]
+position = Vector2(1800, 778)
 scale = Vector2(3, 3)
 
 [node name="Spikes" type="Node2D" parent="."]
 
-[node name="Spike" parent="Spikes" instance=ExtResource("11_donb7")]
+[node name="Spike" parent="Spikes" instance=ExtResource("8_4hpui")]
 position = Vector2(32, 1045)
 
-[node name="Spike2" parent="Spikes" instance=ExtResource("11_donb7")]
+[node name="Spike2" parent="Spikes" instance=ExtResource("8_4hpui")]
 position = Vector2(92, 1045)
 
-[node name="Spike3" parent="Spikes" instance=ExtResource("11_donb7")]
+[node name="Spike3" parent="Spikes" instance=ExtResource("8_4hpui")]
 position = Vector2(151, 1045)
 
-[node name="Spike4" parent="Spikes" instance=ExtResource("11_donb7")]
+[node name="Spike4" parent="Spikes" instance=ExtResource("8_4hpui")]
 position = Vector2(211, 1045)
 
-[node name="Spike5" parent="Spikes" instance=ExtResource("11_donb7")]
+[node name="Spike5" parent="Spikes" instance=ExtResource("8_4hpui")]
 position = Vector2(270, 1045)
 
-[node name="Spike6" parent="Spikes" instance=ExtResource("11_donb7")]
+[node name="Spike6" parent="Spikes" instance=ExtResource("8_4hpui")]
 position = Vector2(330, 1045)
 
-[node name="Spike7" parent="Spikes" instance=ExtResource("11_donb7")]
+[node name="Spike7" parent="Spikes" instance=ExtResource("8_4hpui")]
 position = Vector2(389, 1045)
 
-[node name="Spike8" parent="Spikes" instance=ExtResource("11_donb7")]
+[node name="Spike8" parent="Spikes" instance=ExtResource("8_4hpui")]
 position = Vector2(449, 1045)
 
-[node name="Spike9" parent="Spikes" instance=ExtResource("11_donb7")]
+[node name="Spike9" parent="Spikes" instance=ExtResource("8_4hpui")]
 position = Vector2(509, 1045)
 
-[node name="Spike10" parent="Spikes" instance=ExtResource("11_donb7")]
+[node name="Spike10" parent="Spikes" instance=ExtResource("8_4hpui")]
 position = Vector2(569, 1045)
 
-[node name="Spike11" parent="Spikes" instance=ExtResource("11_donb7")]
+[node name="Spike11" parent="Spikes" instance=ExtResource("8_4hpui")]
 position = Vector2(628, 1045)
 
-[node name="Spike12" parent="Spikes" instance=ExtResource("11_donb7")]
+[node name="Spike12" parent="Spikes" instance=ExtResource("8_4hpui")]
 position = Vector2(688, 1045)
 
-[node name="Spike13" parent="Spikes" instance=ExtResource("11_donb7")]
+[node name="Spike13" parent="Spikes" instance=ExtResource("8_4hpui")]
 position = Vector2(747, 1045)
 
-[node name="Spike14" parent="Spikes" instance=ExtResource("11_donb7")]
+[node name="Spike14" parent="Spikes" instance=ExtResource("8_4hpui")]
 position = Vector2(807, 1045)
 
-[node name="Spike15" parent="Spikes" instance=ExtResource("11_donb7")]
+[node name="Spike15" parent="Spikes" instance=ExtResource("8_4hpui")]
 position = Vector2(866, 1045)
 
-[node name="Spike16" parent="Spikes" instance=ExtResource("11_donb7")]
+[node name="Spike16" parent="Spikes" instance=ExtResource("8_4hpui")]
 position = Vector2(926, 1045)
 
-[node name="Spike17" parent="Spikes" instance=ExtResource("11_donb7")]
+[node name="Spike17" parent="Spikes" instance=ExtResource("8_4hpui")]
 position = Vector2(990, 1045)
 
-[node name="Spike18" parent="Spikes" instance=ExtResource("11_donb7")]
+[node name="Spike18" parent="Spikes" instance=ExtResource("8_4hpui")]
 position = Vector2(1050, 1045)
 
-[node name="Spike19" parent="Spikes" instance=ExtResource("11_donb7")]
+[node name="Spike19" parent="Spikes" instance=ExtResource("8_4hpui")]
 position = Vector2(1109, 1045)
 
-[node name="Spike20" parent="Spikes" instance=ExtResource("11_donb7")]
+[node name="Spike20" parent="Spikes" instance=ExtResource("8_4hpui")]
 position = Vector2(1169, 1045)
 
-[node name="Spike21" parent="Spikes" instance=ExtResource("11_donb7")]
+[node name="Spike21" parent="Spikes" instance=ExtResource("8_4hpui")]
 position = Vector2(1228, 1045)
 
-[node name="Spike22" parent="Spikes" instance=ExtResource("11_donb7")]
+[node name="Spike22" parent="Spikes" instance=ExtResource("8_4hpui")]
 position = Vector2(1288, 1045)
 
-[node name="Spike23" parent="Spikes" instance=ExtResource("11_donb7")]
+[node name="Spike23" parent="Spikes" instance=ExtResource("8_4hpui")]
 position = Vector2(1347, 1045)
 
-[node name="Spike24" parent="Spikes" instance=ExtResource("11_donb7")]
+[node name="Spike24" parent="Spikes" instance=ExtResource("8_4hpui")]
 position = Vector2(1407, 1045)
 
-[node name="Spike25" parent="Spikes" instance=ExtResource("11_donb7")]
+[node name="Spike25" parent="Spikes" instance=ExtResource("8_4hpui")]
 position = Vector2(1467, 1045)
 
-[node name="Spike26" parent="Spikes" instance=ExtResource("11_donb7")]
+[node name="Spike26" parent="Spikes" instance=ExtResource("8_4hpui")]
 position = Vector2(1527, 1045)
 
-[node name="Spike27" parent="Spikes" instance=ExtResource("11_donb7")]
+[node name="Spike27" parent="Spikes" instance=ExtResource("8_4hpui")]
 position = Vector2(1586, 1045)
 
-[node name="Spike28" parent="Spikes" instance=ExtResource("11_donb7")]
+[node name="Spike28" parent="Spikes" instance=ExtResource("8_4hpui")]
 position = Vector2(1646, 1045)
 
-[node name="Spike29" parent="Spikes" instance=ExtResource("11_donb7")]
+[node name="Spike29" parent="Spikes" instance=ExtResource("8_4hpui")]
 position = Vector2(1705, 1045)
 
-[node name="Spike30" parent="Spikes" instance=ExtResource("11_donb7")]
+[node name="Spike30" parent="Spikes" instance=ExtResource("8_4hpui")]
 position = Vector2(1765, 1045)
 
-[node name="Spike31" parent="Spikes" instance=ExtResource("11_donb7")]
+[node name="Spike31" parent="Spikes" instance=ExtResource("8_4hpui")]
 position = Vector2(1824, 1045)
 
-[node name="Spike32" parent="Spikes" instance=ExtResource("11_donb7")]
+[node name="Spike32" parent="Spikes" instance=ExtResource("8_4hpui")]
 position = Vector2(1884, 1045)
 
-[node name="Phantom" parent="." instance=ExtResource("5_mix2k")]
-position = Vector2(456, 476)
+[node name="Phantom" parent="." instance=ExtResource("9_g005c")]
+position = Vector2(644, 293)
 scale = Vector2(2, 2)
-collision_layer = 4
 timeline_controler_path = NodePath("../TimelineControler")
 player_path = NodePath("../Player")
 
-[node name="Player" parent="." instance=ExtResource("4_kwi0t")]
-position = Vector2(456, 476)
+[node name="Player" parent="." instance=ExtResource("10_dhf26")]
+position = Vector2(644, 293)
 scale = Vector2(2, 2)
-collision_layer = 2
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 scale = Vector2(1.205, 1.205)
 transform = Transform2D(1.205, 0, 0, 1.205, 0, 0)
-script = ExtResource("15_v8ycm")
+script = ExtResource("11_ox7xt")
 timeline_controller_path = NodePath("../TimelineControler")
 
-[node name="TouchscreenButton" parent="CanvasLayer" instance=ExtResource("6_6sh32")]
+[node name="TouchscreenButton" parent="CanvasLayer" instance=ExtResource("12_v4n82")]
 offset_left = 25.726143
 offset_top = -233.195
 offset_right = 1945.7262
 offset_bottom = 846.805
 metadata/_edit_lock_ = true
 
-[node name="death_interface" parent="CanvasLayer" instance=ExtResource("11_sghjx")]
+[node name="death_interface" parent="CanvasLayer" instance=ExtResource("13_fo8ya")]
 visible = false
 offset_left = -161.82571
 offset_top = -19.087135
 offset_right = -161.82571
 offset_bottom = -19.087135
 
-[node name="TimelineControler" parent="." instance=ExtResource("13_pv2oo")]
+[node name="TimelineControler" parent="." instance=ExtResource("14_cqw4t")]
 player_path = NodePath("../Player")
 
-[node name="Devstate" parent="." instance=ExtResource("6_mix2k")]
+[node name="Devstate" parent="." instance=ExtResource("15_tndmk")]
+
+[node name="ButtonOrange2" parent="." instance=ExtResource("16_keufu")]
+position = Vector2(1224, 830)
+scale = Vector2(3, 3)
 
 [connection signal="Charactor_pess_button_blue" from="ButtonBlue" to="CurrentFloorHorizonForLevel1" method="_on_button_blue_charactor_pess_button_blue"]
 [connection signal="Charactor_pop_button_blue" from="ButtonBlue" to="CurrentFloorHorizonForLevel1" method="_on_button_blue_charactor_pop_button_blue"]
