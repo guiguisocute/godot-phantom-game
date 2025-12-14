@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://baovnmcfswix8"]
+[gd_scene load_steps=57 format=3 uid="uid://baovnmcfswix8"]
 
 [ext_resource type="Script" uid="uid://gre6sixmi5xx" path="res://src/character/phantom/phantom.gd" id="1_xb5yk"]
 [ext_resource type="Texture2D" uid="uid://dsskdd8p1ghtu" path="res://my_game_art/handsomeCharactorSprite/8. fall.png" id="2_ij5iq"]
@@ -15,6 +15,7 @@
 [ext_resource type="Script" uid="uid://qioe8jy4nxvk" path="res://src/character/phantom/states/attack.gd" id="13_cx16l"]
 [ext_resource type="Script" uid="uid://cdnx5ma0g00en" path="res://src/character/phantom/die_from_spite.gd" id="13_egypi"]
 [ext_resource type="Script" uid="uid://dnip1b0uh04so" path="res://src/character/phantom/die_from_destination.gd" id="14_21aor"]
+[ext_resource type="Script" uid="uid://1o7s2fyar6wi" path="res://src/character/player/down.gd" id="16_21aor"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q4g54"]
 atlas = ExtResource("2_k08bt")
@@ -311,18 +312,17 @@ animations = [{
 "speed": 12.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_h1pts"]
-size = Vector2(12, 42)
-size = Vector2(12, 42)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_egypi"]
+radius = 8.0
+height = 44.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k08bt"]
 size = Vector2(1, 36)
 
 [node name="Phantom" type="CharacterBody2D"]
 collision_layer = 4
-collision_mask = 3
-collision_layer = 4
-collision_mask = 3
+collision_mask = 19
+safe_margin = 0.1
 script = ExtResource("1_xb5yk")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -333,16 +333,15 @@ animation = &"move"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -11)
-position = Vector2(0, -11)
-shape = SubResource("RectangleShape2D_h1pts")
+position = Vector2(0, -10)
+shape = SubResource("CapsuleShape2D_egypi")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 4
 collision_mask = 3
 
 [node name="CollisionShape2DFront" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(7.5, -9)
+position = Vector2(9, -9)
 shape = SubResource("RectangleShape2D_k08bt")
 
 [node name="Area2D2" type="Area2D" parent="."]
@@ -351,17 +350,17 @@ collision_mask = 3
 
 [node name="CollisionShape2DBack" type="CollisionShape2D" parent="Area2D2"]
 visibility_layer = 3
-visibility_layer = 3
-position = Vector2(-8, -9)
+position = Vector2(-9, -9)
 shape = SubResource("RectangleShape2D_k08bt")
 
 [node name="StateMachine" parent="." node_paths=PackedStringArray("starting_state") instance=ExtResource("8_21soy")]
 starting_state = NodePath("fall")
 
-[node name="up" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "fall_state")]
+[node name="up" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "fall_state", "attack_state")]
 script = ExtResource("9_dylm3")
 idle_state = NodePath("../idle")
 fall_state = NodePath("../fall")
+attack_state = NodePath("../attack")
 
 [node name="move" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "fall_state", "up_state", "attack_state")]
 script = ExtResource("10_egypi")
@@ -396,5 +395,12 @@ script = ExtResource("13_cx16l")
 idle_state = NodePath("../idle")
 animation_name = "attack"
 
+[node name="down" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "death_spike_state")]
+script = ExtResource("16_21aor")
+idle_state = NodePath("../idle")
+death_spike_state = NodePath("../die_from_spite")
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_front_body_entered"]
 [connection signal="body_entered" from="Area2D2" to="." method="_on_area_2d_back_body_entered"]
+[connection signal="state_change_up" from="StateMachine/up" to="." method="_on_up_state_change_up"]
+[connection signal="state_change_down" from="StateMachine/down" to="." method="_on_down_state_change_down"]

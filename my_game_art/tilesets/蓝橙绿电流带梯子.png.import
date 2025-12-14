@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bmif2cnj7upi4"
-path="res://.godot/imported/蓝橙绿电流.png-7bb2b2e1f1ee89d3d1203e70437198df.ctex"
+uid="uid://rljay2eegipe"
+path="res://.godot/imported/蓝橙绿电流带梯子.png-470c91f73ba317a7f8bf1819c6e26f1a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://my_game_art/tilesets/蓝橙绿电流.png"
-dest_files=["res://.godot/imported/蓝橙绿电流.png-7bb2b2e1f1ee89d3d1203e70437198df.ctex"]
+source_file="res://my_game_art/tilesets/蓝橙绿电流带梯子.png"
+dest_files=["res://.godot/imported/蓝橙绿电流带梯子.png-470c91f73ba317a7f8bf1819c6e26f1a.ctex"]
 
 [params]
 

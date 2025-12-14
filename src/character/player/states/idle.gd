@@ -15,7 +15,7 @@ func process_input(event: InputEvent) -> State:
 		return up_state
 	
 	# 检测快速下落输入（需要特殊条件：在梯子上或特定区域）
-	if Input.is_action_just_pressed('goat_down') and parent.is_legal_to_down():
+	if Input.is_action_just_pressed('goat_down') and parent.is_legalto_down():
 		return down_state
 	
 	# 检测水平移动输入

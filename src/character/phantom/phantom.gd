@@ -2,6 +2,9 @@
 class_name Phantom
 extends CharacterBody2D
 signal  crush
+signal Phantom_state_change_down
+signal Phantom_state_change_up
+
 var Player_enter_front:bool = false
 var Player_enter_back:bool = false
 
@@ -233,3 +236,11 @@ func _on_area_2d_back_body_entered(body: Node2D) -> void:
 		Player_enter_back = true
 		crush.emit()
 		
+
+
+func _on_down_state_change_down() -> void:
+	Phantom_state_change_down.emit()
+
+
+func _on_up_state_change_up() -> void:
+	Phantom_state_change_up.emit()
