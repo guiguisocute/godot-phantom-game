@@ -7,6 +7,8 @@ signal Phantom_state_change_up
 
 var Player_enter_front:bool = false
 var Player_enter_back:bool = false
+var is_legal_to_jump:bool = false
+var is_legal_to_down:bool = false  
 
 # =====================================================
 # === 信号定义 ===
@@ -186,6 +188,10 @@ func has_jump_command() -> bool:
 func has_attack_command() -> bool:
 	return has_command("attack")
 
+## 检查下落指令
+func has_down_command() -> bool:
+	return has_command("down")
+
 ## 获取当前移动方向
 func get_move_direction() -> int:
 	if _current_command == "right":
@@ -203,7 +209,10 @@ func is_command_pressed(action: String) -> bool:
 # =====================================================
 ## 检查是否可以跳跃
 func is_legalto_up() -> bool:
-	return is_on_floor()
+	return is_on_floor() and is_legal_to_jump
+
+func is_legalto_down() -> bool:
+	return is_legal_to_down
 
 # =====================================================
 # === 物理处理（驱动状态机） ===

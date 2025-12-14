@@ -421,6 +421,10 @@ tile_set = SubResource("TileSet_kwi0t")
 position = Vector2(649, 353)
 scale = Vector2(2.43, 2.43)
 
+[node name="ladder_for_lev2" parent="." instance=ExtResource("5_wt5hq")]
+position = Vector2(1224, 706)
+scale = Vector2(2.874999, 1.7428573)
+
 [node name="ladder_for_lev1" parent="." instance=ExtResource("5_wt5hq")]
 position = Vector2(648, 463.99997)
 scale = Vector2(2.999999, 1.7178572)
@@ -590,6 +594,7 @@ offset_bottom = -19.087135
 
 [node name="TimelineControler" parent="." instance=ExtResource("14_cqw4t")]
 player_path = NodePath("../Player")
+max_steps = 7
 
 [node name="Devstate" parent="." instance=ExtResource("15_tndmk")]
 
@@ -636,8 +641,12 @@ player_path = NodePath("../Player")
 [connection signal="character_hit" from="Spikes/Spike31" to="Player" method="_on_spike_character_hit"]
 [connection signal="character_hit" from="Spikes/Spike32" to="Player" method="_on_spike_character_hit"]
 [connection signal="Phantom_state_change_down" from="Phantom" to="ladder_for_lev1" method="_on_phantom_phantom_state_change_down"]
+[connection signal="Phantom_state_change_down" from="Phantom" to="ladder_for_lev2" method="_on_phantom_phantom_state_change_down"]
 [connection signal="Phantom_state_change_up" from="Phantom" to="ladder_for_lev1" method="_on_phantom_phantom_state_change_up"]
+[connection signal="Phantom_state_change_up" from="Phantom" to="ladder_for_lev2" method="_on_phantom_phantom_state_change_up"]
 [connection signal="crush" from="Phantom" to="Player" method="_on_phantom_crush"]
 [connection signal="Player_state_change_down" from="Player" to="ladder_for_lev1" method="_on_player_player_state_change_down"]
+[connection signal="Player_state_change_down" from="Player" to="ladder_for_lev2" method="_on_player_player_state_change_down"]
 [connection signal="Player_state_change_up" from="Player" to="ladder_for_lev1" method="_on_player_player_state_change_up"]
+[connection signal="Player_state_change_up" from="Player" to="ladder_for_lev2" method="_on_player_player_state_change_up"]
 [connection signal="death" from="Player" to="CanvasLayer/death_interface" method="_on_player_death"]

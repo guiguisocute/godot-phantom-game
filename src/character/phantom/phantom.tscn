@@ -15,7 +15,7 @@
 [ext_resource type="Script" uid="uid://qioe8jy4nxvk" path="res://src/character/phantom/states/attack.gd" id="13_cx16l"]
 [ext_resource type="Script" uid="uid://cdnx5ma0g00en" path="res://src/character/phantom/die_from_spite.gd" id="13_egypi"]
 [ext_resource type="Script" uid="uid://dnip1b0uh04so" path="res://src/character/phantom/die_from_destination.gd" id="14_21aor"]
-[ext_resource type="Script" uid="uid://1o7s2fyar6wi" path="res://src/character/player/down.gd" id="16_21aor"]
+[ext_resource type="Script" uid="uid://criy1e88e8hqf" path="res://src/character/phantom/states/down.gd" id="16_21aor"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q4g54"]
 atlas = ExtResource("2_k08bt")
@@ -370,10 +370,11 @@ up_state = NodePath("../up")
 attack_state = NodePath("../attack")
 animation_name = "move"
 
-[node name="idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("move_state", "up_state", "fall_state", "attack_state")]
+[node name="idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("move_state", "up_state", "down_state", "fall_state", "attack_state")]
 script = ExtResource("11_21aor")
 move_state = NodePath("../move")
 up_state = NodePath("../up")
+down_state = NodePath("../down")
 fall_state = NodePath("../fall")
 attack_state = NodePath("../attack")
 animation_name = "idle"

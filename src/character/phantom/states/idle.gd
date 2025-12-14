@@ -4,11 +4,11 @@ extends State
 # 引用其他状态（在 Inspector 中连接）
 @export var move_state: State
 @export var up_state: State
+@export var down_state: State
 @export var fall_state: State
 @export var attack_state: State
 
 func process_input(event: InputEvent) -> State:
-	# 🔥 幻影不监听键盘输入
 	return null
 
 func process_physics(delta: float) -> State:
@@ -25,6 +25,9 @@ func process_physics(delta: float) -> State:
 	# 🔥 检查 Playback 指令（替代键盘输入）
 	if parent.has_jump_command() and parent.is_legalto_up():
 		return up_state
+	
+	if parent.has_down_command() and parent.is_legalto_down():
+		return down_state
 	
 	if parent.has_horizontal_command() and parent.is_on_floor():
 		return move_state

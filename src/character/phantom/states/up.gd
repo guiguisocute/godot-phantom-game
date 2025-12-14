@@ -19,7 +19,7 @@ func process_frame(_delta: float) -> State:     # 在这个状态下，需要你
 func process_physics(delta: float) -> State:	# 在这个状态下，需要你每物理帧执行什么操作？
 	if parent.velocity.y < 0 :
 		parent.velocity.y += gravity* delta;
-	if parent.velocity.y > 0:
+	if parent.velocity.y >= 0:
 		return fall_state
 	if parent.velocity.y == 0 and parent.is_on_floor() :
 		return idle_state
