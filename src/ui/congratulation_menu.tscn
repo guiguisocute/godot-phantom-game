@@ -1,9 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://cgkc36k1sud16"]
+[gd_scene load_steps=8 format=3 uid="uid://bmaq4aqxetcxe"]
 
-[ext_resource type="Script" uid="uid://cxnela6sqdrky" path="res://src/ui/main_menu.gd" id="1_qoywa"]
-[ext_resource type="AudioStream" uid="uid://dfp5kw2b61g0u" path="res://my_game_art/HOYO-MiX - 行星漂流 Drift.mp3" id="2_5mgu5"]
-[ext_resource type="FontFile" uid="uid://cm04yb2xx484f" path="res://freeasset/brackeys/fonts/PixelOperator8-Bold.ttf" id="2_f0s2b"]
-[ext_resource type="Texture2D" uid="uid://dq3a3p45kh35e" path="res://my_game_art/tilesets/background.png" id="3_5mgu5"]
+[ext_resource type="Script" uid="uid://dh73nmcki0sr2" path="res://src/ui/congratulation_menu.gd" id="1_f3fdw"]
+[ext_resource type="Texture2D" uid="uid://dq3a3p45kh35e" path="res://my_game_art/tilesets/background.png" id="2_d308t"]
+[ext_resource type="FontFile" uid="uid://cn5tsqnv34853" path="res://freeasset/assetbundle/Uranus_Pixel_11Px.ttf" id="3_f3fdw"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rtw2f"]
 bg_color = Color(1, 1, 1, 1)
@@ -15,19 +14,18 @@ bg_color = Color(0.695503, 0.695503, 0.695503, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bqqt6"]
 
-[node name="MainMenu" type="Control"]
+[node name="congratulationMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_qoywa")
-bgm = ExtResource("2_5mgu5")
+script = ExtResource("1_f3fdw")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(960, 540)
-texture = ExtResource("3_5mgu5")
+texture = ExtResource("2_d308t")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -36,15 +34,15 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -226.5
-offset_top = -103.5
-offset_right = 226.5
-offset_bottom = 103.5
+offset_left = -196.0
+offset_top = 41.0
+offset_right = 257.0
+offset_bottom = 248.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 15
 
-[node name="startButton" type="Button" parent="VBoxContainer"]
+[node name="main" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -56,21 +54,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_rtw2f")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_8ln24")
 theme_override_styles/hover = SubResource("StyleBoxFlat_wu84c")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_bqqt6")
-text = "开始游戏"
-
-[node name="settingButton" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxFlat_rtw2f")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_8ln24")
-theme_override_styles/hover = SubResource("StyleBoxFlat_wu84c")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_bqqt6")
-text = "设置"
+text = "返回主菜单"
 
 [node name="credits" type="Button" parent="VBoxContainer"]
 layout_mode = 2
@@ -107,17 +91,17 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -278.0
-offset_top = -238.0
-offset_right = 278.0
-offset_bottom = -171.0
+offset_left = -662.0
+offset_top = -286.0
+offset_right = 878.0
+offset_bottom = -206.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.9098039)
 theme_override_constants/shadow_offset_y = 8
-theme_override_fonts/font = ExtResource("2_f0s2b")
-theme_override_font_sizes/font_size = 60
-text = "WuWaStarRail'sDemo"
+theme_override_fonts/font = ExtResource("3_f3fdw")
+theme_override_font_sizes/font_size = 70
+text = "恭喜通过全部关卡，已超过百分之九十九的人！"
 
 [node name="Label2" type="Label" parent="."]
 layout_mode = 1
@@ -126,21 +110,21 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 339.00012
-offset_top = -338.0
-offset_right = 1389.0
-offset_bottom = -258.0
+offset_left = 526.0001
+offset_top = -430.0
+offset_right = 2066.0
+offset_bottom = -350.0
 grow_horizontal = 2
 grow_vertical = 2
-rotation = 0.17338128
+rotation = 0.24996479
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.9098039)
 theme_override_constants/shadow_offset_y = 8
-theme_override_fonts/font = ExtResource("2_f0s2b")
-theme_override_font_sizes/font_size = 43
-text = "别笑你也过不了第二关！！！"
+theme_override_fonts/font = ExtResource("3_f3fdw")
+theme_override_font_sizes/font_size = 70
+text = "六百六十六"
 
-[connection signal="pressed" from="VBoxContainer/startButton" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="VBoxContainer/startButton" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/settingButton" to="." method="_on_setting_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/main" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/main" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/main" to="." method="_on_main_pressed"]
 [connection signal="pressed" from="VBoxContainer/credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="VBoxContainer/exitButton" to="." method="_on_exit_button_pressed"]

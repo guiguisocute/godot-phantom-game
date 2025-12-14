@@ -4,7 +4,7 @@ extends Control
 
 func _on_next_pressed() -> void:
 	print("press start")
-	SceneManager.push_scene("res://src/level/level1.tscn")
+	SceneManager.go_to_next_level()
 
 
 func _on_setting_pressed() -> void:
@@ -18,4 +18,4 @@ func _on_exit_pressed() -> void:
 
 
 func _on_back_mainmenu_pressed() -> void:
-	SceneManager.pop_scene()
+	SceneManager.push_scene("res://src/ui/main_menu.tscn")
