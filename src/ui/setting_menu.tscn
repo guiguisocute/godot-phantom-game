@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://bkfa4byorbpoj"]
+[gd_scene load_steps=11 format=3 uid="uid://bkfa4byorbpoj"]
 
 [ext_resource type="FontFile" uid="uid://cm04yb2xx484f" path="res://freeasset/brackeys/fonts/PixelOperator8-Bold.ttf" id="1_4nprl"]
 [ext_resource type="Script" uid="uid://c6ri23cf7opp6" path="res://src/ui/setting_menu.gd" id="1_31c7k"]
+[ext_resource type="Texture2D" uid="uid://dq3a3p45kh35e" path="res://my_game_art/tilesets/background.png" id="2_f8tcr"]
 [ext_resource type="Script" uid="uid://ghyw0o61n372" path="res://src/ui/audio_control.gd" id="3_2qoq3"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_f8tcr"]
@@ -31,6 +32,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_31c7k")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("2_f8tcr")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
