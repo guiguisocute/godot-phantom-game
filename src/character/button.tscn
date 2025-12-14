@@ -1,0 +1,76 @@
+[gd_scene load_steps=3 format=3 uid="uid://doj45we7gr0ny"]
+
+[ext_resource type="Script" uid="uid://cnr0jvnyqarji" path="res://src/character/button.gd" id="1_ra2m0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_akw6m"]
+bg_color = Color(1, 1, 1, 1)
+
+[node name="PauseGUI" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 0
+offset_right = 26.0
+offset_bottom = 31.0
+script = ExtResource("1_ra2m0")
+
+[node name="pause" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1890.0
+offset_top = 5.0
+offset_right = 1916.0
+offset_bottom = 36.0
+text = "||"
+
+[node name="Label" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 976.0
+offset_top = 219.0
+offset_right = 1304.0
+offset_bottom = 329.0
+theme_override_font_sizes/font_size = 80
+text = "暂停游戏"
+
+[node name="Control" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 1006.0
+offset_top = 353.0
+offset_right = 1267.0
+offset_bottom = 430.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_akw6m")
+text = "返回游戏"
+
+[node name="Button2" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 997.0
+offset_top = 550.0
+offset_right = 1280.0
+offset_bottom = 627.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_akw6m")
+text = "返回主菜单"
+
+[node name="Button3" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 1006.0
+offset_top = 452.0
+offset_right = 1267.0
+offset_bottom = 529.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_akw6m")
+text = "重新开始"
+
+[connection signal="pressed" from="pause" to="." method="_on_pause_pressed"]
+[connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Control/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Control/Button3" to="." method="_on_button_3_pressed"]

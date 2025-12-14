@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://byoffs0r6m6v0"]
+[gd_scene load_steps=19 format=4 uid="uid://byoffs0r6m6v0"]
 
 [ext_resource type="Texture2D" uid="uid://dq3a3p45kh35e" path="res://my_game_art/tilesets/background.png" id="1_fxhfu"]
 [ext_resource type="Script" uid="uid://5ubyfv4fw486" path="res://src/level/level_1.gd" id="1_pv2oo"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://ci3qp1vafrfix" path="res://src/special_stuff/spike/spike.tscn" id="11_donb7"]
 [ext_resource type="PackedScene" uid="uid://jdfqctc3wu6h" path="res://src/ui/death_interface.tscn" id="11_sghjx"]
 [ext_resource type="PackedScene" uid="uid://b3356a72iro70" path="res://src/special_stuff/destination/destination.tscn" id="11_x8q88"]
+[ext_resource type="PackedScene" uid="uid://doj45we7gr0ny" path="res://src/character/button.tscn" id="12_gfyqi"]
 [ext_resource type="PackedScene" uid="uid://cexkudlishuq5" path="res://src/timeline_controler/timeline_controler.tscn" id="13_pv2oo"]
 [ext_resource type="Script" uid="uid://dgcdojma51fnx" path="res://src/timeline_controler/timeline_ui.gd" id="15_v8ycm"]
 
@@ -540,6 +541,12 @@ offset_top = -233.195
 offset_right = 1945.7262
 offset_bottom = 846.805
 metadata/_edit_lock_ = true
+
+[node name="Button" parent="CanvasLayer" instance=ExtResource("12_gfyqi")]
+offset_left = -336.09958
+offset_top = 4.979253
+offset_right = -314.52283
+offset_bottom = 34.024906
 
 [node name="death_interface" parent="CanvasLayer" instance=ExtResource("11_sghjx")]
 visible = false

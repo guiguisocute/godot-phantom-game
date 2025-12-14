@@ -19,8 +19,10 @@ script = ExtResource("1_hqo00")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
-offset_right = 1920.0
-offset_bottom = 1080.0
+offset_left = 34.0
+offset_top = 34.0
+offset_right = 1954.0
+offset_bottom = 1114.0
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0

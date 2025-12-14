@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://2gn1hukw4r2o"]
+[gd_scene load_steps=22 format=4 uid="uid://2gn1hukw4r2o"]
 
 [ext_resource type="Script" uid="uid://yedgku8ih7qa" path="res://src/level/level_2.gd" id="1_bboj5"]
 [ext_resource type="AudioStream" uid="uid://dfp5kw2b61g0u" path="res://my_game_art/HOYO-MiX - 行星漂流 Drift.mp3" id="2_2ujpt"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://jdfqctc3wu6h" path="res://src/ui/death_interface.tscn" id="13_p786n"]
 [ext_resource type="PackedScene" uid="uid://cexkudlishuq5" path="res://src/timeline_controler/timeline_controler.tscn" id="14_n2c1g"]
 [ext_resource type="PackedScene" uid="uid://br2enabgnixnv" path="res://src/state_machine/devstate.tscn" id="15_4qybn"]
+[ext_resource type="PackedScene" uid="uid://doj45we7gr0ny" path="res://src/character/button.tscn" id="16_2ujpt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kwi0t"]
 texture = ExtResource("4_bboj5")
@@ -554,6 +555,12 @@ offset_top = -233.195
 offset_right = 1945.7262
 offset_bottom = 846.805
 metadata/_edit_lock_ = true
+
+[node name="PauseGUI" parent="CanvasLayer" instance=ExtResource("16_2ujpt")]
+offset_left = -332.78006
+offset_top = 4.9792533
+offset_right = -306.78006
+offset_bottom = 35.97925
 
 [node name="death_interface" parent="CanvasLayer" instance=ExtResource("13_p786n")]
 visible = false
