@@ -558,13 +558,13 @@ position = Vector2(1800, 776)
 scale = Vector2(3, 3)
 
 [node name="Phantom" parent="." instance=ExtResource("9_g005c")]
-position = Vector2(1799, 671)
+position = Vector2(1602, 669)
 scale = Vector2(2, 2)
 timeline_controler_path = NodePath("../TimelineControler")
 player_path = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("10_dhf26")]
-position = Vector2(1799, 671)
+position = Vector2(1602, 669)
 scale = Vector2(2, 2)
 jump_speed = -2000.0
 
