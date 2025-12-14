@@ -521,14 +521,12 @@ position = Vector2(1884, 1045)
 [node name="Phantom" parent="." instance=ExtResource("5_mix2k")]
 position = Vector2(456, 476)
 scale = Vector2(2, 2)
-collision_layer = 4
 timeline_controler_path = NodePath("../TimelineControler")
 player_path = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("4_kwi0t")]
 position = Vector2(456, 476)
 scale = Vector2(2, 2)
-collision_layer = 2
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 scale = Vector2(1.205, 1.205)
