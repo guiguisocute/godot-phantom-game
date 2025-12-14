@@ -412,6 +412,10 @@ position = Vector2(964, 542)
 texture = ExtResource("3_joegk")
 metadata/_edit_lock_ = true
 
+[node name="InvisibleWall2" parent="." instance=ExtResource("5_shdhh")]
+position = Vector2(1226, 750.00006)
+scale = Vector2(4.656961, 5.715402)
+
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(0, 152)
 scale = Vector2(3, 3)
