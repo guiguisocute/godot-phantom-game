@@ -1,50 +1,63 @@
-[gd_scene load_steps=7 format=3 uid="uid://4ii1q5l2n58m"]
+[gd_scene load_steps=8 format=3 uid="uid://4ii1q5l2n58m"]
 
-[ext_resource type="Texture2D" uid="uid://bmif2cnj7upi4" path="res://my_game_art/tilesets/蓝橙绿电流.png" id="1_j4efi"]
+[ext_resource type="Texture2D" uid="uid://rljay2eegipe" path="res://my_game_art/tilesets/蓝橙绿电流带梯子.png" id="1_j4efi"]
+[ext_resource type="Script" uid="uid://imbko86jukxh" path="res://src/special_stuff/elec_upright(ladder)/ladder_for_lev_1.gd" id="2_d1u8s"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_d1u8s"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_j4efi"]
 atlas = ExtResource("1_j4efi")
-region = Rect2(483, 0, 16, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2aot5"]
-atlas = ExtResource("1_j4efi")
-region = Rect2(483, 32, 16, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_c8lbt"]
-atlas = ExtResource("1_j4efi")
-region = Rect2(483, 64, 16, 32)
+region = Rect2(469, 0, 16, 140)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7qr6m"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_d1u8s")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2aot5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_c8lbt")
+"texture": SubResource("AtlasTexture_j4efi")
 }],
-"loop": true,
+"loop": false,
 "name": &"default",
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2aot5"]
+size = Vector2(16, 2)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j4efi"]
-size = Vector2(32.12332, 6.0381002)
+size = Vector2(17, 17.881943)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d1u8s"]
+size = Vector2(19, 25)
 
 [node name="ladder_for_lev1" type="AnimatedSprite2D"]
-position = Vector2(-0.06142426, 0.061422344)
-scale = Vector2(1.0076778, 0.996161)
 sprite_frames = SubResource("SpriteFrames_7qr6m")
 autoplay = "default"
-frame_progress = 0.9205868
+script = ExtResource("2_d1u8s")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 24
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, -69)
+shape = SubResource("RectangleShape2D_2aot5")
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0.019048799, -0.061659053)
+position = Vector2(0.05902883, -75.5)
 rotation = 1.5707964
 shape = SubResource("RectangleShape2D_j4efi")
 debug_color = Color(0.8601708, 0.00068345666, 0.8766454, 0.41960785)
+
+[node name="button" type="Area2D" parent="."]
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="button"]
+position = Vector2(0, 57.5)
+shape = SubResource("RectangleShape2D_d1u8s")
+debug_color = Color(0.6979023, 0.47829163, 0.3454571, 0.41960785)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="button" to="." method="_on_button_body_entered"]
+[connection signal="body_exited" from="button" to="." method="_on_button_body_exited"]

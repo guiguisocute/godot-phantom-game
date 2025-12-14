@@ -66,14 +66,14 @@ func _create_ui() -> void:
 	
 	# 步数标签（增大字体）
 	_step_label = Label.new()
-	_step_label.text = "步数: 0/5"
+	_step_label.text = "步数: 0/?"  # 稍后从 TimelineController 获取 max_steps
 	_step_label.add_theme_font_size_override("font_size", 20)
 	content.add_child(_step_label)
 	
 	# 进度条（增大）
 	_progress_bar = ProgressBar.new()
 	_progress_bar.custom_minimum_size = Vector2(420, 30)
-	_progress_bar.max_value = 5
+	_progress_bar.max_value = 1  # 稍后从 TimelineController 获取 max_steps
 	_progress_bar.value = 0
 	_progress_bar.show_percentage = false
 	content.add_child(_progress_bar)
@@ -126,7 +126,17 @@ func _connect_to_timeline_controller() -> void:
 	if _playback and _playback.has_signal("playback_completed"):
 		_playback.playback_completed.connect(_on_playback_completed)
 	
+	# 初始化 UI 显示值（从 TimelineController 获取 max_steps）
+	_init_ui_values()
+	
 	print("[TimelineUI] ✅ 已连接到 TimelineController")
+
+## 初始化 UI 显示值（从 TimelineController 获取 max_steps）
+func _init_ui_values() -> void:
+	if _timeline_controller:
+		var max_steps = _timeline_controller.max_steps
+		_step_label.text = "步数: 0/%d" % max_steps
+		_progress_bar.max_value = max_steps
 
 # =====================================================
 # === 信号回调 ===

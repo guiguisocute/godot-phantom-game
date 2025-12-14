@@ -80,11 +80,9 @@ func _physics_process(_delta: float) -> void:
 	if _state_machine.current_state.name != "idle":
 		return
 	
-	# 🔥 持续检测按键（而不是 just_pressed）
 	for action in INPUT_MAP.keys():
-		if Input.is_action_just_pressed(action):  # 改为 is_action_pressed
+		if Input.is_action_just_pressed(action):  
 			_pending_input = INPUT_MAP[action]
-			# 不打印，避免刷屏
 			break
 	
 	# 如果没有按键，清空 pending
@@ -105,7 +103,7 @@ func _on_state_changed(previous: State, current: State) -> void:
 	print("[Recorder] 状态切换：", prev_name, " → ", curr_name)
 	
 	# 从 idle 切换到其他状态 → 记录导致切换的输入
-	if prev_name == "idle" and curr_name != "idle":
+	if prev_name == "idle" and curr_name != "fall" or "idle":
 		print("[Recorder] 从 idle 跳出")
 		_record_step()
 	# 切换回 idle → 检查是否达到步数限制

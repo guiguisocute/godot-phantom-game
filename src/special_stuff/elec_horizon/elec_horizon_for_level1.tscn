@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dqqxchmbwwoka" path="res://my_game_art/tilesets/t2(包含电流).png" id="1_7xro1"]
 [ext_resource type="Script" uid="uid://ffnq8hk41lug" path="res://src/special_stuff/elec_horizon/elec_horizon_for_level_1.gd" id="2_34a7k"]
-[ext_resource type="Script" uid="uid://bvs1squhnecok" path="res://src/special_stuff/elec_horizon/area_shape.gd" id="3_hun3u"]
+[ext_resource type="Script" path="res://src/special_stuff/elec_horizon/area_shape.gd" id="3_hun3u"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7xro1"]
 atlas = ExtResource("1_7xro1")

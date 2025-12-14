@@ -3,16 +3,11 @@ extends  State
 @export var idle_state: State
 @export var fall_state: State
 @export var attack_state: State
-
-
-func is_on_ladder_down()->bool:
-	return true
-
-func is_on_ladder_up() -> bool:			# 梯子的逻辑后面再写
-	return true
+signal state_change_up
 
 func enter() -> void:		# 进入这个状态，你应该做什么？
 	super.enter()
+	state_change_up.emit()
 	parent.velocity.y = parent.jump_speed
 	
 func process_input(_event: InputEvent) -> State:    # 如果在这个状态下，检测到了某个输入操作，会进入什么新的状态？
